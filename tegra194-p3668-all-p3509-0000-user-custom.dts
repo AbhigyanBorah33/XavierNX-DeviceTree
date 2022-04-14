@@ -9,7 +9,7 @@
 	nvidia,fastboot-usb-pid = <0xee1e>;
 	model = "NVIDIA Jetson Xavier NX Developer Kit";
 	nvidia,dtsfilename = "/dvs/git/dirty/git-master_linux/kernel/kernel-4.9/arch/arm64/boot/dts/../../../../../../hardware/nvidia/platform/t19x/jakku/kernel-dts/tegra194-p3668-all-p3509-0000.dts";
-	nvidia,dtbbuildtime = "Oct 16 2020\012:31:12";
+	nvidia,dtbbuildtime = "Oct 16 2020\n:31:12";
 
 	ahci-sata@3507000 {
 		compatible = "nvidia,tegra194-ahci-sata";
@@ -127,12 +127,149 @@
 	};
 
 	pinmux@2430000 {
+		pinctrl-0 = <0x179>;
+		pinctrl-names = "default";
 		compatible = "nvidia,tegra194-pinmux";
 		reg = <0x00 0x2430000 0x00 0x17000 0x00 0xc300000 0x00 0x4000>;
 		#gpio-range-cells = <0x03>;
 		status = "okay";
 		linux,phandle = <0xab>;
 		phandle = <0xab>;
+
+		header-40pin-pinmux {
+			phandle = <0x179>;
+			linux,phandle = <0x179>;
+
+			pin40 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x00>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x01>;
+				nvidia,pins = "dap5_dout_pt6";
+				nvidia,function = "i2s5";
+			};
+
+			pin38 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x01>;
+				nvidia,pull = <0x01>;
+				nvidia,pins = "dap5_din_pt7";
+				nvidia,function = "i2s5";
+			};
+
+			pin35 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x01>;
+				nvidia,pins = "dap5_fs_pu0";
+				nvidia,function = "i2s5";
+			};
+
+			pin28 {
+				nvidia,lpdr = <0x01>;
+				nvidia,io-high-voltage = <0x01>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x00>;
+				nvidia,pins = "gen2_i2c_scl_pcc7";
+				nvidia,function = "i2c2";
+			};
+
+			pin27 {
+				nvidia,lpdr = <0x01>;
+				nvidia,io-high-voltage = <0x01>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x00>;
+				nvidia,pins = "gen2_i2c_sda_pdd0";
+				nvidia,function = "i2c2";
+			};
+
+			pin26 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x02>;
+				nvidia,pins = "spi1_cs1_pz7";
+				nvidia,function = "spi1";
+			};
+
+			pin24 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x02>;
+				nvidia,pins = "spi1_cs0_pz6";
+				nvidia,function = "spi1";
+			};
+
+			pin23 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x01>;
+				nvidia,pins = "spi1_sck_pz3";
+				nvidia,function = "spi1";
+			};
+
+			pin21 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x01>;
+				nvidia,pins = "spi1_miso_pz4";
+				nvidia,function = "spi1";
+			};
+
+			pin19 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x01>;
+				nvidia,pins = "spi1_mosi_pz5";
+				nvidia,function = "spi1";
+			};
+
+			pin12 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x01>;
+				nvidia,pins = "dap5_sclk_pt5";
+				nvidia,function = "i2s5";
+			};
+
+			pin10 {
+				nvidia,lpdr = <0x00>;
+				nvidia,io-high-voltage = <0x00>;
+				nvidia,enable-input = <0x01>;
+				nvidia,tristate = <0x01>;
+				nvidia,pull = <0x02>;
+				nvidia,pins = "uart1_rx_pr3";
+				nvidia,function = "uarta";
+			};
+
+			pin8 {
+				nvidia,lpdr = <0x00>;
+				nvidia,io-high-voltage = <0x00>;
+				nvidia,enable-input = <0x00>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x00>;
+				nvidia,pins = "uart1_tx_pr2";
+				nvidia,function = "uarta";
+			};
+
+			pin7 {
+				nvidia,lpdr = <0x00>;
+				nvidia,enable-input = <0x00>;
+				nvidia,tristate = <0x00>;
+				nvidia,pull = <0x00>;
+				nvidia,pins = "aud_mclk_ps4";
+				nvidia,function = "aud";
+			};
+		};
 
 		pex_rst_c5_out {
 			linux,phandle = <0x15>;
@@ -1629,6 +1766,16 @@
 		};
 	};
 
+	dummyreg: dummyreg@0 {
+        compatible = "regulator-fixed";
+        regulator-name = "Dummy Regulator";
+        regulator-min-microvolt = <1800000>;
+        regulator-max-microvolt = <1800000>;
+        regulator-boot-on;
+        regulator-always-on;
+	};
+
+
 	spi@3210000 {
 		compatible = "nvidia,tegra186-spi";
 		reg = <0x00 0x3210000 0x00 0x10000>;
@@ -1649,16 +1796,23 @@
 		linux,phandle = <0xf2>;
 		phandle = <0xf2>;
 
-		spi@0 {
-			compatible = "spidev";
+		cs47l35_spi: spi@0 {
+			compatible = "cirrus,cs47l35";
+			spi-max-frequency = <0x5b8d80>; //Maximum SPI clocking speed of device in Hz.
 			reg = <0x00>;
-			spi-max-frequency = <0x2faf080>;
 
-			controller-data {
-				nvidia,enable-hw-based-cs;
-				nvidia,rx-clk-tap-delay = <0x10>;
-				nvidia,tx-clk-tap-delay = <0x00>;
-			};
+			AVDD-supply = <&dummyreg>;
+			DBVDD1-supply = <&dummyreg>;
+			DBVDD2-supply = <&dummyreg>;
+			CPVDD1-supply = <&dummyreg>;
+			CPVDD2-supply = <&dummyreg>; //---------------------
+			SPKVDD-supply = <&dummyreg>;
+			DCVDD-supply = <&dummyreg>;
+			MICVDD-supply = <&dummyreg>; //---------------------
+			// interrupt-controller;
+			// #interrupt-cells = <0x02>;
+			interrupt-parent = <&irq>;
+			interrupts = <0x00 0xd2 0x00>;
 		};
 
 		spi@1 {
@@ -2870,7 +3024,8 @@
 		clock-names = "pll_a\0pll_a_out0\0extern1";
 		assigned-clocks = <0x04 0x68 0x04 0x07>;
 		assigned-clock-parents = <0x04 0x5d 0x04 0x68>;
-		nvidia,audio-routing = "x Headphone\0x OUT\0x IN\0x Mic\0y Headphone\0y OUT\0y IN\0y Mic\0z Headphone\0z OUT\0z IN\0z Mic\0m Headphone\0m OUT\0m IN\0m Mic\0n Headphone\0n OUT\0n IN\0n Mic\0o Headphone\0o OUT\0o IN\0o Mic\0a IN\0a Mic\0b IN\0b Mic\0c IN\0c Mic\0d IN\0d Mic\0d1 Headphone\0d1 OUT\0d2 Headphone\0d2 OUT";
+		nvidia,audio-routing = "x Headphone\0x OUT\0x IN\0x Mic\0y Headphone\0y OUT\0y IN\0y Mic\0z Headphone\0z OUT\0z IN\0z Mic\0m Headphone\0m OUT\0m IN\0m Mic\0n Headphone\0n OUT\0n IN\0n Mic\0o Headphone\0o OUT\0o IN\0o Mic\0a IN\0a Mic\0b IN\0b Mic\0c IN\0c Mic\0d IN\0d Mic\0[78 00] Headphone\0[78 00] HPOUTL\0[78 00] Headphone\0[78 00] HPOUTR";
+		assigned-clock-rates = <0>, <12288000>;
 		mclk-fs = <0x100>;
 		linux,phandle = <0xc5>;
 		phandle = <0xc5>;
@@ -2936,20 +3091,20 @@
 		};
 
 		nvidia,dai-link-5 {
-			link-name = "spdif-dit-4";
-			cpu-dai = <0x32>;
-			codec-dai = <0x33>;
+			link-name = "cs47l35-codec";
+			cpu-dai = <&tegra_i2s5_cs47l35>;
+			codec-dai = <&cs47l35_spi>;
 			cpu-dai-name = "I2S5";
-			codec-dai-name = "dit-hifi";
+			codec-dai-name = "cs47l35-aif1";
 			format = "i2s";
 			bit-format = "s16_le";
-			srate = <0xbb80>;
+			srate = <0xbb80>; //48000
 			num-channel = <0x02>;
 			ignore_suspend;
 			name-prefix = [78 00];
 			status = "okay";
-			linux,phandle = <0xc3>;
-			phandle = <0xc3>;
+			#linux,phandle = <0xc3>;
+			#phandle = <0xc3>;
 		};
 
 		nvidia,dai-link-6 {
@@ -3289,7 +3444,7 @@
 				phandle = <0x30>;
 			};
 
-			i2s@2901400 {
+			tegra_i2s5_cs47l35: i2s@2901400 {
 				compatible = "nvidia,tegra210-i2s";
 				reg = <0x00 0x2901400 0x00 0x100>;
 				nvidia,ahub-i2s-id = <0x04>;
@@ -6130,7 +6285,7 @@
 		status = "disabled";
 	};
 
-	tegra194-pm-irq {
+	irq: tegra194-pm-irq {
 		compatible = "nvidia,tegra194-pm-irq";
 		interrupt-controller;
 		#interrupt-cells = <0x03>;
@@ -8677,6 +8832,7 @@
 	};
 
 	__symbols__ {
+		hdr40_pinmux = "/pinmux@2430000/header-40pin-pinmux\0";
 		tegra_sata = "/ahci-sata@3507000";
 		disa_pd = "/power-domain/disa-pd";
 		disb_pd = "/power-domain/disb-pd";
