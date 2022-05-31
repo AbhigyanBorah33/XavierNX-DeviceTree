@@ -8,8 +8,8 @@
 	nvidia,fastboot-usb-vid = <0x955>;
 	nvidia,fastboot-usb-pid = <0xee1e>;
 	model = "NVIDIA Jetson Xavier NX Developer Kit";
-	nvidia,dtsfilename = "/dvs/git/dirty/git-master_linux/kernel/kernel-4.9/arch/arm64/boot/dts/../../../../../../hardware/nvidia/platform/t19x/jakku/kernel-dts/tegra194-p3668-all-p3509-0000.dts";
-	nvidia,dtbbuildtime = "Oct 16 2020\n:31:12";
+	nvidia,dtsfilename = "/home/abhigyan/infn/automation/Linux_for_Tegra/sources/kernel/kernel-4.9/arch/arm64/boot/dts/../../../../../../hardware/nvidia/platform/t19x/jakku/kernel-dts/tegra194-p3668-all-p3509-0000.dts";
+	nvidia,dtbbuildtime = "May 10 2022\016:13:43";
 
 	ahci-sata@3507000 {
 		compatible = "nvidia,tegra194-ahci-sata";
@@ -26,8 +26,8 @@
 		nvidia,disable-features = "devslp\0dipm";
 		nvidia,link-flags = "max_power";
 		status = "disabled";
-		linux,phandle = <0xd1>;
-		phandle = <0xd1>;
+		linux,phandle = <0xd6>;
+		phandle = <0xd6>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -46,48 +46,48 @@
 			compatible = "nvidia,tegra194-disa-pd";
 			#power-domain-cells = <0x00>;
 			partition-id = <0x02>;
-			linux,phandle = <0x69>;
-			phandle = <0x69>;
+			linux,phandle = <0x6b>;
+			phandle = <0x6b>;
 		};
 
 		disb-pd {
 			compatible = "nvidia,tegra194-disb-pd";
 			#power-domain-cells = <0x00>;
 			partition-id = <0x03>;
-			linux,phandle = <0xd2>;
-			phandle = <0xd2>;
+			linux,phandle = <0xd7>;
+			phandle = <0xd7>;
 		};
 
 		disc-pd {
 			compatible = "nvidia,tegra194-disc-pd";
 			#power-domain-cells = <0x00>;
 			partition-id = <0x04>;
-			linux,phandle = <0xd3>;
-			phandle = <0xd3>;
+			linux,phandle = <0xd8>;
+			phandle = <0xd8>;
 		};
 
 		xusba-pd {
 			compatible = "nvidia,tegra194-xusba-pd";
 			#power-domain-cells = <0x00>;
 			partition-id = <0x0e>;
-			linux,phandle = <0xd4>;
-			phandle = <0xd4>;
+			linux,phandle = <0xd9>;
+			phandle = <0xd9>;
 		};
 
 		xusbb-pd {
 			compatible = "nvidia,tegra194-xusbb-pd";
 			#power-domain-cells = <0x00>;
 			partition-id = <0x0f>;
-			linux,phandle = <0xd5>;
-			phandle = <0xd5>;
+			linux,phandle = <0xda>;
+			phandle = <0xda>;
 		};
 
 		xusbc-pd {
 			compatible = "nvidia,tegra194-xusbc-pd";
 			#power-domain-cells = <0x00>;
 			partition-id = <0x10>;
-			linux,phandle = <0xd6>;
-			phandle = <0xd6>;
+			linux,phandle = <0xdb>;
+			phandle = <0xdb>;
 		};
 	};
 
@@ -127,18 +127,18 @@
 	};
 
 	pinmux@2430000 {
-		pinctrl-0 = <0x179>;
+		pinctrl-0 = <0x17f>;
 		pinctrl-names = "default";
 		compatible = "nvidia,tegra194-pinmux";
 		reg = <0x00 0x2430000 0x00 0x17000 0x00 0xc300000 0x00 0x4000>;
 		#gpio-range-cells = <0x03>;
 		status = "okay";
-		linux,phandle = <0xab>;
-		phandle = <0xab>;
+		linux,phandle = <0xb0>;
+		phandle = <0xb0>;
 
 		header-40pin-pinmux {
-			phandle = <0x179>;
-			linux,phandle = <0x179>;
+			phandle = <0x17f>;
+			linux,phandle = <0x17f>;
 
 			pin40 {
 				nvidia,lpdr = <0x00>;
@@ -316,9 +316,29 @@
 			};
 		};
 
+		eqos_idle {
+			linux,phandle = <0x16>;
+			phandle = <0x16>;
+
+			eqos {
+				nvidia,pins = "eqos_td3_pe4\0eqos_td2_pe3\0eqos_td1_pe2\0eqos_td0_pe1\0eqos_txc_pe0\0eqos_tx_ctl_pe5\0eqos_rd3_pf1\0eqos_rd2_pf0\0eqos_rd1_pe7\0eqos_rd0_pe6\0eqos_rxc_pf3\0eqos_rx_ctl_pf2";
+				nvidia,tristate = <0x01>;
+			};
+		};
+
+		eqos_default {
+			linux,phandle = <0x17>;
+			phandle = <0x17>;
+
+			eqos {
+				nvidia,pins = "eqos_td3_pe4\0eqos_td2_pe3\0eqos_td1_pe2\0eqos_td0_pe1\0eqos_txc_pe0\0eqos_tx_ctl_pe5\0eqos_rd3_pf1\0eqos_rd2_pf0\0eqos_rd1_pe7\0eqos_rd0_pe6\0eqos_rxc_pf3\0eqos_rx_ctl_pf2";
+				nvidia,tristate = <0x00>;
+			};
+		};
+
 		vbus_en0_oc_tristate {
-			linux,phandle = <0xd7>;
-			phandle = <0xd7>;
+			linux,phandle = <0xdc>;
+			phandle = <0xdc>;
 
 			usb_vbus_en0_pz1 {
 				nvidia,pins = "usb_vbus_en0_pz1";
@@ -330,8 +350,8 @@
 		};
 
 		vbus_en1_oc_tristate {
-			linux,phandle = <0xd8>;
-			phandle = <0xd8>;
+			linux,phandle = <0xdd>;
+			phandle = <0xdd>;
 
 			usb_vbus_en1_pz2 {
 				nvidia,pins = "usb_vbus_en1_pz2";
@@ -343,8 +363,8 @@
 		};
 
 		vbus_en0_oc_passthrough {
-			linux,phandle = <0xd9>;
-			phandle = <0xd9>;
+			linux,phandle = <0xde>;
+			phandle = <0xde>;
 
 			usb_vbus_en0_pz1 {
 				nvidia,pins = "usb_vbus_en0_pz1";
@@ -356,8 +376,8 @@
 		};
 
 		vbus_en1_oc_passthrough {
-			linux,phandle = <0xda>;
-			phandle = <0xda>;
+			linux,phandle = <0xdf>;
+			phandle = <0xdf>;
 
 			usb_vbus_en1_pz2 {
 				nvidia,pins = "usb_vbus_en1_pz2";
@@ -369,8 +389,8 @@
 		};
 
 		vbus_en0_default {
-			linux,phandle = <0xdb>;
-			phandle = <0xdb>;
+			linux,phandle = <0xe0>;
+			phandle = <0xe0>;
 
 			usb_vbus_en0_pz1 {
 				nvidia,pins = "usb_vbus_en0_pz1";
@@ -381,8 +401,8 @@
 		};
 
 		vbus_en1_default {
-			linux,phandle = <0xdc>;
-			phandle = <0xdc>;
+			linux,phandle = <0xe1>;
+			phandle = <0xe1>;
 
 			usb_vbus_en1_pz2 {
 				nvidia,pins = "usb_vbus_en1_pz2";
@@ -407,8 +427,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x00>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xdd>;
-			phandle = <0xdd>;
+			linux,phandle = <0xe2>;
+			phandle = <0xe2>;
 		};
 
 		p2u@03e20000 {
@@ -419,8 +439,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x01>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xde>;
-			phandle = <0xde>;
+			linux,phandle = <0xe3>;
+			phandle = <0xe3>;
 		};
 
 		p2u@03e30000 {
@@ -431,8 +451,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x02>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xdf>;
-			phandle = <0xdf>;
+			linux,phandle = <0xe4>;
+			phandle = <0xe4>;
 		};
 
 		p2u@03e40000 {
@@ -443,8 +463,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x03>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xe0>;
-			phandle = <0xe0>;
+			linux,phandle = <0xe5>;
+			phandle = <0xe5>;
 		};
 
 		p2u@03e50000 {
@@ -455,8 +475,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x04>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xe1>;
-			phandle = <0xe1>;
+			linux,phandle = <0xe6>;
+			phandle = <0xe6>;
 		};
 
 		p2u@03e60000 {
@@ -467,8 +487,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x05>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xe2>;
-			phandle = <0xe2>;
+			linux,phandle = <0xe7>;
+			phandle = <0xe7>;
 		};
 
 		p2u@03e70000 {
@@ -479,8 +499,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x06>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xe3>;
-			phandle = <0xe3>;
+			linux,phandle = <0xe8>;
+			phandle = <0xe8>;
 		};
 
 		p2u@03e80000 {
@@ -491,8 +511,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x07>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xe4>;
-			phandle = <0xe4>;
+			linux,phandle = <0xe9>;
+			phandle = <0xe9>;
 		};
 
 		p2u@03e90000 {
@@ -503,8 +523,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x08>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xe5>;
-			phandle = <0xe5>;
+			linux,phandle = <0xea>;
+			phandle = <0xea>;
 		};
 
 		p2u@03ea0000 {
@@ -515,8 +535,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x09>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xe6>;
-			phandle = <0xe6>;
+			linux,phandle = <0xeb>;
+			phandle = <0xeb>;
 		};
 
 		p2u@03f30000 {
@@ -527,8 +547,8 @@
 			interrupt-names = "intr";
 			nvidia,uphy-id = <0x0a>;
 			#phy-cells = <0x00>;
-			linux,phandle = <0xe7>;
-			phandle = <0xe7>;
+			linux,phandle = <0xec>;
+			phandle = <0xec>;
 		};
 
 		p2u@03f40000 {
@@ -763,8 +783,8 @@
 		phys = <0x0b 0x0c 0x0d 0x0e 0x0f 0x10 0x11 0x12>;
 		phy-names = "pcie-p2u-0\0pcie-p2u-1\0pcie-p2u-2\0pcie-p2u-3\0pcie-p2u-4\0pcie-p2u-5\0pcie-p2u-6\0pcie-p2u-7";
 		nvidia,pex-rst-gpio = <0x13 0xd9 0x01>;
-		linux,phandle = <0xb8>;
-		phandle = <0xb8>;
+		linux,phandle = <0xbd>;
+		phandle = <0xbd>;
 	};
 
 	pcie@14180000 {
@@ -800,7 +820,7 @@
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x03>;
 		bus-range = <0x00 0xff>;
-		ranges = <0x81000000 0x00 0x38100000 0x00 0x38100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x1b 0x40000000 0x00 0xc0000000 0xc2000000 0x18 0x00 0x18 0x00 0x03 0x40000000>;
+		ranges = <0x81000000 0x00 0x38100000 0x00 0x38100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x1b 0x40000000 0x00 0xc0000000 0xc3000000 0x18 0x00 0x18 0x00 0x03 0x40000000>;
 		nvidia,cfg-link-cap-l1sub = <0x1c4>;
 		nvidia,cap-pl16g-status = <0x174>;
 		nvidia,cap-pl16g-cap-off = <0x188>;
@@ -845,7 +865,7 @@
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x03>;
 		bus-range = <0x00 0xff>;
-		ranges = <0x81000000 0x00 0x30100000 0x00 0x30100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x12 0x30000000 0x00 0x10000000 0xc2000000 0x12 0x00 0x12 0x00 0x00 0x30000000>;
+		ranges = <0x81000000 0x00 0x30100000 0x00 0x30100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x12 0x30000000 0x00 0x10000000 0xc3000000 0x12 0x00 0x12 0x00 0x00 0x30000000>;
 		nvidia,cfg-link-cap-l1sub = <0x194>;
 		nvidia,cap-pl16g-status = <0x164>;
 		nvidia,cap-pl16g-cap-off = <0x178>;
@@ -889,7 +909,7 @@
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x03>;
 		bus-range = <0x00 0xff>;
-		ranges = <0x81000000 0x00 0x32100000 0x00 0x32100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x12 0x70000000 0x00 0x10000000 0xc2000000 0x12 0x40000000 0x12 0x40000000 0x00 0x30000000>;
+		ranges = <0x81000000 0x00 0x32100000 0x00 0x32100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x12 0x70000000 0x00 0x10000000 0xc3000000 0x12 0x40000000 0x12 0x40000000 0x00 0x30000000>;
 		nvidia,cfg-link-cap-l1sub = <0x194>;
 		nvidia,cap-pl16g-status = <0x164>;
 		nvidia,cap-pl16g-cap-off = <0x178>;
@@ -933,7 +953,7 @@
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x03>;
 		bus-range = <0x00 0xff>;
-		ranges = <0x81000000 0x00 0x34100000 0x00 0x34100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x12 0xb0000000 0x00 0x10000000 0xc2000000 0x12 0x80000000 0x12 0x80000000 0x00 0x30000000>;
+		ranges = <0x81000000 0x00 0x34100000 0x00 0x34100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x12 0xb0000000 0x00 0x10000000 0xc3000000 0x12 0x80000000 0x12 0x80000000 0x00 0x30000000>;
 		nvidia,cfg-link-cap-l1sub = <0x194>;
 		nvidia,cap-pl16g-status = <0x164>;
 		nvidia,cap-pl16g-cap-off = <0x178>;
@@ -977,7 +997,7 @@
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x03>;
 		bus-range = <0x00 0xff>;
-		ranges = <0x81000000 0x00 0x36100000 0x00 0x36100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x17 0x40000000 0x00 0xc0000000 0xc2000000 0x14 0x00 0x14 0x00 0x03 0x40000000>;
+		ranges = <0x81000000 0x00 0x36100000 0x00 0x36100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x17 0x40000000 0x00 0xc0000000 0xc3000000 0x14 0x00 0x14 0x00 0x03 0x40000000>;
 		nvidia,cfg-link-cap-l1sub = <0x1b0>;
 		nvidia,cap-pl16g-status = <0x174>;
 		nvidia,cap-pl16g-cap-off = <0x188>;
@@ -991,8 +1011,8 @@
 		nvidia,enable-power-down;
 		phys = <0x14>;
 		phy-names = "pcie-p2u-0";
-		linux,phandle = <0xc0>;
-		phandle = <0xc0>;
+		linux,phandle = <0xc5>;
+		phandle = <0xc5>;
 	};
 
 	pcie@141a0000 {
@@ -1032,7 +1052,7 @@
 		nvidia,aspm-pwr-on-t = <0x14>;
 		nvidia,aspm-l0s-entrance-latency = <0x03>;
 		bus-range = <0x00 0xff>;
-		ranges = <0x81000000 0x00 0x3a100000 0x00 0x3a100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x1f 0x40000000 0x00 0xc0000000 0xc2000000 0x1c 0x00 0x1c 0x00 0x03 0x40000000>;
+		ranges = <0x81000000 0x00 0x3a100000 0x00 0x3a100000 0x00 0x100000 0x82000000 0x00 0x40000000 0x1f 0x40000000 0x00 0xc0000000 0xc3000000 0x1c 0x00 0x1c 0x00 0x03 0x40000000>;
 		nvidia,cfg-link-cap-l1sub = <0x1c4>;
 		nvidia,cap-pl16g-status = <0x174>;
 		nvidia,cap-pl16g-cap-off = <0x188>;
@@ -1045,8 +1065,8 @@
 		nvidia,enable-power-down;
 		phys = <0x0b 0x0c 0x0d 0x0e 0x0f 0x10 0x11 0x12>;
 		phy-names = "pcie-p2u-0\0pcie-p2u-1\0pcie-p2u-2\0pcie-p2u-3\0pcie-p2u-4\0pcie-p2u-5\0pcie-p2u-6\0pcie-p2u-7";
-		linux,phandle = <0xb7>;
-		phandle = <0xb7>;
+		linux,phandle = <0xbc>;
+		phandle = <0xbc>;
 	};
 
 	ether_qos@2490000 {
@@ -1064,9 +1084,13 @@
 		dma-coherent;
 		nvidia,csr_clock_speed = <0x19>;
 		nvidia,iso_bw = <0x14000>;
-		nvidia,rx_riwt = <0x7c>;
+		nvidia,rx_riwt = <0x3c>;
+		nvidia,rx_frames = <0x10>;
 		nvidia,slot_intvl_val = <0x7c>;
 		status = "okay";
+		pinctrl-names = "idle\0default";
+		pinctrl-0 = <0x16>;
+		pinctrl-1 = <0x17>;
 		nvidia,ptp_ref_clock_speed = <0x12a05f20>;
 		nvidia,rxq_enable_ctrl = <0x02 0x02 0x02 0x02>;
 		nvidia,queue_prio = <0x00 0x01 0x02 0x03>;
@@ -1078,12 +1102,12 @@
 		nvidia,phy-max-frame-size = <0x10>;
 		nvidia,eth_iso_enable = <0x01>;
 		phy-mode = "rgmii-id";
-		phy-handle = <0x16>;
-		vddio_sys_enet_bias-supply = <0x17>;
-		vddio_enet-supply = <0x17>;
-		phy_vdd_1v8-supply = <0x18>;
-		phy_ovdd_rgmii-supply = <0x18>;
-		phy_pllvdd-supply = <0x17>;
+		phy-handle = <0x18>;
+		vddio_sys_enet_bias-supply = <0x19>;
+		vddio_enet-supply = <0x19>;
+		phy_vdd_1v8-supply = <0x1a>;
+		phy_ovdd_rgmii-supply = <0x1a>;
+		phy_pllvdd-supply = <0x19>;
 		nvidia,phy-reset-post-delay = <0xe0>;
 		nvidia,phy-reset-duration = <0x2710>;
 
@@ -1091,8 +1115,8 @@
 			cooling-min-state = <0x00>;
 			cooling-max-state = <0x05>;
 			#cooling-cells = <0x02>;
-			linux,phandle = <0x86>;
-			phandle = <0x86>;
+			linux,phandle = <0x88>;
+			phandle = <0x88>;
 		};
 
 		prod-settings {
@@ -1114,8 +1138,8 @@
 				interrupts = <0x34 0x08>;
 				marvell,copper-mode;
 				marvell,reg-init = <0x03 0x12 0x7fff 0x880>;
-				linux,phandle = <0x16>;
-				phandle = <0x16>;
+				linux,phandle = <0x18>;
+				phandle = <0x18>;
 			};
 		};
 	};
@@ -1159,15 +1183,15 @@
 		reg-shift = <0x02>;
 		interrupts = <0x00 0x70 0x04>;
 		nvidia,memory-clients = <0x0e>;
-		dmas = <0x19 0x08 0x19 0x08>;
+		dmas = <0x1b 0x08 0x1b 0x08>;
 		dma-names = "rx\0tx";
 		clocks = <0x04 0x9b 0x04 0x66>;
 		clock-names = "serial\0parent";
 		resets = <0x05 0x64>;
 		reset-names = "serial";
 		status = "okay";
-		linux,phandle = <0xe8>;
-		phandle = <0xe8>;
+		linux,phandle = <0xed>;
+		phandle = <0xed>;
 	};
 
 	serial@3110000 {
@@ -1178,15 +1202,15 @@
 		reg-shift = <0x02>;
 		interrupts = <0x00 0x71 0x04>;
 		nvidia,memory-clients = <0x0e>;
-		dmas = <0x19 0x09 0x19 0x09>;
+		dmas = <0x1b 0x09 0x1b 0x09>;
 		dma-names = "rx\0tx";
 		clocks = <0x04 0x9c 0x04 0x66>;
 		clock-names = "serial\0parent";
 		resets = <0x05 0x65>;
 		reset-names = "serial";
 		status = "okay";
-		linux,phandle = <0xe9>;
-		phandle = <0xe9>;
+		linux,phandle = <0xee>;
+		phandle = <0xee>;
 	};
 
 	serial@c280000 {
@@ -1197,15 +1221,15 @@
 		reg-shift = <0x02>;
 		interrupts = <0x00 0x72 0x04>;
 		nvidia,memory-clients = <0x0e>;
-		dmas = <0x19 0x03 0x19 0x03>;
+		dmas = <0x1b 0x03 0x1b 0x03>;
 		dma-names = "rx\0tx";
 		clocks = <0x04 0x9d 0x04 0x66>;
 		clock-names = "serial\0parent";
 		resets = <0x05 0x66>;
 		reset-names = "serial";
 		status = "disabled";
-		linux,phandle = <0xea>;
-		phandle = <0xea>;
+		linux,phandle = <0xef>;
+		phandle = <0xef>;
 	};
 
 	serial@3130000 {
@@ -1216,15 +1240,15 @@
 		reg-shift = <0x02>;
 		interrupts = <0x00 0x73 0x04>;
 		nvidia,memory-clients = <0x0e>;
-		dmas = <0x19 0x13 0x19 0x13>;
+		dmas = <0x1b 0x13 0x1b 0x13>;
 		dma-names = "rx\0tx";
 		clocks = <0x04 0x9e 0x04 0x66>;
 		clock-names = "serial\0parent";
 		resets = <0x05 0x67>;
 		reset-names = "serial";
 		status = "disabled";
-		linux,phandle = <0xeb>;
-		phandle = <0xeb>;
+		linux,phandle = <0xf0>;
+		phandle = <0xf0>;
 	};
 
 	serial@3140000 {
@@ -1235,15 +1259,15 @@
 		reg-shift = <0x02>;
 		interrupts = <0x00 0x74 0x04>;
 		nvidia,memory-clients = <0x0e>;
-		dmas = <0x19 0x14 0x19 0x14>;
+		dmas = <0x1b 0x14 0x1b 0x14>;
 		dma-names = "rx\0tx";
 		clocks = <0x04 0x9f 0x04 0x66>;
 		clock-names = "serial\0parent";
 		resets = <0x05 0x68>;
 		reset-names = "serial";
 		status = "okay";
-		linux,phandle = <0xec>;
-		phandle = <0xec>;
+		linux,phandle = <0xf1>;
+		phandle = <0xf1>;
 	};
 
 	serial@3150000 {
@@ -1254,15 +1278,15 @@
 		reg-shift = <0x02>;
 		interrupts = <0x00 0x75 0x04>;
 		nvidia,memory-clients = <0x0e>;
-		dmas = <0x19 0x0c 0x19 0x0c>;
+		dmas = <0x1b 0x0c 0x1b 0x0c>;
 		dma-names = "rx\0tx";
 		clocks = <0x04 0xa0 0x04 0x66>;
 		clock-names = "serial\0parent";
 		resets = <0x05 0x69>;
 		reset-names = "serial";
 		status = "disabled";
-		linux,phandle = <0xed>;
-		phandle = <0xed>;
+		linux,phandle = <0xf2>;
+		phandle = <0xf2>;
 	};
 
 	serial@c290000 {
@@ -1273,15 +1297,15 @@
 		reg-shift = <0x02>;
 		interrupts = <0x00 0x76 0x04>;
 		nvidia,memory-clients = <0x0e>;
-		dmas = <0x19 0x02 0x19 0x02>;
+		dmas = <0x1b 0x02 0x1b 0x02>;
 		dma-names = "rx\0tx";
 		clocks = <0x04 0xa1 0x04 0x66>;
 		clock-names = "serial\0parent";
 		resets = <0x05 0x6a>;
 		reset-names = "serial";
 		status = "disabled";
-		linux,phandle = <0xee>;
-		phandle = <0xee>;
+		linux,phandle = <0xf3>;
+		phandle = <0xf3>;
 	};
 
 	serial@3170000 {
@@ -1292,15 +1316,15 @@
 		reg-shift = <0x02>;
 		interrupts = <0x00 0xcf 0x04>;
 		nvidia,memory-clients = <0x0e>;
-		dmas = <0x19 0x0d 0x19 0x0d>;
+		dmas = <0x1b 0x0d 0x1b 0x0d>;
 		dma-names = "rx\0tx";
 		clocks = <0x04 0xbe 0x04 0x66>;
 		clock-names = "serial\0parent";
 		resets = <0x05 0x6b>;
 		reset-names = "serial";
 		status = "disabled";
-		linux,phandle = <0xef>;
-		phandle = <0xef>;
+		linux,phandle = <0xf4>;
+		phandle = <0xf4>;
 	};
 
 	combined-uart {
@@ -1318,14 +1342,14 @@
 		#padcontroller-cells = <0x01>;
 		nvidia,restrict-voltage-switch;
 		pinctrl-names = "default";
-		pinctrl-0 = <0x1a>;
+		pinctrl-0 = <0x1c>;
 		status = "okay";
-		linux,phandle = <0xbd>;
-		phandle = <0xbd>;
+		linux,phandle = <0xc2>;
+		phandle = <0xc2>;
 
 		sdmmc1_e_33V_enable {
-			linux,phandle = <0x1e>;
-			phandle = <0x1e>;
+			linux,phandle = <0x20>;
+			phandle = <0x20>;
 
 			sdmmc1 {
 				pins = "sdmmc1-hv";
@@ -1334,8 +1358,8 @@
 		};
 
 		sdmmc1_e_33V_disable {
-			linux,phandle = <0x1f>;
-			phandle = <0x1f>;
+			linux,phandle = <0x21>;
+			phandle = <0x21>;
 
 			sdmmc1 {
 				pins = "sdmmc1-hv";
@@ -1344,8 +1368,8 @@
 		};
 
 		sdmmc3_e_33V_enable {
-			linux,phandle = <0x1c>;
-			phandle = <0x1c>;
+			linux,phandle = <0x1e>;
+			phandle = <0x1e>;
 
 			sdmmc3 {
 				pins = "sdmmc3-hv";
@@ -1354,8 +1378,8 @@
 		};
 
 		sdmmc3_e_33V_disable {
-			linux,phandle = <0x1d>;
-			phandle = <0x1d>;
+			linux,phandle = <0x1f>;
+			phandle = <0x1f>;
 
 			sdmmc3 {
 				pins = "sdmmc3-hv";
@@ -1364,8 +1388,8 @@
 		};
 
 		dpd-enable {
-			linux,phandle = <0x21>;
-			phandle = <0x21>;
+			linux,phandle = <0x23>;
+			phandle = <0x23>;
 
 			ufs {
 				pins = "ufs";
@@ -1374,8 +1398,8 @@
 		};
 
 		dpd-disable {
-			linux,phandle = <0x22>;
-			phandle = <0x22>;
+			linux,phandle = <0x24>;
+			phandle = <0x24>;
 
 			ufs {
 				pins = "ufs";
@@ -1384,8 +1408,8 @@
 		};
 
 		iopad-defaults {
-			linux,phandle = <0x1a>;
-			phandle = <0x1a>;
+			linux,phandle = <0x1c>;
+			phandle = <0x1c>;
 
 			sdmmc-io-pads {
 				pins = "sdmmc1-hv\0sdmmc3-hv";
@@ -1394,8 +1418,8 @@
 		};
 
 		hdmi-dp0-dpd-enable {
-			linux,phandle = <0x53>;
-			phandle = <0x53>;
+			linux,phandle = <0x55>;
+			phandle = <0x55>;
 
 			hdmi-dp0-pad-lowpower-enable {
 				pins = "hdmi-dp0";
@@ -1404,8 +1428,8 @@
 		};
 
 		hdmi-dp0-dpd-disable {
-			linux,phandle = <0x52>;
-			phandle = <0x52>;
+			linux,phandle = <0x54>;
+			phandle = <0x54>;
 
 			hdmi-dp0-pad-lowpower-disable {
 				pins = "hdmi-dp0";
@@ -1414,8 +1438,8 @@
 		};
 
 		hdmi-dp1-dpd-enable {
-			linux,phandle = <0x55>;
-			phandle = <0x55>;
+			linux,phandle = <0x57>;
+			phandle = <0x57>;
 
 			hdmi-dp1-pad-lowpower-enable {
 				pins = "hdmi-dp1";
@@ -1424,8 +1448,8 @@
 		};
 
 		hdmi-dp1-dpd-disable {
-			linux,phandle = <0x54>;
-			phandle = <0x54>;
+			linux,phandle = <0x56>;
+			phandle = <0x56>;
 
 			hdmi-dp1-pad-lowpower-disable {
 				pins = "hdmi-dp1";
@@ -1434,8 +1458,8 @@
 		};
 
 		hdmi-dp2-dpd-enable {
-			linux,phandle = <0x57>;
-			phandle = <0x57>;
+			linux,phandle = <0x59>;
+			phandle = <0x59>;
 
 			hdmi-dp2-pad-lowpower-enable {
 				pins = "hdmi-dp2";
@@ -1444,8 +1468,8 @@
 		};
 
 		hdmi-dp2-dpd-disable {
-			linux,phandle = <0x56>;
-			phandle = <0x56>;
+			linux,phandle = <0x58>;
+			phandle = <0x58>;
 
 			hdmi-dp2-pad-lowpower-disable {
 				pins = "hdmi-dp2";
@@ -1454,8 +1478,8 @@
 		};
 
 		hdmi-dp3-dpd-enable {
-			linux,phandle = <0x59>;
-			phandle = <0x59>;
+			linux,phandle = <0x5b>;
+			phandle = <0x5b>;
 
 			hdmi-dp3-pad-lowpower-enable {
 				pins = "hdmi-dp3";
@@ -1464,8 +1488,8 @@
 		};
 
 		hdmi-dp3-dpd-disable {
-			linux,phandle = <0x58>;
-			phandle = <0x58>;
+			linux,phandle = <0x5a>;
+			phandle = <0x5a>;
 
 			hdmi-dp3-pad-lowpower-disable {
 				pins = "hdmi-dp3";
@@ -1513,12 +1537,12 @@
 		clocks = <0x04 0x7b 0x04 0x66 0x04 0xed 0x04 0xdb>;
 		clock-names = "sdmmc\0pll_p\0pll_c4_out0_lj\0sdmmc_legacy_tm";
 		status = "okay";
-		vmmc-supply = <0x1b>;
-		vqmmc-supply = <0x18>;
+		vmmc-supply = <0x1d>;
+		vqmmc-supply = <0x1a>;
 		uhs-mask = <0x00>;
 		nvidia,enable-hwcq;
-		linux,phandle = <0xbf>;
-		phandle = <0xbf>;
+		linux,phandle = <0xc4>;
+		phandle = <0xc4>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -1579,8 +1603,8 @@
 		nvidia,vqmmc-always-on;
 		pwrdet-support;
 		pinctrl-names = "sdmmc_e_33v_enable\0sdmmc_e_33v_disable";
-		pinctrl-0 = <0x1c>;
-		pinctrl-1 = <0x1d>;
+		pinctrl-0 = <0x1e>;
+		pinctrl-1 = <0x1f>;
 		ignore-pm-notify;
 		resets = <0x05 0x54>;
 		reset-names = "sdhci";
@@ -1592,8 +1616,8 @@
 		uhs-mask = <0x08>;
 		nvidia,en-periodic-calib;
 		status = "disabled";
-		linux,phandle = <0xf0>;
-		phandle = <0xf0>;
+		linux,phandle = <0xf5>;
+		phandle = <0xf5>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -1666,8 +1690,8 @@
 		nvidia,max-tap-delay = <0x8b>;
 		pwrdet-support;
 		pinctrl-names = "sdmmc_e_33v_enable\0sdmmc_e_33v_disable";
-		pinctrl-0 = <0x1e>;
-		pinctrl-1 = <0x1f>;
+		pinctrl-0 = <0x20>;
+		pinctrl-1 = <0x21>;
 		ignore-pm-notify;
 		resets = <0x05 0x52>;
 		reset-names = "sdhci";
@@ -1679,12 +1703,12 @@
 		uhs-mask = <0x08>;
 		nvidia,en-periodic-calib;
 		status = "okay";
-		vmmc-supply = <0x20>;
+		vmmc-supply = <0x22>;
 		mmc-ocr-mask = <0x00>;
 		cd-gpios = <0x13 0x37 0x00>;
 		nvidia,cd-wakeup-capable;
-		linux,phandle = <0xbe>;
-		phandle = <0xbe>;
+		linux,phandle = <0xc3>;
+		phandle = <0xc3>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -1755,11 +1779,11 @@
 		vccq2-max-microamp = <0x00>;
 		nvidia,configure-uphy-pll3;
 		pinctrl-names = "ufs_dpd_enable\0ufs_dpd_disable";
-		pinctrl-0 = <0x21>;
-		pinctrl-1 = <0x22>;
+		pinctrl-0 = <0x23>;
+		pinctrl-1 = <0x24>;
 		status = "disabled";
-		linux,phandle = <0xf1>;
-		phandle = <0xf1>;
+		linux,phandle = <0xf6>;
+		phandle = <0xf6>;
 
 		ufs_variant {
 			compatible = "tegra,ufs_variant";
@@ -1775,7 +1799,6 @@
         regulator-always-on;
 	};
 
-
 	spi@3210000 {
 		compatible = "nvidia,tegra186-spi";
 		reg = <0x00 0x3210000 0x00 0x10000>;
@@ -1784,7 +1807,7 @@
 		#size-cells = <0x00>;
 		iommus = <0x02 0x20>;
 		dma-coherent;
-		dmas = <0x19 0x0f 0x19 0x0f>;
+		dmas = <0x1b 0x0f 0x1b 0x0f>;
 		dma-names = "rx\0tx";
 		spi-max-frequency = <0x3dfd240>;
 		nvidia,clk-parents = "pll_p\0clk_m";
@@ -1793,8 +1816,8 @@
 		resets = <0x05 0x5b>;
 		reset-names = "spi";
 		status = "okay";
-		linux,phandle = <0xf2>;
-		phandle = <0xf2>;
+		linux,phandle = <0xf7>;
+		phandle = <0xf7>;
 
 		cs47l35_spi: spi@0 {
 			compatible = "cirrus,cs47l35";
@@ -1805,14 +1828,13 @@
 			DBVDD1-supply = <&dummyreg>;
 			DBVDD2-supply = <&dummyreg>;
 			CPVDD1-supply = <&dummyreg>;
-			CPVDD2-supply = <&dummyreg>; //---------------------
+			CPVDD2-supply = <&dummyreg>;
 			SPKVDD-supply = <&dummyreg>;
 			DCVDD-supply = <&dummyreg>;
-			MICVDD-supply = <&dummyreg>; //---------------------
-			// interrupt-controller;
-			// #interrupt-cells = <0x02>;
-			interrupt-parent = <&irq>;
-			interrupts = <0x00 0xd2 0x00>;
+			// MICVDD-supply = <&dummyreg>; //---------------------
+			
+			interrupt-parent = <0x01>;
+			interrupts = <0x00 0x00 0x00>;
 		};
 
 		spi@1 {
@@ -1836,7 +1858,7 @@
 		#size-cells = <0x00>;
 		iommus = <0x02 0x20>;
 		dma-coherent;
-		dmas = <0x19 0x10 0x19 0x10>;
+		dmas = <0x1b 0x10 0x1b 0x10>;
 		dma-names = "rx\0tx";
 		spi-max-frequency = <0x3dfd240>;
 		nvidia,clk-parents = "pll_p\0osc";
@@ -1845,8 +1867,8 @@
 		resets = <0x05 0x5c>;
 		reset-names = "spi";
 		status = "disabled";
-		linux,phandle = <0xf3>;
-		phandle = <0xf3>;
+		linux,phandle = <0xf8>;
+		phandle = <0xf8>;
 	};
 
 	spi@3230000 {
@@ -1857,7 +1879,7 @@
 		#size-cells = <0x00>;
 		iommus = <0x02 0x20>;
 		dma-coherent;
-		dmas = <0x19 0x11 0x19 0x11>;
+		dmas = <0x1b 0x11 0x1b 0x11>;
 		dma-names = "rx\0tx";
 		spi-max-frequency = <0x3dfd240>;
 		nvidia,clk-parents = "pll_p\0clk_m";
@@ -1866,8 +1888,8 @@
 		resets = <0x05 0x5d>;
 		reset-names = "spi";
 		status = "okay";
-		linux,phandle = <0xf4>;
-		phandle = <0xf4>;
+		linux,phandle = <0xf9>;
+		phandle = <0xf9>;
 
 		spi@0 {
 			compatible = "spidev";
@@ -1902,7 +1924,7 @@
 		#size-cells = <0x00>;
 		iommus = <0x02 0x20>;
 		dma-coherent;
-		dmas = <0x19 0x05 0x19 0x05>;
+		dmas = <0x1b 0x05 0x1b 0x05>;
 		dma-names = "rx\0tx";
 		spi-max-frequency = <0x81b3200>;
 		nvidia,clk-parents = "pllc\0pll_p";
@@ -1911,8 +1933,8 @@
 		resets = <0x05 0x4c>;
 		reset-names = "qspi";
 		status = "okay";
-		linux,phandle = <0xf5>;
-		phandle = <0xf5>;
+		linux,phandle = <0xfa>;
+		phandle = <0xfa>;
 
 		prod-settings {
 			#prod-cells = <0x03>;
@@ -1954,7 +1976,7 @@
 		#size-cells = <0x00>;
 		iommus = <0x02 0x20>;
 		dma-coherent;
-		dmas = <0x19 0x06 0x19 0x06>;
+		dmas = <0x1b 0x06 0x1b 0x06>;
 		dma-names = "rx\0tx";
 		spi-max-frequency = <0xc28cb00>;
 		nvidia,clk-parents = "pllc\0pll_p";
@@ -1963,8 +1985,8 @@
 		resets = <0x05 0x4d>;
 		reset-names = "qspi";
 		status = "disabled";
-		linux,phandle = <0xf6>;
-		phandle = <0xf6>;
+		linux,phandle = <0xfb>;
+		phandle = <0xfb>;
 	};
 
 	pwm@3280000 {
@@ -1977,8 +1999,8 @@
 		resets = <0x05 0x44>;
 		reset-names = "pwm";
 		status = "okay";
-		linux,phandle = <0xf7>;
-		phandle = <0xf7>;
+		linux,phandle = <0xfc>;
+		phandle = <0xfc>;
 	};
 
 	pwm@3290000 {
@@ -1991,8 +2013,8 @@
 		resets = <0x05 0x45>;
 		reset-names = "pwm";
 		status = "disabled";
-		linux,phandle = <0xf8>;
-		phandle = <0xf8>;
+		linux,phandle = <0xfd>;
+		phandle = <0xfd>;
 	};
 
 	pwm@32a0000 {
@@ -2005,8 +2027,8 @@
 		resets = <0x05 0x46>;
 		reset-names = "pwm";
 		status = "disabled";
-		linux,phandle = <0xf9>;
-		phandle = <0xf9>;
+		linux,phandle = <0xfe>;
+		phandle = <0xfe>;
 	};
 
 	pwm@c340000 {
@@ -2019,8 +2041,8 @@
 		resets = <0x05 0x47>;
 		reset-names = "pwm";
 		status = "okay";
-		linux,phandle = <0xfa>;
-		phandle = <0xfa>;
+		linux,phandle = <0xff>;
+		phandle = <0xff>;
 	};
 
 	pwm@32c0000 {
@@ -2033,8 +2055,8 @@
 		resets = <0x05 0x48>;
 		reset-names = "pwm";
 		status = "okay";
-		linux,phandle = <0xfb>;
-		phandle = <0xfb>;
+		linux,phandle = <0x100>;
+		phandle = <0x100>;
 	};
 
 	pwm@32d0000 {
@@ -2047,8 +2069,8 @@
 		resets = <0x05 0x49>;
 		reset-names = "pwm";
 		status = "okay";
-		linux,phandle = <0xc7>;
-		phandle = <0xc7>;
+		linux,phandle = <0xcc>;
+		phandle = <0xcc>;
 	};
 
 	pwm@32e0000 {
@@ -2061,8 +2083,8 @@
 		resets = <0x05 0x4a>;
 		reset-names = "pwm";
 		status = "disabled";
-		linux,phandle = <0xfc>;
-		phandle = <0xfc>;
+		linux,phandle = <0x101>;
+		phandle = <0x101>;
 	};
 
 	pwm@32f0000 {
@@ -2075,8 +2097,8 @@
 		resets = <0x05 0x4b>;
 		reset-names = "pwm";
 		status = "okay";
-		linux,phandle = <0xfd>;
-		phandle = <0xfd>;
+		linux,phandle = <0x102>;
+		phandle = <0x102>;
 	};
 
 	i2c@3160000 {
@@ -2096,10 +2118,10 @@
 		clock-names = "div-clk\0parent";
 		resets = <0x05 0x18>;
 		reset-names = "i2c";
-		dmas = <0x19 0x15 0x19 0x15>;
+		dmas = <0x1b 0x15 0x1b 0x15>;
 		dma-names = "rx\0tx";
-		linux,phandle = <0xcb>;
-		phandle = <0xcb>;
+		linux,phandle = <0xd0>;
+		phandle = <0xd0>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -2135,18 +2157,18 @@
 		reg = <0x00 0xc240000 0x00 0x100>;
 		nvidia,hw-instance-id = <0x01>;
 		interrupts = <0x00 0x1a 0x04>;
-		scl-gpio = <0x23 0x17 0x00>;
-		sda-gpio = <0x23 0x18 0x00>;
+		scl-gpio = <0x25 0x17 0x00>;
+		sda-gpio = <0x25 0x18 0x00>;
 		status = "okay";
 		clock-frequency = <0x186a0>;
 		clocks = <0x04 0x31 0x04 0x66>;
 		clock-names = "div-clk\0parent";
 		resets = <0x05 0x1d>;
 		reset-names = "i2c";
-		dmas = <0x19 0x16 0x19 0x16>;
+		dmas = <0x1b 0x16 0x1b 0x16>;
 		dma-names = "rx\0tx";
-		linux,phandle = <0xcc>;
-		phandle = <0xcc>;
+		linux,phandle = <0xd1>;
+		phandle = <0xd1>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -2175,7 +2197,7 @@
 		bmi160@69 {
 			compatible = "bmi,bmi160";
 			reg = <0x69>;
-			interrupt-parent = <0x23>;
+			interrupt-parent = <0x25>;
 			interrupts = <0x02 0x01>;
 			accelerometer_matrix = [01 00 00 00 01 00 00 00 01];
 			gyroscope_matrix = [01 00 00 00 01 00 00 00 01];
@@ -2202,10 +2224,10 @@
 		clock-names = "div-clk\0parent";
 		resets = <0x05 0x1e>;
 		reset-names = "i2c";
-		dmas = <0x19 0x17 0x19 0x17>;
+		dmas = <0x1b 0x17 0x1b 0x17>;
 		dma-names = "rx\0tx";
-		linux,phandle = <0xce>;
-		phandle = <0xce>;
+		linux,phandle = <0xd3>;
+		phandle = <0xd3>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -2247,10 +2269,10 @@
 		clock-names = "div-clk\0parent";
 		resets = <0x05 0x1f>;
 		reset-names = "i2c";
-		dmas = <0x19 0x1a 0x19 0x1a>;
+		dmas = <0x1b 0x1a 0x1b 0x1a>;
 		dma-names = "rx\0tx";
-		linux,phandle = <0x63>;
-		phandle = <0x63>;
+		linux,phandle = <0x65>;
+		phandle = <0x65>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -2284,13 +2306,13 @@
 		status = "okay";
 		nvidia,hw-instance-id = <0x04>;
 		adapter = <0x05>;
-		linux,phandle = <0xfe>;
-		phandle = <0xfe>;
+		linux,phandle = <0x103>;
+		phandle = <0x103>;
 
 		spmic@3c {
 			compatible = "maxim,max20024";
 			reg = <0x3c>;
-			interrupt-parent = <0x24>;
+			interrupt-parent = <0x26>;
 			interrupts = <0x00 0xd1 0x00>;
 			#interrupt-cells = <0x02>;
 			interrupt-controller;
@@ -2302,13 +2324,13 @@
 			hot-die-threshold-temp = <0x1adb0>;
 			#thermal-sensor-cells = <0x00>;
 			pinctrl-names = "default";
-			pinctrl-0 = <0x25>;
-			linux,phandle = <0x93>;
-			phandle = <0x93>;
+			pinctrl-0 = <0x27>;
+			linux,phandle = <0x98>;
+			phandle = <0x98>;
 
 			pinmux@0 {
-				linux,phandle = <0x25>;
-				phandle = <0x25>;
+				linux,phandle = <0x27>;
+				phandle = <0x27>;
 
 				pin_gpio0 {
 					pins = "gpio0";
@@ -2363,8 +2385,8 @@
 				wdt-boot-timeout = <0x20>;
 				wdt-suspend-timeout = <0x78>;
 				status = "disabled";
-				linux,phandle = <0xbb>;
-				phandle = <0xbb>;
+				linux,phandle = <0xc0>;
+				phandle = <0xc0>;
 			};
 
 			fps {
@@ -2396,7 +2418,7 @@
 			};
 
 			regulators {
-				in-ldo7-8-supply = <0x18>;
+				in-ldo7-8-supply = <0x1a>;
 
 				sd0 {
 					regulator-name = "vdd-1v0";
@@ -2408,8 +2430,8 @@
 					regulator-disable-ramp-delay = <0x294>;
 					ramp-rate-setting = <0x6b6c>;
 					regulator-ramp-delay = <0x44c>;
-					linux,phandle = <0x5b>;
-					phandle = <0x5b>;
+					linux,phandle = <0x5d>;
+					phandle = <0x5d>;
 				};
 
 				sd1 {
@@ -2422,8 +2444,8 @@
 					regulator-disable-ramp-delay = <0x7d0>;
 					ramp-rate-setting = <0x6b6c>;
 					regulator-ramp-delay = <0x226>;
-					linux,phandle = <0x5c>;
-					phandle = <0x5c>;
+					linux,phandle = <0x5e>;
+					phandle = <0x5e>;
 				};
 
 				sd2 {
@@ -2436,8 +2458,8 @@
 					regulator-disable-ramp-delay = <0x7b2>;
 					ramp-rate-setting = <0x6b6c>;
 					regulator-ramp-delay = <0x226>;
-					linux,phandle = <0x18>;
-					phandle = <0x18>;
+					linux,phandle = <0x1a>;
+					phandle = <0x1a>;
 				};
 
 				sd3 {
@@ -2464,8 +2486,8 @@
 					regulator-disable-ramp-delay = <0x514>;
 					ramp-rate-setting = <0x6b6c>;
 					regulator-ramp-delay = <0x2bc>;
-					linux,phandle = <0xff>;
-					phandle = <0xff>;
+					linux,phandle = <0x104>;
+					phandle = <0x104>;
 				};
 
 				ldo0 {
@@ -2477,8 +2499,8 @@
 					regulator-disable-ramp-delay = <0x1180>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0xc8>;
-					linux,phandle = <0x100>;
-					phandle = <0x100>;
+					linux,phandle = <0x105>;
+					phandle = <0x105>;
 				};
 
 				ldo1 {
@@ -2488,8 +2510,8 @@
 					regulator-disable-ramp-delay = <0x514>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0x47e>;
-					linux,phandle = <0x101>;
-					phandle = <0x101>;
+					linux,phandle = <0x106>;
+					phandle = <0x106>;
 				};
 
 				ldo2 {
@@ -2500,8 +2522,8 @@
 					regulator-enable-ramp-delay = <0x123e>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0x5dc>;
-					linux,phandle = <0x102>;
-					phandle = <0x102>;
+					linux,phandle = <0x107>;
+					phandle = <0x107>;
 				};
 
 				ldo3 {
@@ -2512,8 +2534,8 @@
 					regulator-enable-ramp-delay = <0x123e>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0x5dc>;
-					linux,phandle = <0x1b>;
-					phandle = <0x1b>;
+					linux,phandle = <0x1d>;
+					phandle = <0x1d>;
 				};
 
 				ldo4 {
@@ -2523,8 +2545,8 @@
 					regulator-disable-ramp-delay = <0x7b2>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0x898>;
-					linux,phandle = <0x103>;
-					phandle = <0x103>;
+					linux,phandle = <0x108>;
+					phandle = <0x108>;
 				};
 
 				ldo5 {
@@ -2535,8 +2557,8 @@
 					regulator-enable-ramp-delay = <0x123e>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0x5dc>;
-					linux,phandle = <0xad>;
-					phandle = <0xad>;
+					linux,phandle = <0xb2>;
+					phandle = <0xb2>;
 				};
 
 				ldo6 {
@@ -2547,8 +2569,8 @@
 					regulator-enable-ramp-delay = <0x1252>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0x5dc>;
-					linux,phandle = <0x104>;
-					phandle = <0x104>;
+					linux,phandle = <0x109>;
+					phandle = <0x109>;
 				};
 
 				ldo7 {
@@ -2560,8 +2582,8 @@
 					regulator-disable-ramp-delay = <0x294>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0xd16>;
-					linux,phandle = <0x105>;
-					phandle = <0x105>;
+					linux,phandle = <0x10a>;
+					phandle = <0x10a>;
 				};
 
 				ldo8 {
@@ -2571,8 +2593,8 @@
 					regulator-disable-ramp-delay = <0x294>;
 					ramp-rate-setting = <0x186a0>;
 					regulator-ramp-delay = <0x8ca>;
-					linux,phandle = <0x106>;
-					phandle = <0x106>;
+					linux,phandle = <0x10b>;
+					phandle = <0x10b>;
 				};
 			};
 		};
@@ -2593,10 +2615,10 @@
 		clock-names = "div-clk\0parent";
 		resets = <0x05 0x20>;
 		reset-names = "i2c";
-		dmas = <0x19 0x1e 0x19 0x1e>;
+		dmas = <0x1b 0x1e 0x1b 0x1e>;
 		dma-names = "rx\0tx";
-		linux,phandle = <0x60>;
-		phandle = <0x60>;
+		linux,phandle = <0x62>;
+		phandle = <0x62>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -2638,10 +2660,10 @@
 		clock-names = "div-clk\0parent";
 		resets = <0x05 0x21>;
 		reset-names = "i2c";
-		dmas = <0x19 0x1b 0x19 0x1b>;
+		dmas = <0x1b 0x1b 0x1b 0x1b>;
 		dma-names = "rx\0tx";
-		linux,phandle = <0x66>;
-		phandle = <0x66>;
+		linux,phandle = <0x68>;
+		phandle = <0x68>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -2677,18 +2699,18 @@
 		reg = <0x00 0xc250000 0x00 0x100>;
 		nvidia,hw-instance-id = <0x07>;
 		interrupts = <0x00 0x20 0x04>;
-		scl-gpio = <0x23 0x19 0x00>;
-		sda-gpio = <0x23 0x1a 0x00>;
+		scl-gpio = <0x25 0x19 0x00>;
+		sda-gpio = <0x25 0x1a 0x00>;
 		status = "okay";
 		clock-frequency = <0x61a80>;
 		clocks = <0x04 0x36 0x04 0x66>;
 		clock-names = "div-clk\0parent";
 		resets = <0x05 0x22>;
 		reset-names = "i2c";
-		dmas = <0x19 0x00 0x19 0x00>;
+		dmas = <0x1b 0x00 0x1b 0x00>;
 		dma-names = "rx\0tx";
-		linux,phandle = <0x107>;
-		phandle = <0x107>;
+		linux,phandle = <0x10c>;
+		phandle = <0x10c>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -2723,8 +2745,8 @@
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
 			#io-channel-cells = <0x01>;
-			linux,phandle = <0x108>;
-			phandle = <0x108>;
+			linux,phandle = <0x10d>;
+			phandle = <0x10d>;
 
 			channel@0 {
 				reg = <0x00>;
@@ -2763,12 +2785,12 @@
 		clock-names = "div-clk\0parent";
 		resets = <0x05 0x23>;
 		reset-names = "i2c";
-		dmas = <0x19 0x1f 0x19 0x1f>;
+		dmas = <0x1b 0x1f 0x1b 0x1f>;
 		dma-names = "rx\0tx";
 		pinctrl-names = "default";
-		pinctrl-0 = <0x26>;
-		linux,phandle = <0x68>;
-		phandle = <0x68>;
+		pinctrl-0 = <0x28>;
+		linux,phandle = <0x6a>;
+		phandle = <0x6a>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -2799,11 +2821,11 @@
 			reg = <0x70>;
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
-			vcc-pullup-supply = <0x17>;
+			vcc-pullup-supply = <0x19>;
 			status = "disabled";
-			vcc-supply = <0x27>;
-			linux,phandle = <0xc1>;
-			phandle = <0xc1>;
+			vcc-supply = <0x29>;
+			linux,phandle = <0xc6>;
+			phandle = <0xc6>;
 
 			i2c@0 {
 				reg = <0x00>;
@@ -2814,21 +2836,21 @@
 				tas2552.9-0040@40 {
 					compatible = "ti,tas2552";
 					reg = <0x40>;
-					vbat-supply = <0x17>;
-					avdd-supply = <0x28>;
+					vbat-supply = <0x19>;
+					avdd-supply = <0x2a>;
 					tas2552,pdm_edge_select = <0x00>;
-					linux,phandle = <0x109>;
-					phandle = <0x109>;
+					linux,phandle = <0x10e>;
+					phandle = <0x10e>;
 				};
 
 				tas2552.9-0041@41 {
 					compatible = "ti,tas2552";
 					reg = <0x41>;
-					vbat-supply = <0x17>;
-					avdd-supply = <0x28>;
+					vbat-supply = <0x19>;
+					avdd-supply = <0x2a>;
 					tas2552,pdm_edge_select = <0x01>;
-					linux,phandle = <0x10a>;
-					phandle = <0x10a>;
+					linux,phandle = <0x10f>;
+					phandle = <0x10f>;
 				};
 			};
 
@@ -2943,8 +2965,8 @@
 					gpios = <0x13 0xc0 0x00>;
 					realtek,jd-src = <0x01>;
 					realtek,dmic1-data-pin = <0x02>;
-					linux,phandle = <0xc6>;
-					phandle = <0xc6>;
+					linux,phandle = <0xcb>;
+					phandle = <0xcb>;
 				};
 			};
 		};
@@ -2954,10 +2976,10 @@
 			reg = <0x20>;
 			gpio-controller;
 			#gpio-cells = <0x02>;
-			vcc-supply = <0x17>;
+			vcc-supply = <0x19>;
 			status = "disabled";
-			linux,phandle = <0xc2>;
-			phandle = <0xc2>;
+			linux,phandle = <0xc7>;
+			phandle = <0xc7>;
 		};
 
 		rt5659.1-001a@1a {
@@ -2967,8 +2989,8 @@
 			gpios = <0x13 0xc0 0x00>;
 			realtek,jd-src = <0x01>;
 			realtek,dmic1-data-pin = <0x02>;
-			linux,phandle = <0xc4>;
-			phandle = <0xc4>;
+			linux,phandle = <0xc9>;
+			phandle = <0xc9>;
 		};
 	};
 
@@ -2977,17 +2999,17 @@
 		reg = <0x00 0xc310000 0x00 0x400 0x00 0xc311000 0x00 0x32 0x00 0xc312000 0x00 0x1000>;
 		reg-names = "can-regs\0glue-regs\0msg-ram";
 		interrupts = <0x00 0x28 0x04>;
-		pll_source = "osc";
-		clocks = <0x04 0x11c 0x04 0x0a 0x04 0x09 0x04 0x5b>;
-		clock-names = "can_core\0can_host\0can\0osc";
+		pll_source = "pllc";
+		clocks = <0x04 0x11c 0x04 0x0a 0x04 0x09 0x04 0x13a>;
+		clock-names = "can_core\0can_host\0can\0pllc";
 		resets = <0x05 0x04>;
 		reset-names = "can";
 		mram-params = <0x00 0x10 0x10 0x20 0x00 0x00 0x10 0x10 0x10>;
 		tx-config = <0x00 0x10 0x00 0x40>;
 		rx-config = <0x40 0x40 0x40>;
 		status = "okay";
-		linux,phandle = <0x10b>;
-		phandle = <0x10b>;
+		linux,phandle = <0x110>;
+		phandle = <0x110>;
 	};
 
 	mttcan@c320000 {
@@ -3004,8 +3026,8 @@
 		tx-config = <0x00 0x10 0x00 0x40>;
 		rx-config = <0x40 0x40 0x40>;
 		status = "disabled";
-		linux,phandle = <0x10c>;
-		phandle = <0x10c>;
+		linux,phandle = <0x111>;
+		phandle = <0x111>;
 	};
 
 	sound {
@@ -3017,23 +3039,25 @@
 		nvidia,num-codec-link = <0x0c>;
 		nvidia,num-clk = <0x08>;
 		nvidia,clk-rates = <0x10266000 0xac4400 0x2b11000 0x2b11000 0xea60000 0xbb8000 0x2ee0000 0x2ee0000>;
-		nvidia,xbar = <0x29>;
+		nvidia,xbar = <0x2b>;
+		// nvidia,audio-routing = "x Headphone\0x OUT\0x IN\0x Mic\0y Headphone\0y OUT\0y IN\0y Mic\0z Headphone\0z OUT\0z IN\0z Mic\0m Headphone\0m OUT\0m IN\0m Mic\0n Headphone\0n OUT\0n IN\0n Mic\0o Headphone\0o OUT\0o IN\0o Mic\0a IN\0a Mic\0b IN\0b Mic\0c IN\0c Mic\0d IN\0d Mic\0d1 Headphone\0d1 OUT\0d2 Headphone\0d2 OUT";
+		nvidia,audio-routing = "[78 00] Headphone\0x HPOUTL\0[78 00] Headphone\0x HPOUTR";
+		// nvidia,audio-routing = "Headphone\0 HPOUTL\0 Headphone\0 HPOUTR";
 		compatible = "nvidia,tegra-audio-t186ref-mobile-rt565x";
 		nvidia,model = "jetson-xaviernx-ape";
 		clocks = <0x04 0x5d 0x04 0x68 0x04 0x07>;
 		clock-names = "pll_a\0pll_a_out0\0extern1";
 		assigned-clocks = <0x04 0x68 0x04 0x07>;
 		assigned-clock-parents = <0x04 0x5d 0x04 0x68>;
-		nvidia,audio-routing = "x Headphone\0x OUT\0x IN\0x Mic\0y Headphone\0y OUT\0y IN\0y Mic\0z Headphone\0z OUT\0z IN\0z Mic\0m Headphone\0m OUT\0m IN\0m Mic\0n Headphone\0n OUT\0n IN\0n Mic\0o Headphone\0o OUT\0o IN\0o Mic\0a IN\0a Mic\0b IN\0b Mic\0c IN\0c Mic\0d IN\0d Mic\0[78 00] Headphone\0[78 00] HPOUTL\0[78 00] Headphone\0[78 00] HPOUTR";
-		assigned-clock-rates = <0>, <12288000>;
+		assigned-clock-rates = <0>, <12288000>; // not present in original device tree
 		mclk-fs = <0x100>;
-		linux,phandle = <0xc5>;
-		phandle = <0xc5>;
+		linux,phandle = <0xca>;
+		phandle = <0xca>;
 
 		nvidia,dai-link-1 {
 			link-name = "spdif-dit-0";
-			cpu-dai = <0x2a>;
-			codec-dai = <0x2b>;
+			cpu-dai = <0x2c>;
+			codec-dai = <0x2d>;
 			cpu-dai-name = "I2S1";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3047,8 +3071,8 @@
 
 		nvidia,dai-link-2 {
 			link-name = "spdif-dit-1";
-			cpu-dai = <0x2c>;
-			codec-dai = <0x2d>;
+			cpu-dai = <0x2e>;
+			codec-dai = <0x2f>;
 			cpu-dai-name = "I2S2";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3062,8 +3086,8 @@
 
 		nvidia,dai-link-3 {
 			link-name = "spdif-dit-2";
-			cpu-dai = <0x2e>;
-			codec-dai = <0x2f>;
+			cpu-dai = <0x30>;
+			codec-dai = <0x31>;
 			cpu-dai-name = "I2S3";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3077,8 +3101,8 @@
 
 		nvidia,dai-link-4 {
 			link-name = "spdif-dit-3";
-			cpu-dai = <0x30>;
-			codec-dai = <0x31>;
+			cpu-dai = <0x32>;
+			codec-dai = <0x33>;
 			cpu-dai-name = "I2S4";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3103,14 +3127,14 @@
 			ignore_suspend;
 			name-prefix = [78 00];
 			status = "okay";
-			#linux,phandle = <0xc3>;
-			#phandle = <0xc3>;
+			linux,phandle = <0xc8>;
+			phandle = <0xc8>;
 		};
 
 		nvidia,dai-link-6 {
 			link-name = "spdif-dit-6";
-			cpu-dai = <0x34>;
-			codec-dai = <0x35>;
+			cpu-dai = <0x36>;
+			codec-dai = <0x37>;
 			cpu-dai-name = "I2S6";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3124,8 +3148,8 @@
 
 		nvidia,dai-link-7 {
 			link-name = "spdif-dit-7";
-			cpu-dai = <0x36>;
-			codec-dai = <0x37>;
+			cpu-dai = <0x38>;
+			codec-dai = <0x39>;
 			cpu-dai-name = "DMIC1";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3139,8 +3163,8 @@
 
 		nvidia,dai-link-8 {
 			link-name = "spdif-dit-8";
-			cpu-dai = <0x38>;
-			codec-dai = <0x39>;
+			cpu-dai = <0x3a>;
+			codec-dai = <0x3b>;
 			cpu-dai-name = "DMIC2";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3154,8 +3178,8 @@
 
 		nvidia,dai-link-9 {
 			link-name = "spdif-dit-9";
-			cpu-dai = <0x3a>;
-			codec-dai = <0x3b>;
+			cpu-dai = <0x3c>;
+			codec-dai = <0x3d>;
 			cpu-dai-name = "DMIC3";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3169,8 +3193,8 @@
 
 		nvidia,dai-link-10 {
 			link-name = "spdif-dit-10";
-			cpu-dai = <0x3c>;
-			codec-dai = <0x3d>;
+			cpu-dai = <0x3e>;
+			codec-dai = <0x3f>;
 			cpu-dai-name = "DMIC4";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3184,8 +3208,8 @@
 
 		nvidia,dai-link-11 {
 			link-name = "dspk1-playback";
-			cpu-dai = <0x3e>;
-			codec-dai = <0x3f>;
+			cpu-dai = <0x40>;
+			codec-dai = <0x41>;
 			cpu-dai-name = "DSPK1";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3199,8 +3223,8 @@
 
 		nvidia,dai-link-12 {
 			link-name = "dspk2-playback";
-			cpu-dai = <0x40>;
-			codec-dai = <0x41>;
+			cpu-dai = <0x42>;
+			codec-dai = <0x43>;
 			cpu-dai-name = "DSPK2";
 			codec-dai-name = "dit-hifi";
 			format = "i2s";
@@ -3240,8 +3264,8 @@
 			clocks = <0x04 0x06>;
 			clock-names = "clk";
 			status = "okay";
-			linux,phandle = <0x42>;
-			phandle = <0x42>;
+			linux,phandle = <0x44>;
+			phandle = <0x44>;
 		};
 
 		agic-controller@2a51000 {
@@ -3253,8 +3277,8 @@
 			clocks = <0x04 0x06>;
 			clock-names = "clk";
 			status = "disabled";
-			linux,phandle = <0x10d>;
-			phandle = <0x10d>;
+			linux,phandle = <0x112>;
+			phandle = <0x112>;
 		};
 
 		agic-controller@2a61000 {
@@ -3266,13 +3290,13 @@
 			clocks = <0x04 0x06>;
 			clock-names = "clk";
 			status = "disabled";
-			linux,phandle = <0x10e>;
-			phandle = <0x10e>;
+			linux,phandle = <0x113>;
+			phandle = <0x113>;
 		};
 
 		adsp@2993000 {
 			compatible = "nvidia,tegra18x-adsp";
-			interrupt-parent = <0x42>;
+			interrupt-parent = <0x44>;
 			nvidia,adsp_os_secload;
 			reg = <0x00 0x2993000 0x00 0x1000 0x00 0x2990000 0x00 0x2000 0x00 0x00 0x00 0x01 0x00 0x290c800 0x00 0x01 0x00 0x29b0000 0x00 0x90000 0x00 0x40000000 0x00 0xc0000000 0x00 0x00 0x00 0x01>;
 			nvidia,adsp_mem = <0x5ef00000 0x1000000 0x5f700000 0x800000 0x3f813000 0x5000 0x5fd00000 0x200000>;
@@ -3291,15 +3315,15 @@
 
 		adma@2930000 {
 			compatible = "nvidia,tegra194-adma";
-			interrupt-parent = <0x42>;
+			interrupt-parent = <0x44>;
 			reg = <0x00 0x2930000 0x00 0x50000 0x00 0x29f0000 0x00 0x10>;
 			clocks = <0x04 0x04>;
 			clock-names = "d_audio";
 			interrupts = <0x00 0x00 0x04 0x00 0x00 0x01 0x04 0x00 0x00 0x02 0x04 0x00 0x00 0x03 0x04 0x00 0x00 0x04 0x04 0x00 0x00 0x05 0x04 0x00 0x00 0x06 0x04 0x00 0x00 0x07 0x04 0x00 0x00 0x08 0x04 0x00 0x00 0x09 0x04 0x00 0x00 0x0a 0x04 0x00 0x00 0x0b 0x04 0x00 0x00 0x0c 0x04 0x00 0x00 0x0d 0x04 0x00 0x00 0x0e 0x04 0x00 0x00 0x0f 0x04 0x00 0x00 0x10 0x04 0x00 0x00 0x11 0x04 0x00 0x00 0x12 0x04 0x00 0x00 0x13 0x04 0x00 0x00 0x14 0x04 0x00 0x00 0x15 0x04 0x00 0x00 0x16 0x04 0x00 0x00 0x17 0x04 0x00 0x00 0x18 0x04 0x00 0x00 0x19 0x04 0x00 0x00 0x1a 0x04 0x00 0x00 0x1b 0x04 0x00 0x00 0x1c 0x04 0x00 0x00 0x1d 0x04 0x00 0x00 0x1e 0x04 0x00 0x00 0x1f 0x04 0x00>;
 			#dma-cells = <0x01>;
 			status = "okay";
-			linux,phandle = <0x43>;
-			phandle = <0x43>;
+			linux,phandle = <0x45>;
+			phandle = <0x45>;
 		};
 
 		ahub {
@@ -3315,19 +3339,19 @@
 			#address-cells = <0x02>;
 			#size-cells = <0x02>;
 			ranges;
-			linux,phandle = <0x29>;
-			phandle = <0x29>;
+			linux,phandle = <0x2b>;
+			phandle = <0x2b>;
 
 			admaif@290f000 {
 				compatible = "nvidia,tegra186-admaif";
 				reg = <0x00 0x290f000 0x00 0x1000>;
 				clocks = <0x04 0x04>;
 				clock-names = "ahub";
-				dmas = <0x43 0x01 0x43 0x01 0x43 0x02 0x43 0x02 0x43 0x03 0x43 0x03 0x43 0x04 0x43 0x04 0x43 0x05 0x43 0x05 0x43 0x06 0x43 0x06 0x43 0x07 0x43 0x07 0x43 0x08 0x43 0x08 0x43 0x09 0x43 0x09 0x43 0x0a 0x43 0x0a 0x43 0x0b 0x43 0x0b 0x43 0x0c 0x43 0x0c 0x43 0x0d 0x43 0x0d 0x43 0x0e 0x43 0x0e 0x43 0x0f 0x43 0x0f 0x43 0x10 0x43 0x10 0x43 0x11 0x43 0x11 0x43 0x12 0x43 0x12 0x43 0x13 0x43 0x13 0x43 0x14 0x43 0x14>;
+				dmas = <0x45 0x01 0x45 0x01 0x45 0x02 0x45 0x02 0x45 0x03 0x45 0x03 0x45 0x04 0x45 0x04 0x45 0x05 0x45 0x05 0x45 0x06 0x45 0x06 0x45 0x07 0x45 0x07 0x45 0x08 0x45 0x08 0x45 0x09 0x45 0x09 0x45 0x0a 0x45 0x0a 0x45 0x0b 0x45 0x0b 0x45 0x0c 0x45 0x0c 0x45 0x0d 0x45 0x0d 0x45 0x0e 0x45 0x0e 0x45 0x0f 0x45 0x0f 0x45 0x10 0x45 0x10 0x45 0x11 0x45 0x11 0x45 0x12 0x45 0x12 0x45 0x13 0x45 0x13 0x45 0x14 0x45 0x14>;
 				dma-names = "rx1\0tx1\0rx2\0tx2\0rx3\0tx3\0rx4\0tx4\0rx5\0tx5\0rx6\0tx6\0rx7\0tx7\0rx8\0tx8\0rx9\0tx9\0rx10\0tx10\0rx11\0tx11\0rx12\0tx12\0rx13\0tx13\0rx14\0tx14\0rx15\0tx15\0rx16\0tx16\0rx17\0tx17\0rx18\0tx18\0rx19\0tx19\0rx20\0tx20";
 				status = "okay";
-				linux,phandle = <0x10f>;
-				phandle = <0x10f>;
+				linux,phandle = <0x114>;
+				phandle = <0x114>;
 			};
 
 			sfc@2902000 {
@@ -3335,8 +3359,8 @@
 				reg = <0x00 0x2902000 0x00 0x200>;
 				nvidia,ahub-sfc-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x110>;
-				phandle = <0x110>;
+				linux,phandle = <0x115>;
+				phandle = <0x115>;
 			};
 
 			sfc@2902200 {
@@ -3344,8 +3368,8 @@
 				reg = <0x00 0x2902200 0x00 0x200>;
 				nvidia,ahub-sfc-id = <0x01>;
 				status = "okay";
-				linux,phandle = <0x111>;
-				phandle = <0x111>;
+				linux,phandle = <0x116>;
+				phandle = <0x116>;
 			};
 
 			sfc@2902400 {
@@ -3353,8 +3377,8 @@
 				reg = <0x00 0x2902400 0x00 0x200>;
 				nvidia,ahub-sfc-id = <0x02>;
 				status = "okay";
-				linux,phandle = <0x112>;
-				phandle = <0x112>;
+				linux,phandle = <0x117>;
+				phandle = <0x117>;
 			};
 
 			sfc@2902600 {
@@ -3362,8 +3386,8 @@
 				reg = <0x00 0x2902600 0x00 0x200>;
 				nvidia,ahub-sfc-id = <0x03>;
 				status = "okay";
-				linux,phandle = <0x113>;
-				phandle = <0x113>;
+				linux,phandle = <0x118>;
+				phandle = <0x118>;
 			};
 
 			spkprot@2908c00 {
@@ -3371,8 +3395,8 @@
 				reg = <0x00 0x2908c00 0x00 0x400>;
 				nvidia,ahub-spkprot-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x114>;
-				phandle = <0x114>;
+				linux,phandle = <0x119>;
+				phandle = <0x119>;
 			};
 
 			amixer@290bb00 {
@@ -3380,8 +3404,8 @@
 				reg = <0x00 0x290bb00 0x00 0x800>;
 				nvidia,ahub-amixer-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x115>;
-				phandle = <0x115>;
+				linux,phandle = <0x11a>;
+				phandle = <0x11a>;
 			};
 
 			i2s@2901000 {
@@ -3395,8 +3419,8 @@
 				assigned-clock-rates = <0x177000>;
 				fsync-width = <0x1f>;
 				status = "okay";
-				linux,phandle = <0x2a>;
-				phandle = <0x2a>;
+				linux,phandle = <0x2c>;
+				phandle = <0x2c>;
 			};
 
 			i2s@2901100 {
@@ -3410,8 +3434,8 @@
 				assigned-clock-rates = <0x177000>;
 				fsync-width = <0x1f>;
 				status = "okay";
-				linux,phandle = <0x2c>;
-				phandle = <0x2c>;
+				linux,phandle = <0x2e>;
+				phandle = <0x2e>;
 			};
 
 			i2s@2901200 {
@@ -3425,8 +3449,8 @@
 				assigned-clock-rates = <0x177000>;
 				fsync-width = <0x1f>;
 				status = "okay";
-				linux,phandle = <0x2e>;
-				phandle = <0x2e>;
+				linux,phandle = <0x30>;
+				phandle = <0x30>;
 			};
 
 			i2s@2901300 {
@@ -3440,8 +3464,8 @@
 				assigned-clock-rates = <0x177000>;
 				fsync-width = <0x1f>;
 				status = "okay";
-				linux,phandle = <0x30>;
-				phandle = <0x30>;
+				linux,phandle = <0x32>;
+				phandle = <0x32>;
 			};
 
 			tegra_i2s5_cs47l35: i2s@2901400 {
@@ -3455,8 +3479,8 @@
 				assigned-clock-rates = <0x177000>;
 				fsync-width = <0x1f>;
 				status = "okay";
-				linux,phandle = <0x32>;
-				phandle = <0x32>;
+				linux,phandle = <0x34>;
+				phandle = <0x34>;
 			};
 
 			i2s@2901500 {
@@ -3470,8 +3494,8 @@
 				assigned-clock-rates = <0x177000>;
 				fsync-width = <0x1f>;
 				status = "okay";
-				linux,phandle = <0x34>;
-				phandle = <0x34>;
+				linux,phandle = <0x36>;
+				phandle = <0x36>;
 			};
 
 			amx@2903000 {
@@ -3479,8 +3503,8 @@
 				reg = <0x00 0x2903000 0x00 0x100>;
 				nvidia,ahub-amx-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x116>;
-				phandle = <0x116>;
+				linux,phandle = <0x11b>;
+				phandle = <0x11b>;
 			};
 
 			amx@2903100 {
@@ -3488,8 +3512,8 @@
 				reg = <0x00 0x2903100 0x00 0x100>;
 				nvidia,ahub-amx-id = <0x01>;
 				status = "okay";
-				linux,phandle = <0x117>;
-				phandle = <0x117>;
+				linux,phandle = <0x11c>;
+				phandle = <0x11c>;
 			};
 
 			amx@2903200 {
@@ -3497,8 +3521,8 @@
 				reg = <0x00 0x2903200 0x00 0x100>;
 				nvidia,ahub-amx-id = <0x02>;
 				status = "okay";
-				linux,phandle = <0x118>;
-				phandle = <0x118>;
+				linux,phandle = <0x11d>;
+				phandle = <0x11d>;
 			};
 
 			amx@2903300 {
@@ -3506,8 +3530,8 @@
 				reg = <0x00 0x2903300 0x00 0x100>;
 				nvidia,ahub-amx-id = <0x03>;
 				status = "okay";
-				linux,phandle = <0x119>;
-				phandle = <0x119>;
+				linux,phandle = <0x11e>;
+				phandle = <0x11e>;
 			};
 
 			adx@2903800 {
@@ -3515,8 +3539,8 @@
 				reg = <0x00 0x2903800 0x00 0x100>;
 				nvidia,ahub-adx-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x11a>;
-				phandle = <0x11a>;
+				linux,phandle = <0x11f>;
+				phandle = <0x11f>;
 			};
 
 			adx@2903900 {
@@ -3524,8 +3548,8 @@
 				reg = <0x00 0x2903900 0x00 0x100>;
 				nvidia,ahub-adx-id = <0x01>;
 				status = "okay";
-				linux,phandle = <0x11b>;
-				phandle = <0x11b>;
+				linux,phandle = <0x120>;
+				phandle = <0x120>;
 			};
 
 			adx@2903a00 {
@@ -3533,8 +3557,8 @@
 				reg = <0x00 0x2903a00 0x00 0x100>;
 				nvidia,ahub-adx-id = <0x02>;
 				status = "okay";
-				linux,phandle = <0x11c>;
-				phandle = <0x11c>;
+				linux,phandle = <0x121>;
+				phandle = <0x121>;
 			};
 
 			adx@2903b00 {
@@ -3542,8 +3566,8 @@
 				reg = <0x00 0x2903b00 0x00 0x100>;
 				nvidia,ahub-adx-id = <0x03>;
 				status = "okay";
-				linux,phandle = <0x11d>;
-				phandle = <0x11d>;
+				linux,phandle = <0x122>;
+				phandle = <0x122>;
 			};
 
 			dmic@2904000 {
@@ -3556,8 +3580,8 @@
 				assigned-clock-parents = <0x04 0x68>;
 				assigned-clock-rates = <0x2ee000>;
 				status = "okay";
-				linux,phandle = <0x36>;
-				phandle = <0x36>;
+				linux,phandle = <0x38>;
+				phandle = <0x38>;
 			};
 
 			dmic@2904100 {
@@ -3570,8 +3594,8 @@
 				assigned-clock-parents = <0x04 0x68>;
 				assigned-clock-rates = <0x2ee000>;
 				status = "okay";
-				linux,phandle = <0x38>;
-				phandle = <0x38>;
+				linux,phandle = <0x3a>;
+				phandle = <0x3a>;
 			};
 
 			dmic@2904200 {
@@ -3584,8 +3608,8 @@
 				assigned-clock-parents = <0x04 0x68>;
 				assigned-clock-rates = <0x2ee000>;
 				status = "okay";
-				linux,phandle = <0x3a>;
-				phandle = <0x3a>;
+				linux,phandle = <0x3c>;
+				phandle = <0x3c>;
 			};
 
 			dmic@2904300 {
@@ -3598,8 +3622,8 @@
 				assigned-clock-parents = <0x04 0x68>;
 				assigned-clock-rates = <0x2ee000>;
 				status = "okay";
-				linux,phandle = <0x3c>;
-				phandle = <0x3c>;
+				linux,phandle = <0x3e>;
+				phandle = <0x3e>;
 			};
 
 			afc@2907000 {
@@ -3607,8 +3631,8 @@
 				reg = <0x00 0x2907000 0x00 0x100>;
 				nvidia,ahub-afc-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x11e>;
-				phandle = <0x11e>;
+				linux,phandle = <0x123>;
+				phandle = <0x123>;
 			};
 
 			afc@2907100 {
@@ -3616,8 +3640,8 @@
 				reg = <0x00 0x2907100 0x00 0x100>;
 				nvidia,ahub-afc-id = <0x01>;
 				status = "okay";
-				linux,phandle = <0x11f>;
-				phandle = <0x11f>;
+				linux,phandle = <0x124>;
+				phandle = <0x124>;
 			};
 
 			afc@2907200 {
@@ -3625,8 +3649,8 @@
 				reg = <0x00 0x2907200 0x00 0x100>;
 				nvidia,ahub-afc-id = <0x02>;
 				status = "okay";
-				linux,phandle = <0x120>;
-				phandle = <0x120>;
+				linux,phandle = <0x125>;
+				phandle = <0x125>;
 			};
 
 			afc@2907300 {
@@ -3634,8 +3658,8 @@
 				reg = <0x00 0x2907300 0x00 0x100>;
 				nvidia,ahub-afc-id = <0x03>;
 				status = "okay";
-				linux,phandle = <0x121>;
-				phandle = <0x121>;
+				linux,phandle = <0x126>;
+				phandle = <0x126>;
 			};
 
 			afc@2907400 {
@@ -3643,8 +3667,8 @@
 				reg = <0x00 0x2907400 0x00 0x100>;
 				nvidia,ahub-afc-id = <0x04>;
 				status = "okay";
-				linux,phandle = <0x122>;
-				phandle = <0x122>;
+				linux,phandle = <0x127>;
+				phandle = <0x127>;
 			};
 
 			afc@2907500 {
@@ -3652,8 +3676,8 @@
 				reg = <0x00 0x2907500 0x00 0x100>;
 				nvidia,ahub-afc-id = <0x05>;
 				status = "okay";
-				linux,phandle = <0x123>;
-				phandle = <0x123>;
+				linux,phandle = <0x128>;
+				phandle = <0x128>;
 			};
 
 			mvc@290a000 {
@@ -3661,8 +3685,8 @@
 				reg = <0x00 0x290a000 0x00 0x200>;
 				nvidia,ahub-mvc-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x124>;
-				phandle = <0x124>;
+				linux,phandle = <0x129>;
+				phandle = <0x129>;
 			};
 
 			mvc@290a200 {
@@ -3670,8 +3694,8 @@
 				reg = <0x00 0x290a200 0x00 0x200>;
 				nvidia,ahub-mvc-id = <0x01>;
 				status = "okay";
-				linux,phandle = <0x125>;
-				phandle = <0x125>;
+				linux,phandle = <0x12a>;
+				phandle = <0x12a>;
 			};
 
 			iqc@290e000 {
@@ -3681,8 +3705,8 @@
 				clocks = <0x04 0x44>;
 				clock-names = "iqc";
 				status = "okay";
-				linux,phandle = <0x126>;
-				phandle = <0x126>;
+				linux,phandle = <0x12b>;
+				phandle = <0x12b>;
 			};
 
 			asrc@2910000 {
@@ -3690,8 +3714,8 @@
 				reg = <0x00 0x2910000 0x00 0x2000>;
 				nvidia,ahub-asrc-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x127>;
-				phandle = <0x127>;
+				linux,phandle = <0x12c>;
+				phandle = <0x12c>;
 			};
 
 			arad@290e400 {
@@ -3699,18 +3723,18 @@
 				reg = <0x00 0x290e400 0x00 0x400>;
 				nvidia,ahub-arad-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x128>;
-				phandle = <0x128>;
+				linux,phandle = <0x12d>;
+				phandle = <0x12d>;
 			};
 
 			ahc@290b900 {
 				compatible = "nvidia,tegra186-ahc";
 				reg = <0x00 0x290b900 0x00 0x200>;
-				interrupt-parent = <0x42>;
+				interrupt-parent = <0x44>;
 				interrupts = <0x00 0x38 0x04 0x00>;
 				status = "okay";
-				linux,phandle = <0x129>;
-				phandle = <0x129>;
+				linux,phandle = <0x12e>;
+				phandle = <0x12e>;
 			};
 
 			ope@2908000 {
@@ -3718,8 +3742,8 @@
 				reg = <0x00 0x2908000 0x00 0x100 0x00 0x2908100 0x00 0x100 0x00 0x2908200 0x00 0x200>;
 				nvidia,ahub-ope-id = <0x00>;
 				status = "okay";
-				linux,phandle = <0x12a>;
-				phandle = <0x12a>;
+				linux,phandle = <0x12f>;
+				phandle = <0x12f>;
 
 				peq@2908100 {
 					status = "okay";
@@ -3740,8 +3764,8 @@
 				assigned-clock-parents = <0x04 0x68>;
 				assigned-clock-rates = <0xbb8000>;
 				status = "okay";
-				linux,phandle = <0x3e>;
-				phandle = <0x3e>;
+				linux,phandle = <0x40>;
+				phandle = <0x40>;
 			};
 
 			dspk@2905100 {
@@ -3754,8 +3778,8 @@
 				assigned-clock-parents = <0x04 0x68>;
 				assigned-clock-rates = <0xbb8000>;
 				status = "okay";
-				linux,phandle = <0x40>;
-				phandle = <0x40>;
+				linux,phandle = <0x42>;
+				phandle = <0x42>;
 			};
 		};
 
@@ -3769,13 +3793,13 @@
 			iommus = <0x02 0x1e>;
 			iommu-resv-regions = <0x00 0x00 0x00 0x40000000 0x00 0x60000000 0xffffffff 0xffffffff>;
 			iommu-group-id = <0x02>;
-			interrupt-parent = <0x42>;
+			interrupt-parent = <0x44>;
 			interrupts = <0x00 0x10 0x04 0x04 0x00 0x11 0x04 0x04 0x00 0x12 0x04 0x04 0x00 0x13 0x04 0x04 0x00 0x14 0x04 0x04 0x00 0x15 0x04 0x04 0x00 0x16 0x04 0x04 0x00 0x17 0x04 0x04 0x00 0x18 0x04 0x04 0x00 0x19 0x04 0x04 0x00 0x1a 0x04 0x04 0x00 0x1b 0x04 0x04 0x00 0x1c 0x04 0x04 0x00 0x1d 0x04 0x04 0x00 0x1e 0x04 0x04 0x00 0x1f 0x04 0x04>;
 			status = "okay";
 			compr-ops = <0x01>;
 			num-plugin = <0x06>;
-			linux,phandle = <0x12b>;
-			phandle = <0x12b>;
+			linux,phandle = <0x130>;
+			phandle = <0x130>;
 
 			plugin-info-1 {
 				plugin-name = "mp3-dec1";
@@ -3839,8 +3863,8 @@
 		#address-cells = <0x01>;
 		#size-cells = <0x00>;
 		status = "disabled";
-		linux,phandle = <0x44>;
-		phandle = <0x44>;
+		linux,phandle = <0x46>;
+		phandle = <0x46>;
 
 		cmdresp@0 {
 			compatible = "nvidia,tegra194-safety-cmd-resp";
@@ -3873,13 +3897,13 @@
 		reg = <0x00 0xb040000 0x00 0x10000 0x00 0xb050000 0x00 0x10000>;
 		reg-names = "ast-cpu\0ast-dma";
 		iommus = <0x02 0x1f>;
-		nvidia,ivc-channels = <0x44 0x02 0x90000000 0x10000>;
-		linux,phandle = <0x12c>;
-		phandle = <0x12c>;
+		nvidia,ivc-channels = <0x46 0x02 0x90000000 0x10000>;
+		linux,phandle = <0x131>;
+		phandle = <0x131>;
 
 		hsp {
 			compatible = "nvidia,tegra186-hsp-mailbox";
-			nvidia,hsp-shared-mailbox = <0x45 0x01 0x45 0x01>;
+			nvidia,hsp-shared-mailbox = <0x47 0x01 0x47 0x01>;
 			nvidia,hsp-shared-mailbox-names = "ivc-pair\0cmd-pair";
 		};
 	};
@@ -3898,30 +3922,30 @@
 		reset-names = "rce-all";
 		interrupts = <0x00 0x13 0x04>;
 		interrupt-names = "wdt-remote";
-		nvidia,camera-devices = <0x46 0x47 0x48>;
+		nvidia,camera-devices = <0x48 0x49 0x4a>;
 		nvidia,camera-device-names = "isp\0vi\0nvcsi";
 		nvidia,memory-bw = <0xffffffff>;
 		iommus = <0x02 0x2a>;
 		iommu-resv-regions = <0x00 0x00 0x00 0xa0000000 0x00 0xc0000000 0xffffffff 0xffffffff>;
 		dma-coherent;
-		nvidia,trace = <0x49 0x04 0x70100000 0x100000>;
-		nvidia,ivc-channels = <0x4a 0x02 0x90000000 0x10000>;
+		nvidia,trace = <0x4b 0x04 0x70100000 0x100000>;
+		nvidia,ivc-channels = <0x4c 0x02 0x90000000 0x10000>;
 		nvidia,autosuspend-delay-ms = <0x1388>;
 		status = "okay";
 		nvidia,cmd-timeout = <0x7d0>;
-		linux,phandle = <0x4c>;
-		phandle = <0x4c>;
+		linux,phandle = <0x4e>;
+		phandle = <0x4e>;
 
 		hsp {
 			compatible = "nvidia,tegra186-hsp-mailbox";
-			nvidia,hsp-shared-mailbox = <0x4b 0x01 0x4b 0x06>;
+			nvidia,hsp-shared-mailbox = <0x4d 0x01 0x4d 0x06>;
 			nvidia,hsp-shared-mailbox-names = "ivc-pair\0cmd-pair";
 		};
 	};
 
 	camera-ivc-channels {
-		linux,phandle = <0x4a>;
-		phandle = <0x4a>;
+		linux,phandle = <0x4c>;
+		phandle = <0x4c>;
 
 		echo@0 {
 			compatible = "nvidia,tegra186-camera-ivc-protocol-echo";
@@ -3950,7 +3974,7 @@
 			nvidia,frame-size = <0x2000>;
 			nvidia,ivc-timeout = <0x32>;
 			nvidia,test-timeout = <0x1388>;
-			nvidia,mem-map = <0x4c 0x47 0x46>;
+			nvidia,mem-map = <0x4e 0x49 0x48>;
 			nvidia,test-bw = <0xffffffff>;
 		};
 
@@ -3977,8 +4001,8 @@
 		nvidia,enable-printk;
 		nvidia,interval-ms = <0x32>;
 		nvidia,log-prefix = "[RCE]";
-		linux,phandle = <0x49>;
-		phandle = <0x49>;
+		linux,phandle = <0x4b>;
+		phandle = <0x4b>;
 	};
 
 	actmon@d230000 {
@@ -4037,8 +4061,8 @@
 		disp_imp_table {
 			status = "okay";
 			num_settings = <0x04>;
-			linux,phandle = <0x4d>;
-			phandle = <0x4d>;
+			linux,phandle = <0x4f>;
+			phandle = <0x4f>;
 
 			disp_imp_settings_0 {
 				nvidia,total_disp_bw_with_catchup = <0x00 0xef4840>;
@@ -4126,8 +4150,8 @@
 			iommus = <0x02 0x38>;
 			dma-coherent;
 			status = "okay";
-			linux,phandle = <0x12d>;
-			phandle = <0x12d>;
+			linux,phandle = <0x132>;
+			phandle = <0x132>;
 		};
 
 		ctx1 {
@@ -4135,8 +4159,8 @@
 			iommus = <0x02 0x39>;
 			dma-coherent;
 			status = "okay";
-			linux,phandle = <0x12e>;
-			phandle = <0x12e>;
+			linux,phandle = <0x133>;
+			phandle = <0x133>;
 		};
 
 		ctx2 {
@@ -4144,8 +4168,8 @@
 			iommus = <0x02 0x3a>;
 			dma-coherent;
 			status = "okay";
-			linux,phandle = <0x12f>;
-			phandle = <0x12f>;
+			linux,phandle = <0x134>;
+			phandle = <0x134>;
 		};
 
 		ctx3 {
@@ -4153,8 +4177,8 @@
 			iommus = <0x02 0x3b>;
 			dma-coherent;
 			status = "okay";
-			linux,phandle = <0x130>;
-			phandle = <0x130>;
+			linux,phandle = <0x135>;
+			phandle = <0x135>;
 		};
 
 		ctx4 {
@@ -4162,8 +4186,8 @@
 			iommus = <0x02 0x3c>;
 			dma-coherent;
 			status = "okay";
-			linux,phandle = <0x131>;
-			phandle = <0x131>;
+			linux,phandle = <0x136>;
+			phandle = <0x136>;
 		};
 
 		ctx5 {
@@ -4171,8 +4195,8 @@
 			iommus = <0x02 0x3d>;
 			dma-coherent;
 			status = "okay";
-			linux,phandle = <0x132>;
-			phandle = <0x132>;
+			linux,phandle = <0x137>;
+			phandle = <0x137>;
 		};
 
 		ctx6 {
@@ -4180,8 +4204,8 @@
 			iommus = <0x02 0x3e>;
 			dma-coherent;
 			status = "okay";
-			linux,phandle = <0x133>;
-			phandle = <0x133>;
+			linux,phandle = <0x138>;
+			phandle = <0x138>;
 		};
 
 		ctx7 {
@@ -4189,8 +4213,8 @@
 			iommus = <0x02 0x3f>;
 			dma-coherent;
 			status = "okay";
-			linux,phandle = <0x134>;
-			phandle = <0x134>;
+			linux,phandle = <0x139>;
+			phandle = <0x139>;
 		};
 
 		vic@15340000 {
@@ -4274,8 +4298,8 @@
 			iommus = <0x02 0x07>;
 			iommu-group-id = <0x01>;
 			dma-coherent;
-			linux,phandle = <0xb4>;
-			phandle = <0xb4>;
+			linux,phandle = <0xb9>;
+			phandle = <0xb9>;
 		};
 
 		nvenc1@15a80000 {
@@ -4288,8 +4312,8 @@
 			iommus = <0x02 0x55>;
 			iommu-group-id = <0x01>;
 			dma-coherent;
-			linux,phandle = <0xb5>;
-			phandle = <0xb5>;
+			linux,phandle = <0xba>;
+			phandle = <0xba>;
 		};
 
 		nvdla0@15880000 {
@@ -4303,8 +4327,8 @@
 			iommus = <0x02 0x51>;
 			iommu-group-id = <0x01>;
 			dma-coherent;
-			linux,phandle = <0x96>;
-			phandle = <0x96>;
+			linux,phandle = <0x9b>;
+			phandle = <0x9b>;
 		};
 
 		nvdla1@158c0000 {
@@ -4318,15 +4342,15 @@
 			iommus = <0x02 0x52>;
 			iommu-group-id = <0x01>;
 			dma-coherent;
-			linux,phandle = <0x97>;
-			phandle = <0x97>;
+			linux,phandle = <0x9c>;
+			phandle = <0x9c>;
 		};
 
 		dc_common {
 			compatible = "nvidia,tegra_dc_common";
 			reg = <0x00 0x15200000 0x00 0x40000>;
 			nvidia,valid_heads = <0x00>;
-			nvidia,disp_imp_table = <0x4d>;
+			nvidia,disp_imp_table = <0x4f>;
 		};
 
 		nvdisplay@15200000 {
@@ -4343,29 +4367,29 @@
 			clocks = <0x04 0x55 0x04 0x54 0x04 0x56 0x04 0x57 0x04 0x58 0x04 0xb8 0x04 0x66 0x04 0x5f 0x04 0x60 0x04 0x61 0x04 0x63 0x04 0x1f>;
 			reset-names = "misc\0wgrp0\0wgrp1\0wgrp2\0wgrp3\0wgrp4\0wgrp5\0head0";
 			resets = <0x05 0x31 0x05 0x32 0x05 0x33 0x05 0x34 0x05 0x35 0x05 0x36 0x05 0x37 0x05 0x2d>;
-			fb_reserved = <0x4e>;
-			iommu-direct-regions = <0x4e 0x4f 0x50 0x51>;
+			fb_reserved = <0x50>;
+			iommu-direct-regions = <0x50 0x51 0x52 0x53>;
 			pinctrl-names = "hdmi-dp0-dpd-disable\0hdmi-dp0-dpd-enable\0hdmi-dp1-dpd-disable\0hdmi-dp1-dpd-enable\0hdmi-dp2-dpd-disable\0hdmi-dp2-dpd-enable\0hdmi-dp3-dpd-disable\0hdmi-dp3-dpd-enable";
-			pinctrl-0 = <0x52>;
-			pinctrl-1 = <0x53>;
-			pinctrl-2 = <0x54>;
-			pinctrl-3 = <0x55>;
-			pinctrl-4 = <0x56>;
-			pinctrl-5 = <0x57>;
-			pinctrl-6 = <0x58>;
-			pinctrl-7 = <0x59>;
+			pinctrl-0 = <0x54>;
+			pinctrl-1 = <0x55>;
+			pinctrl-2 = <0x56>;
+			pinctrl-3 = <0x57>;
+			pinctrl-4 = <0x58>;
+			pinctrl-5 = <0x59>;
+			pinctrl-6 = <0x5a>;
+			pinctrl-7 = <0x5b>;
 			nvidia,fb-bpp = <0x20>;
 			nvidia,fbmem-size = <0xfd20000>;
 			nvidia,fb-flags = <0x01>;
 			win-mask = <0x07>;
 			nvidia,fb-win = <0x00>;
-			nvidia,dc-connector = <0x5a>;
+			nvidia,dc-connector = <0x5c>;
 			nvidia,dc-flags = <0x01>;
-			avdd_hdmi-supply = <0x5b>;
-			avdd_hdmi_pll-supply = <0x5c>;
-			vdd_hdmi_5v0-supply = <0x5d>;
-			linux,phandle = <0x135>;
-			phandle = <0x135>;
+			avdd_hdmi-supply = <0x5d>;
+			avdd_hdmi_pll-supply = <0x5e>;
+			vdd_hdmi_5v0-supply = <0x5f>;
+			linux,phandle = <0x13a>;
+			phandle = <0x13a>;
 		};
 
 		nvdisplay@15210000 {
@@ -4382,31 +4406,31 @@
 			clocks = <0x04 0x55 0x04 0x54 0x04 0x56 0x04 0x57 0x04 0x58 0x04 0xb8 0x04 0x66 0x04 0x5f 0x04 0x60 0x04 0x61 0x04 0x63 0x04 0x1f>;
 			reset-names = "misc\0wgrp0\0wgrp1\0wgrp2\0wgrp3\0wgrp4\0wgrp5\0head1";
 			resets = <0x05 0x31 0x05 0x32 0x05 0x33 0x05 0x34 0x05 0x35 0x05 0x36 0x05 0x37 0x05 0x2e>;
-			fb_reserved = <0x4f>;
-			iommu-direct-regions = <0x4e 0x4f 0x50 0x51>;
+			fb_reserved = <0x51>;
+			iommu-direct-regions = <0x50 0x51 0x52 0x53>;
 			pinctrl-names = "hdmi-dp0-dpd-disable\0hdmi-dp0-dpd-enable\0hdmi-dp1-dpd-disable\0hdmi-dp1-dpd-enable\0hdmi-dp2-dpd-disable\0hdmi-dp2-dpd-enable\0hdmi-dp3-dpd-disable\0hdmi-dp3-dpd-enable";
-			pinctrl-0 = <0x52>;
-			pinctrl-1 = <0x53>;
-			pinctrl-2 = <0x54>;
-			pinctrl-3 = <0x55>;
-			pinctrl-4 = <0x56>;
-			pinctrl-5 = <0x57>;
-			pinctrl-6 = <0x58>;
-			pinctrl-7 = <0x59>;
+			pinctrl-0 = <0x54>;
+			pinctrl-1 = <0x55>;
+			pinctrl-2 = <0x56>;
+			pinctrl-3 = <0x57>;
+			pinctrl-4 = <0x58>;
+			pinctrl-5 = <0x59>;
+			pinctrl-6 = <0x5a>;
+			pinctrl-7 = <0x5b>;
 			nvidia,fb-bpp = <0x20>;
 			nvidia,fbmem-size = <0xfd20000>;
 			nvidia,fb-flags = <0x01>;
 			win-mask = <0x38>;
 			nvidia,fb-win = <0x03>;
-			nvidia,dc-connector = <0x5e>;
+			nvidia,dc-connector = <0x60>;
 			nvidia,dc-flags = <0x01>;
-			vdd-dp-pwr-supply = <0x5b>;
-			avdd-dp-pll-supply = <0x5c>;
-			vdd-edp-sec-mode-supply = <0x17>;
-			vdd-dp-pad-supply = <0x17>;
-			vdd_hdmi_5v0-supply = <0x5d>;
-			linux,phandle = <0x136>;
-			phandle = <0x136>;
+			vdd-dp-pwr-supply = <0x5d>;
+			avdd-dp-pll-supply = <0x5e>;
+			vdd-edp-sec-mode-supply = <0x19>;
+			vdd-dp-pad-supply = <0x19>;
+			vdd_hdmi_5v0-supply = <0x5f>;
+			linux,phandle = <0x13b>;
+			phandle = <0x13b>;
 		};
 
 		nvdisplay@15220000 {
@@ -4423,19 +4447,19 @@
 			clocks = <0x04 0x55 0x04 0x54 0x04 0x56 0x04 0x57 0x04 0x58 0x04 0xb8 0x04 0x66 0x04 0x5f 0x04 0x60 0x04 0x61 0x04 0x63 0x04 0x1f>;
 			reset-names = "misc\0wgrp0\0wgrp1\0wgrp2\0wgrp3\0wgrp4\0wgrp5\0head2";
 			resets = <0x05 0x31 0x05 0x32 0x05 0x33 0x05 0x34 0x05 0x35 0x05 0x36 0x05 0x37 0x05 0x2f>;
-			fb_reserved = <0x50>;
-			iommu-direct-regions = <0x4e 0x4f 0x50 0x51>;
+			fb_reserved = <0x52>;
+			iommu-direct-regions = <0x50 0x51 0x52 0x53>;
 			pinctrl-names = "hdmi-dp0-dpd-disable\0hdmi-dp0-dpd-enable\0hdmi-dp1-dpd-disable\0hdmi-dp1-dpd-enable\0hdmi-dp2-dpd-disable\0hdmi-dp2-dpd-enable\0hdmi-dp3-dpd-disable\0hdmi-dp3-dpd-enable";
-			pinctrl-0 = <0x52>;
-			pinctrl-1 = <0x53>;
-			pinctrl-2 = <0x54>;
-			pinctrl-3 = <0x55>;
-			pinctrl-4 = <0x56>;
-			pinctrl-5 = <0x57>;
-			pinctrl-6 = <0x58>;
-			pinctrl-7 = <0x59>;
-			linux,phandle = <0x137>;
-			phandle = <0x137>;
+			pinctrl-0 = <0x54>;
+			pinctrl-1 = <0x55>;
+			pinctrl-2 = <0x56>;
+			pinctrl-3 = <0x57>;
+			pinctrl-4 = <0x58>;
+			pinctrl-5 = <0x59>;
+			pinctrl-6 = <0x5a>;
+			pinctrl-7 = <0x5b>;
+			linux,phandle = <0x13c>;
+			phandle = <0x13c>;
 		};
 
 		nvdisplay@15230000 {
@@ -4452,19 +4476,19 @@
 			clocks = <0x04 0x55 0x04 0x54 0x04 0x56 0x04 0x57 0x04 0x58 0x04 0xb8 0x04 0x66 0x04 0x5f 0x04 0x60 0x04 0x61 0x04 0x63 0x04 0x1f>;
 			reset-names = "misc\0wgrp0\0wgrp1\0wgrp2\0wgrp3\0wgrp4\0wgrp5\0head3";
 			resets = <0x05 0x31 0x05 0x32 0x05 0x33 0x05 0x34 0x05 0x35 0x05 0x36 0x05 0x37 0x05 0x30>;
-			fb_reserved = <0x51>;
-			iommu-direct-regions = <0x4e 0x4f 0x50 0x51>;
+			fb_reserved = <0x53>;
+			iommu-direct-regions = <0x50 0x51 0x52 0x53>;
 			pinctrl-names = "hdmi-dp0-dpd-disable\0hdmi-dp0-dpd-enable\0hdmi-dp1-dpd-disable\0hdmi-dp1-dpd-enable\0hdmi-dp2-dpd-disable\0hdmi-dp2-dpd-enable\0hdmi-dp3-dpd-disable\0hdmi-dp3-dpd-enable";
-			pinctrl-0 = <0x52>;
-			pinctrl-1 = <0x53>;
-			pinctrl-2 = <0x54>;
-			pinctrl-3 = <0x55>;
-			pinctrl-4 = <0x56>;
-			pinctrl-5 = <0x57>;
-			pinctrl-6 = <0x58>;
-			pinctrl-7 = <0x59>;
-			linux,phandle = <0x138>;
-			phandle = <0x138>;
+			pinctrl-0 = <0x54>;
+			pinctrl-1 = <0x55>;
+			pinctrl-2 = <0x56>;
+			pinctrl-3 = <0x57>;
+			pinctrl-4 = <0x58>;
+			pinctrl-5 = <0x59>;
+			pinctrl-6 = <0x5a>;
+			pinctrl-7 = <0x5b>;
+			linux,phandle = <0x13d>;
+			phandle = <0x13d>;
 		};
 
 		sor {
@@ -4472,24 +4496,24 @@
 			compatible = "nvidia,tegra194-sor";
 			reg = <0x00 0x15b00000 0x00 0x40000>;
 			nvidia,sor-ctrlnum = <0x00>;
-			nvidia,dpaux = <0x5f>;
+			nvidia,dpaux = <0x61>;
 			nvidia,xbar-ctrl = <0x02 0x01 0x00 0x03 0x04>;
 			clocks = <0x04 0x7e 0x04 0x83 0x04 0x7f 0x04 0x7d 0x04 0x62 0x04 0x66 0x04 0x47 0x04 0x2b 0x04 0x2c 0x04 0x2d>;
 			clock-names = "sor0_ref\0sor_safe\0sor0_pad_clkout\0sor0\0pll_dp\0pllp_out0\0maud\0hda\0hda2codec_2x\0hda2hdmi";
 			resets = <0x05 0x57 0x05 0x14 0x05 0x15 0x05 0x16>;
 			reset-names = "sor0\0hda_rst\0hda2codec_2x_rst\0hda2hdmi_rst";
 			nvidia,hpd-gpio = <0x13 0x60 0x00>;
-			nvidia,ddc-i2c-bus = <0x60>;
-			nvidia,active-panel = <0x61>;
-			linux,phandle = <0x5e>;
-			phandle = <0x5e>;
+			nvidia,ddc-i2c-bus = <0x62>;
+			nvidia,active-panel = <0x63>;
+			linux,phandle = <0x60>;
+			phandle = <0x60>;
 
 			hdmi-display {
 				compatible = "hdmi,display";
 				status = "disabled";
 				generic-infoframe-type = <0x87>;
-				linux,phandle = <0x139>;
-				phandle = <0x139>;
+				linux,phandle = <0x13e>;
+				phandle = <0x13e>;
 
 				disp-default-out {
 					nvidia,out-type = <0x01>;
@@ -4505,8 +4529,8 @@
 				status = "okay";
 				nvidia,is_ext_dp_panel = <0x01>;
 				nvidia,pc2-disabled;
-				linux,phandle = <0x61>;
-				phandle = <0x61>;
+				linux,phandle = <0x63>;
+				phandle = <0x63>;
 
 				disp-default-out {
 					nvidia,out-type = <0x03>;
@@ -4599,24 +4623,24 @@
 			compatible = "nvidia,tegra194-sor";
 			reg = <0x00 0x15b40000 0x00 0x40000>;
 			nvidia,sor-ctrlnum = <0x01>;
-			nvidia,dpaux = <0x62>;
+			nvidia,dpaux = <0x64>;
 			nvidia,xbar-ctrl = <0x02 0x01 0x00 0x03 0x04>;
 			clocks = <0x04 0x81 0x04 0x83 0x04 0x82 0x04 0x80 0x04 0x62 0x04 0x66 0x04 0x47 0x04 0x2b 0x04 0x2c 0x04 0x2d>;
 			clock-names = "sor1_ref\0sor_safe\0sor1_pad_clkout\0sor1\0pll_dp\0pllp_out0\0maud\0hda\0hda2codec_2x\0hda2hdmi";
 			resets = <0x05 0x58 0x05 0x14 0x05 0x15 0x05 0x16>;
 			reset-names = "sor1\0hda_rst\0hda2codec_2x_rst\0hda2hdmi_rst";
 			nvidia,hpd-gpio = <0x13 0x61 0x00>;
-			nvidia,ddc-i2c-bus = <0x63>;
-			nvidia,active-panel = <0x64>;
-			linux,phandle = <0x5a>;
-			phandle = <0x5a>;
+			nvidia,ddc-i2c-bus = <0x65>;
+			nvidia,active-panel = <0x66>;
+			linux,phandle = <0x5c>;
+			phandle = <0x5c>;
 
 			hdmi-display {
 				compatible = "hdmi,display";
 				status = "okay";
 				generic-infoframe-type = <0x87>;
-				linux,phandle = <0x64>;
-				phandle = <0x64>;
+				linux,phandle = <0x66>;
+				phandle = <0x66>;
 
 				disp-default-out {
 					nvidia,out-type = <0x01>;
@@ -4633,8 +4657,8 @@
 				status = "disabled";
 				nvidia,is_ext_dp_panel = <0x01>;
 				nvidia,pc2-disabled;
-				linux,phandle = <0x13a>;
-				phandle = <0x13a>;
+				linux,phandle = <0x13f>;
+				phandle = <0x13f>;
 
 				disp-default-out {
 					nvidia,out-type = <0x03>;
@@ -4727,23 +4751,23 @@
 			compatible = "nvidia,tegra194-sor";
 			reg = <0x00 0x15b80000 0x00 0x40000>;
 			nvidia,sor-ctrlnum = <0x02>;
-			nvidia,dpaux = <0x65>;
+			nvidia,dpaux = <0x67>;
 			nvidia,xbar-ctrl = <0x02 0x01 0x00 0x03 0x04>;
 			clocks = <0x04 0xb3 0x04 0x83 0x04 0xb4 0x04 0xb2 0x04 0x62 0x04 0x66 0x04 0x47 0x04 0x2b 0x04 0x2c 0x04 0x2d>;
 			clock-names = "sor2_ref\0sor_safe\0sor2_pad_clkout\0sor2\0pll_dp\0pllp_out0\0maud\0hda\0hda2codec_2x\0hda2hdmi";
 			resets = <0x05 0x59 0x05 0x14 0x05 0x15 0x05 0x16>;
 			reset-names = "sor2\0hda_rst\0hda2codec_2x_rst\0hda2hdmi_rst";
 			nvidia,hpd-gpio = <0x13 0x62 0x00>;
-			nvidia,ddc-i2c-bus = <0x66>;
-			linux,phandle = <0x13b>;
-			phandle = <0x13b>;
+			nvidia,ddc-i2c-bus = <0x68>;
+			linux,phandle = <0x140>;
+			phandle = <0x140>;
 
 			hdmi-display {
 				compatible = "hdmi,display";
 				status = "disabled";
 				generic-infoframe-type = <0x87>;
-				linux,phandle = <0x13c>;
-				phandle = <0x13c>;
+				linux,phandle = <0x141>;
+				phandle = <0x141>;
 
 				disp-default-out {
 					nvidia,out-type = <0x01>;
@@ -4759,8 +4783,8 @@
 				status = "disabled";
 				nvidia,is_ext_dp_panel = <0x01>;
 				nvidia,pc2-disabled;
-				linux,phandle = <0x13d>;
-				phandle = <0x13d>;
+				linux,phandle = <0x142>;
+				phandle = <0x142>;
 
 				disp-default-out {
 					nvidia,out-type = <0x03>;
@@ -4853,23 +4877,23 @@
 			compatible = "nvidia,tegra194-sor";
 			reg = <0x00 0x15bc0000 0x00 0x40000>;
 			nvidia,sor-ctrlnum = <0x03>;
-			nvidia,dpaux = <0x67>;
+			nvidia,dpaux = <0x69>;
 			nvidia,xbar-ctrl = <0x02 0x01 0x00 0x03 0x04>;
 			clocks = <0x04 0xb6 0x04 0x83 0x04 0xb7 0x04 0xb5 0x04 0x62 0x04 0x66 0x04 0x47 0x04 0x2b 0x04 0x2c 0x04 0x2d>;
 			clock-names = "sor3_ref\0sor_safe\0sor3_pad_clkout\0sor3\0pll_dp\0pllp_out0\0maud\0hda\0hda2codec_2x\0hda2hdmi";
 			resets = <0x05 0x5a 0x05 0x14 0x05 0x15 0x05 0x16>;
 			reset-names = "sor3\0hda_rst\0hda2codec_2x_rst\0hda2hdmi_rst";
 			nvidia,hpd-gpio = <0x13 0x63 0x00>;
-			nvidia,ddc-i2c-bus = <0x68>;
-			linux,phandle = <0x13e>;
-			phandle = <0x13e>;
+			nvidia,ddc-i2c-bus = <0x6a>;
+			linux,phandle = <0x143>;
+			phandle = <0x143>;
 
 			hdmi-display {
 				compatible = "hdmi,display";
 				status = "disabled";
 				generic-infoframe-type = <0x87>;
-				linux,phandle = <0x13f>;
-				phandle = <0x13f>;
+				linux,phandle = <0x144>;
+				phandle = <0x144>;
 
 				disp-default-out {
 					nvidia,out-type = <0x01>;
@@ -4885,8 +4909,8 @@
 				status = "disabled";
 				nvidia,is_ext_dp_panel = <0x01>;
 				nvidia,pc2-disabled;
-				linux,phandle = <0x140>;
-				phandle = <0x140>;
+				linux,phandle = <0x145>;
+				phandle = <0x145>;
 
 				disp-default-out {
 					nvidia,out-type = <0x03>;
@@ -4984,9 +5008,9 @@
 			clock-names = "dpaux";
 			resets = <0x05 0x08>;
 			reset-names = "dpaux";
-			power-domains = <0x69>;
-			linux,phandle = <0x5f>;
-			phandle = <0x5f>;
+			power-domains = <0x6b>;
+			linux,phandle = <0x61>;
+			phandle = <0x61>;
 
 			prod-settings {
 				#prod-cells = <0x04>;
@@ -5011,9 +5035,9 @@
 			clock-names = "dpaux1";
 			resets = <0x05 0x09>;
 			reset-names = "dpaux1";
-			power-domains = <0x69>;
-			linux,phandle = <0x62>;
-			phandle = <0x62>;
+			power-domains = <0x6b>;
+			linux,phandle = <0x64>;
+			phandle = <0x64>;
 
 			prod-settings {
 				#prod-cells = <0x04>;
@@ -5038,9 +5062,9 @@
 			clock-names = "dpaux2";
 			resets = <0x05 0x0a>;
 			reset-names = "dpaux2";
-			power-domains = <0x69>;
-			linux,phandle = <0x65>;
-			phandle = <0x65>;
+			power-domains = <0x6b>;
+			linux,phandle = <0x67>;
+			phandle = <0x67>;
 
 			prod-settings {
 				#prod-cells = <0x04>;
@@ -5065,8 +5089,8 @@
 			clock-names = "dpaux3";
 			resets = <0x05 0x0b>;
 			reset-names = "dpaux3";
-			linux,phandle = <0x67>;
-			phandle = <0x67>;
+			linux,phandle = <0x69>;
+			phandle = <0x69>;
 
 			prod-settings {
 				#prod-cells = <0x04>;
@@ -5081,8 +5105,8 @@
 			};
 
 			pinmux@0 {
-				linux,phandle = <0x26>;
-				phandle = <0x26>;
+				linux,phandle = <0x28>;
+				phandle = <0x28>;
 
 				dpaux3_pins {
 					pins = "dpaux3-3";
@@ -5098,8 +5122,8 @@
 			interrupts = <0x00 0xa2 0x04>;
 			clocks = <0x04 0x0d>;
 			clock-names = "cec";
-			linux,phandle = <0x141>;
-			phandle = <0x141>;
+			linux,phandle = <0x146>;
+			phandle = <0x146>;
 		};
 
 		vi@15c10000 {
@@ -5110,13 +5134,13 @@
 			clocks = <0x04 0xa6 0x04 0xc4 0x04 0x51 0x04 0x52>;
 			clock-names = "vi\0vi-const\0nvcsi\0nvcsilp";
 			power-domains = <0x03 0x0c>;
-			nvidia,vi-falcon-device = <0x6a>;
+			nvidia,vi-falcon-device = <0x6c>;
 			iommus = <0x02 0x04>;
 			iso-smmu;
 			non-coherent;
 			num-channels = <0x02>;
-			linux,phandle = <0x47>;
-			phandle = <0x47>;
+			linux,phandle = <0x49>;
+			phandle = <0x49>;
 
 			ports {
 				#address-cells = <0x01>;
@@ -5124,29 +5148,29 @@
 
 				port@0 {
 					reg = <0x00>;
-					linux,phandle = <0x142>;
-					phandle = <0x142>;
+					linux,phandle = <0x147>;
+					phandle = <0x147>;
 
 					endpoint {
 						port-index = <0x00>;
 						bus-width = <0x02>;
-						remote-endpoint = <0x6b>;
-						linux,phandle = <0x6f>;
-						phandle = <0x6f>;
+						remote-endpoint = <0x6d>;
+						linux,phandle = <0x71>;
+						phandle = <0x71>;
 					};
 				};
 
 				port@1 {
 					reg = <0x01>;
-					linux,phandle = <0x143>;
-					phandle = <0x143>;
+					linux,phandle = <0x148>;
+					phandle = <0x148>;
 
 					endpoint {
 						port-index = <0x02>;
 						bus-width = <0x02>;
-						remote-endpoint = <0x6c>;
-						linux,phandle = <0x71>;
-						phandle = <0x71>;
+						remote-endpoint = <0x6e>;
+						linux,phandle = <0x73>;
+						phandle = <0x73>;
 					};
 				};
 			};
@@ -5157,8 +5181,8 @@
 			clocks = <0x04 0xa6 0x04 0xc4>;
 			clock-names = "vi\0vi-const";
 			power-domains = <0x03 0x0c>;
-			linux,phandle = <0x6a>;
-			phandle = <0x6a>;
+			linux,phandle = <0x6c>;
+			phandle = <0x6c>;
 		};
 
 		isp@14800000 {
@@ -5169,18 +5193,18 @@
 			clocks = <0x04 0x45>;
 			clock-names = "isp";
 			power-domains = <0x03 0x05>;
-			nvidia,isp-falcon-device = <0x6d>;
+			nvidia,isp-falcon-device = <0x6f>;
 			iommus = <0x02 0x05>;
 			dma-coherent;
-			linux,phandle = <0x46>;
-			phandle = <0x46>;
+			linux,phandle = <0x48>;
+			phandle = <0x48>;
 		};
 
 		isp-thi@14b00000 {
 			compatible = "nvidia,tegra194-isp-thi";
 			reg = <0x00 0x14b00000 0x00 0x100000>;
-			linux,phandle = <0x6d>;
-			phandle = <0x6d>;
+			linux,phandle = <0x6f>;
+			phandle = <0x6f>;
 		};
 
 		nvcsi@15a00000 {
@@ -5195,8 +5219,8 @@
 			num-channels = <0x02>;
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
-			linux,phandle = <0x48>;
-			phandle = <0x48>;
+			linux,phandle = <0x4a>;
+			phandle = <0x4a>;
 
 			prod-settings {
 				#prod-cells = <0x04>;
@@ -5216,8 +5240,8 @@
 
 			channel@0 {
 				reg = <0x00>;
-				linux,phandle = <0x144>;
-				phandle = <0x144>;
+				linux,phandle = <0x149>;
+				phandle = <0x149>;
 
 				ports {
 					#address-cells = <0x01>;
@@ -5225,27 +5249,27 @@
 
 					port@0 {
 						reg = <0x00>;
-						linux,phandle = <0x145>;
-						phandle = <0x145>;
+						linux,phandle = <0x14a>;
+						phandle = <0x14a>;
 
 						endpoint@0 {
 							port-index = <0x00>;
 							bus-width = <0x02>;
-							remote-endpoint = <0x6e>;
-							linux,phandle = <0xcf>;
-							phandle = <0xcf>;
+							remote-endpoint = <0x70>;
+							linux,phandle = <0xd4>;
+							phandle = <0xd4>;
 						};
 					};
 
 					port@1 {
 						reg = <0x01>;
-						linux,phandle = <0x146>;
-						phandle = <0x146>;
+						linux,phandle = <0x14b>;
+						phandle = <0x14b>;
 
 						endpoint@1 {
-							remote-endpoint = <0x6f>;
-							linux,phandle = <0x6b>;
-							phandle = <0x6b>;
+							remote-endpoint = <0x71>;
+							linux,phandle = <0x6d>;
+							phandle = <0x6d>;
 						};
 					};
 				};
@@ -5253,8 +5277,8 @@
 
 			channel@1 {
 				reg = <0x01>;
-				linux,phandle = <0x147>;
-				phandle = <0x147>;
+				linux,phandle = <0x14c>;
+				phandle = <0x14c>;
 
 				ports {
 					#address-cells = <0x01>;
@@ -5262,27 +5286,27 @@
 
 					port@0 {
 						reg = <0x00>;
-						linux,phandle = <0x148>;
-						phandle = <0x148>;
+						linux,phandle = <0x14d>;
+						phandle = <0x14d>;
 
 						endpoint@2 {
 							port-index = <0x02>;
 							bus-width = <0x02>;
-							remote-endpoint = <0x70>;
-							linux,phandle = <0xd0>;
-							phandle = <0xd0>;
+							remote-endpoint = <0x72>;
+							linux,phandle = <0xd5>;
+							phandle = <0xd5>;
 						};
 					};
 
 					port@1 {
 						reg = <0x01>;
-						linux,phandle = <0x149>;
-						phandle = <0x149>;
+						linux,phandle = <0x14e>;
+						phandle = <0x14e>;
 
 						endpoint@3 {
-							remote-endpoint = <0x71>;
-							linux,phandle = <0x6c>;
-							phandle = <0x6c>;
+							remote-endpoint = <0x73>;
+							linux,phandle = <0x6e>;
+							phandle = <0x6e>;
 						};
 					};
 				};
@@ -5298,11 +5322,11 @@
 			clocks = <0x04 0xfc 0x04 0xfd 0x04 0x66>;
 			clock-names = "slvs-ec\0slvs-ec-lp\0slvs-ec-parent";
 			interrupts = <0x00 0x4a 0x04 0x00 0xff 0x04>;
-			nvidia,vi-device = <0x6a>;
+			nvidia,vi-device = <0x6c>;
 			interrupt-names = "slvs-ec\0syncgen";
 			status = "disabled";
-			linux,phandle = <0x14a>;
-			phandle = <0x14a>;
+			linux,phandle = <0x14f>;
+			phandle = <0x14f>;
 		};
 
 		pva0 {
@@ -5315,8 +5339,8 @@
 			clock-names = "axi\0vps0\0vps1";
 			iommus = <0x02 0x53>;
 			dma-coherent;
-			linux,phandle = <0x98>;
-			phandle = <0x98>;
+			linux,phandle = <0x9d>;
+			phandle = <0x9d>;
 
 			prod-settings {
 				#prod-cells = <0x04>;
@@ -5337,8 +5361,8 @@
 			clock-names = "axi\0vps0\0vps1";
 			iommus = <0x02 0x54>;
 			dma-coherent;
-			linux,phandle = <0x99>;
-			phandle = <0x99>;
+			linux,phandle = <0x9e>;
+			phandle = <0x9e>;
 
 			prod-settings {
 				#prod-cells = <0x04>;
@@ -5457,15 +5481,15 @@
 		dma-coherent;
 		reg = <0x00 0xc1a0000 0x00 0x40000>;
 		#mbox-cells = <0x01>;
-		nvidia,hsp-shared-mailbox = <0x72 0x02>;
+		nvidia,hsp-shared-mailbox = <0x74 0x02>;
 		nvidia,hsp-shared-mailbox-names = "ivc-pair";
 		nvidia,ivc-carveout-base-ss = <0x00>;
 		nvidia,ivc-carveout-size-ss = <0x01>;
 		nvidia,ivc-rx-ss = <0x02>;
 		nvidia,ivc-tx-ss = <0x03>;
 		nvidia,ivc-dbg-enable-ss = <0x00>;
-		linux,phandle = <0x73>;
-		phandle = <0x73>;
+		linux,phandle = <0x75>;
+		phandle = <0x75>;
 
 		ivc-channels@80000000 {
 			#address-cells = <0x01>;
@@ -5517,22 +5541,22 @@
 
 	aondbg {
 		compatible = "nvidia,tegra186-aondbg";
-		mboxes = <0x73 0x01>;
+		mboxes = <0x75 0x01>;
 		status = "okay";
 	};
 
 	aon_shub {
 		status = "disabled";
 		compatible = "nvidia,tegra186_aon_shub";
-		mboxes = <0x73 0x05>;
+		mboxes = <0x75 0x05>;
 	};
 
 	aonclk {
 		compatible = "nvidia,tegra-aon-clks";
 		#clock-cells = <0x01>;
 		status = "okay";
-		linux,phandle = <0xcd>;
-		phandle = <0xcd>;
+		linux,phandle = <0xd2>;
+		phandle = <0xd2>;
 	};
 
 	cpus {
@@ -5541,8 +5565,8 @@
 
 		cpu_core_power_states {
 			compatible = "nvidia,tegra194-cpuidle-core";
-			linux,phandle = <0x14b>;
-			phandle = <0x14b>;
+			linux,phandle = <0x150>;
+			phandle = <0x150>;
 
 			c1 {
 				compatible = "nvidia,tegra194-cpuidle-core";
@@ -5552,8 +5576,8 @@
 				power = <0x46>;
 				pmstate = <0x01>;
 				status = "okay";
-				linux,phandle = <0x14c>;
-				phandle = <0x14c>;
+				linux,phandle = <0x151>;
+				phandle = <0x151>;
 			};
 
 			c6 {
@@ -5565,8 +5589,8 @@
 				pmstate = <0x06>;
 				arm,psci-suspend-param = <0x06>;
 				status = "okay";
-				linux,phandle = <0x7c>;
-				phandle = <0x7c>;
+				linux,phandle = <0x7e>;
+				phandle = <0x7e>;
 			};
 
 			c7 {
@@ -5578,8 +5602,8 @@
 				pmstate = <0x07>;
 				arm,psci-suspend-param = <0x40000007>;
 				status = "disabled";
-				linux,phandle = <0x7d>;
-				phandle = <0x7d>;
+				linux,phandle = <0x7f>;
+				phandle = <0x7f>;
 			};
 		};
 
@@ -5610,17 +5634,6 @@
 			cluster0 {
 
 				core0 {
-					cpu = <0x74>;
-				};
-
-				core1 {
-					cpu = <0x75>;
-				};
-			};
-
-			cluster1 {
-
-				core0 {
 					cpu = <0x76>;
 				};
 
@@ -5629,7 +5642,7 @@
 				};
 			};
 
-			cluster2 {
+			cluster1 {
 
 				core0 {
 					cpu = <0x78>;
@@ -5640,7 +5653,7 @@
 				};
 			};
 
-			cluster3 {
+			cluster2 {
 
 				core0 {
 					cpu = <0x7a>;
@@ -5650,6 +5663,17 @@
 					cpu = <0x7b>;
 				};
 			};
+
+			cluster3 {
+
+				core0 {
+					cpu = <0x7c>;
+				};
+
+				core1 {
+					cpu = <0x7d>;
+				};
+			};
 		};
 
 		cpu@0 {
@@ -5657,18 +5681,18 @@
 			compatible = "nvidia,carmel\0arm,armv8";
 			reg = <0x00 0x10000>;
 			enable-method = "psci";
-			cpu-idle-states = <0x7c 0x7d>;
+			cpu-idle-states = <0x7e 0x7f>;
 			i-cache-size = <0x20000>;
 			i-cache-line-size = <0x40>;
 			i-cache-sets = <0x200>;
 			d-cache-size = <0x10000>;
 			d-cache-line-size = <0x40>;
 			d-cache-sets = <0x100>;
-			l2-cache = <0x7e>;
+			l2-cache = <0x80>;
 			capacity-dmips-mhz = <0x400>;
-			sched-energy-costs = <0x7f 0x7f>;
-			linux,phandle = <0x74>;
-			phandle = <0x74>;
+			sched-energy-costs = <0x81 0x81>;
+			linux,phandle = <0x76>;
+			phandle = <0x76>;
 		};
 
 		cpu@1 {
@@ -5676,19 +5700,19 @@
 			compatible = "nvidia,carmel\0arm,armv8";
 			reg = <0x00 0x10001>;
 			enable-method = "psci";
-			cpu-idle-states = <0x7c 0x7d>;
+			cpu-idle-states = <0x7e 0x7f>;
 			i-cache-size = <0x20000>;
 			i-cache-line-size = <0x40>;
 			i-cache-sets = <0x200>;
 			d-cache-size = <0x10000>;
 			d-cache-line-size = <0x40>;
 			d-cache-sets = <0x100>;
-			l2-cache = <0x7e>;
+			l2-cache = <0x80>;
 			capacity-dmips-mhz = <0x400>;
-			sched-energy-costs = <0x7f 0x7f>;
+			sched-energy-costs = <0x81 0x81>;
 			status = "okay";
-			linux,phandle = <0x75>;
-			phandle = <0x75>;
+			linux,phandle = <0x77>;
+			phandle = <0x77>;
 		};
 
 		cpu@2 {
@@ -5696,19 +5720,19 @@
 			compatible = "nvidia,carmel\0arm,armv8";
 			reg = <0x00 0x100>;
 			enable-method = "psci";
-			cpu-idle-states = <0x7c 0x7d>;
+			cpu-idle-states = <0x7e 0x7f>;
 			i-cache-size = <0x20000>;
 			i-cache-line-size = <0x40>;
 			i-cache-sets = <0x200>;
 			d-cache-size = <0x10000>;
 			d-cache-line-size = <0x40>;
 			d-cache-sets = <0x100>;
-			l2-cache = <0x80>;
+			l2-cache = <0x82>;
 			capacity-dmips-mhz = <0x400>;
-			sched-energy-costs = <0x7f 0x7f>;
+			sched-energy-costs = <0x81 0x81>;
 			status = "okay";
-			linux,phandle = <0x76>;
-			phandle = <0x76>;
+			linux,phandle = <0x78>;
+			phandle = <0x78>;
 		};
 
 		cpu@3 {
@@ -5716,19 +5740,19 @@
 			compatible = "nvidia,carmel\0arm,armv8";
 			reg = <0x00 0x101>;
 			enable-method = "psci";
-			cpu-idle-states = <0x7c 0x7d>;
+			cpu-idle-states = <0x7e 0x7f>;
 			i-cache-size = <0x20000>;
 			i-cache-line-size = <0x40>;
 			i-cache-sets = <0x200>;
 			d-cache-size = <0x10000>;
 			d-cache-line-size = <0x40>;
 			d-cache-sets = <0x100>;
-			l2-cache = <0x80>;
+			l2-cache = <0x82>;
 			capacity-dmips-mhz = <0x400>;
-			sched-energy-costs = <0x7f 0x7f>;
+			sched-energy-costs = <0x81 0x81>;
 			status = "okay";
-			linux,phandle = <0x77>;
-			phandle = <0x77>;
+			linux,phandle = <0x79>;
+			phandle = <0x79>;
 		};
 
 		cpu@4 {
@@ -5736,19 +5760,19 @@
 			compatible = "nvidia,carmel\0arm,armv8";
 			reg = <0x00 0x200>;
 			enable-method = "psci";
-			cpu-idle-states = <0x7c 0x7d>;
+			cpu-idle-states = <0x7e 0x7f>;
 			i-cache-size = <0x20000>;
 			i-cache-line-size = <0x40>;
 			i-cache-sets = <0x200>;
 			d-cache-size = <0x10000>;
 			d-cache-line-size = <0x40>;
 			d-cache-sets = <0x100>;
-			l2-cache = <0x81>;
+			l2-cache = <0x83>;
 			capacity-dmips-mhz = <0x400>;
-			sched-energy-costs = <0x7f 0x7f>;
+			sched-energy-costs = <0x81 0x81>;
 			status = "okay";
-			linux,phandle = <0x78>;
-			phandle = <0x78>;
+			linux,phandle = <0x7a>;
+			phandle = <0x7a>;
 		};
 
 		cpu@5 {
@@ -5756,19 +5780,19 @@
 			compatible = "nvidia,carmel\0arm,armv8";
 			reg = <0x00 0x201>;
 			enable-method = "psci";
-			cpu-idle-states = <0x7c 0x7d>;
+			cpu-idle-states = <0x7e 0x7f>;
 			i-cache-size = <0x20000>;
 			i-cache-line-size = <0x40>;
 			i-cache-sets = <0x200>;
 			d-cache-size = <0x10000>;
 			d-cache-line-size = <0x40>;
 			d-cache-sets = <0x100>;
-			l2-cache = <0x81>;
+			l2-cache = <0x83>;
 			capacity-dmips-mhz = <0x400>;
-			sched-energy-costs = <0x7f 0x7f>;
+			sched-energy-costs = <0x81 0x81>;
 			status = "okay";
-			linux,phandle = <0x79>;
-			phandle = <0x79>;
+			linux,phandle = <0x7b>;
+			phandle = <0x7b>;
 		};
 
 		cpu@6 {
@@ -5776,19 +5800,19 @@
 			compatible = "nvidia,carmel\0arm,armv8";
 			reg = <0x00 0x10300>;
 			enable-method = "psci";
-			cpu-idle-states = <0x7c 0x7d>;
+			cpu-idle-states = <0x7e 0x7f>;
 			i-cache-size = <0x20000>;
 			i-cache-line-size = <0x40>;
 			i-cache-sets = <0x200>;
 			d-cache-size = <0x10000>;
 			d-cache-line-size = <0x40>;
 			d-cache-sets = <0x100>;
-			l2-cache = <0x82>;
+			l2-cache = <0x84>;
 			capacity-dmips-mhz = <0x400>;
-			sched-energy-costs = <0x7f 0x7f>;
+			sched-energy-costs = <0x81 0x81>;
 			status = "okay";
-			linux,phandle = <0x7a>;
-			phandle = <0x7a>;
+			linux,phandle = <0x7c>;
+			phandle = <0x7c>;
 		};
 
 		cpu@7 {
@@ -5796,19 +5820,19 @@
 			compatible = "nvidia,carmel\0arm,armv8";
 			reg = <0x00 0x10301>;
 			enable-method = "psci";
-			cpu-idle-states = <0x7c 0x7d>;
+			cpu-idle-states = <0x7e 0x7f>;
 			i-cache-size = <0x20000>;
 			i-cache-line-size = <0x40>;
 			i-cache-sets = <0x200>;
 			d-cache-size = <0x10000>;
 			d-cache-line-size = <0x40>;
 			d-cache-sets = <0x100>;
-			l2-cache = <0x82>;
+			l2-cache = <0x84>;
 			capacity-dmips-mhz = <0x400>;
-			sched-energy-costs = <0x7f 0x7f>;
+			sched-energy-costs = <0x81 0x81>;
 			status = "okay";
-			linux,phandle = <0x7b>;
-			phandle = <0x7b>;
+			linux,phandle = <0x7d>;
+			phandle = <0x7d>;
 		};
 	};
 
@@ -5816,67 +5840,67 @@
 		cache-size = <0x200000>;
 		cache-line-size = <0x40>;
 		cache-sets = <0x800>;
-		next-level-cache = <0x83>;
-		linux,phandle = <0x7e>;
-		phandle = <0x7e>;
+		next-level-cache = <0x85>;
+		linux,phandle = <0x80>;
+		phandle = <0x80>;
 	};
 
 	l2-cache1 {
 		cache-size = <0x200000>;
 		cache-line-size = <0x40>;
 		cache-sets = <0x800>;
-		next-level-cache = <0x83>;
+		next-level-cache = <0x85>;
 		status = "okay";
-		linux,phandle = <0x80>;
-		phandle = <0x80>;
+		linux,phandle = <0x82>;
+		phandle = <0x82>;
 	};
 
 	l2-cache2 {
 		cache-size = <0x200000>;
 		cache-line-size = <0x40>;
 		cache-sets = <0x800>;
-		next-level-cache = <0x83>;
+		next-level-cache = <0x85>;
 		status = "okay";
-		linux,phandle = <0x81>;
-		phandle = <0x81>;
+		linux,phandle = <0x83>;
+		phandle = <0x83>;
 	};
 
 	l2-cache3 {
 		cache-size = <0x200000>;
 		cache-line-size = <0x40>;
 		cache-sets = <0x800>;
-		next-level-cache = <0x83>;
+		next-level-cache = <0x85>;
 		status = "okay";
-		linux,phandle = <0x82>;
-		phandle = <0x82>;
+		linux,phandle = <0x84>;
+		phandle = <0x84>;
 	};
 
 	l3-cache {
 		cache-size = <0x400000>;
 		cache-line-size = <0x40>;
 		cache-sets = <0x1000>;
-		linux,phandle = <0x83>;
-		phandle = <0x83>;
+		linux,phandle = <0x85>;
+		phandle = <0x85>;
 	};
 
 	core-cost1 {
 		busy-cost-data = <0x400 0x400>;
 		idle-cost-data = <0x80>;
-		linux,phandle = <0x7f>;
-		phandle = <0x7f>;
+		linux,phandle = <0x81>;
+		phandle = <0x81>;
 	};
 
 	arm-pmu {
 		compatible = "arm,armv8-pmuv3";
 		interrupts = <0x00 0x180 0x04 0x00 0x181 0x04 0x00 0x182 0x04 0x00 0x183 0x04 0x00 0x184 0x04 0x00 0x185 0x04 0x00 0x186 0x04 0x00 0x187 0x04>;
-		interrupt-affinity = <0x74 0x75 0x76 0x77 0x78 0x79 0x7a 0x7b>;
+		interrupt-affinity = <0x76 0x77 0x78 0x79 0x7a 0x7b 0x7c 0x7d>;
 		status = "okay";
 	};
 
 	carmel-pmu {
 		compatible = "nvidia,carmel-pmu";
 		interrupts = <0x00 0x16d 0x04>;
-		interrupt-affinity = <0x74>;
+		interrupt-affinity = <0x76>;
 		status = "okay";
 	};
 
@@ -5896,8 +5920,8 @@
 			compatible = "nvidia,tegra186-bpmp-thermal";
 			#thermal-sensor-cells = <0x01>;
 			status = "okay";
-			linux,phandle = <0x84>;
-			phandle = <0x84>;
+			linux,phandle = <0x86>;
+			phandle = <0x86>;
 		};
 	};
 
@@ -5907,7 +5931,7 @@
 		CPU-therm {
 			polling-delay = <0x00>;
 			polling-delay-passive = <0x1f4>;
-			thermal-sensors = <0x84 0x05>;
+			thermal-sensors = <0x86 0x05>;
 			status = "okay";
 
 			trips {
@@ -5916,40 +5940,40 @@
 					temperature = <0xffff63c0>;
 					hysteresis = <0x1388>;
 					type = "active";
-					linux,phandle = <0x85>;
-					phandle = <0x85>;
+					linux,phandle = <0x87>;
+					phandle = <0x87>;
 				};
 
 				eqos-m5@-5000 {
 					temperature = <0xffffec78>;
 					hysteresis = <0x1388>;
 					type = "active";
-					linux,phandle = <0x87>;
-					phandle = <0x87>;
+					linux,phandle = <0x89>;
+					phandle = <0x89>;
 				};
 
 				eqos-p30@30000 {
 					temperature = <0x7530>;
 					hysteresis = <0x1388>;
 					type = "active";
-					linux,phandle = <0x88>;
-					phandle = <0x88>;
+					linux,phandle = <0x8a>;
+					phandle = <0x8a>;
 				};
 
 				eqos-p65@65000 {
 					temperature = <0xfde8>;
 					hysteresis = <0x1388>;
 					type = "active";
-					linux,phandle = <0x89>;
-					phandle = <0x89>;
+					linux,phandle = <0x8b>;
+					phandle = <0x8b>;
 				};
 
 				eqos-p100@100000 {
 					temperature = <0x186a0>;
 					hysteresis = <0x1388>;
 					type = "active";
-					linux,phandle = <0x8a>;
-					phandle = <0x8a>;
+					linux,phandle = <0x8c>;
+					phandle = <0x8c>;
 				};
 
 				trip_critical {
@@ -5964,47 +5988,52 @@
 					type = "passive";
 					hysteresis = <0x00>;
 					writable;
-					linux,phandle = <0x8b>;
-					phandle = <0x8b>;
+					linux,phandle = <0x8d>;
+					phandle = <0x8d>;
 				};
 			};
 
 			cooling-maps {
 
 				map_eqos_m40 {
-					trip = <0x85>;
-					cooling-device = <0x86 0x01 0x01>;
+					trip = <0x87>;
+					cooling-device = <0x88 0x01 0x01>;
 					cdev-type = "tegra-eqos";
 				};
 
 				map_eqos_m5 {
-					trip = <0x87>;
-					cooling-device = <0x86 0x02 0x02>;
+					trip = <0x89>;
+					cooling-device = <0x88 0x02 0x02>;
 					cdev-type = "tegra-eqos";
 				};
 
 				map_eqos_p30 {
-					trip = <0x88>;
-					cooling-device = <0x86 0x03 0x03>;
+					trip = <0x8a>;
+					cooling-device = <0x88 0x03 0x03>;
 					cdev-type = "tegra-eqos";
 				};
 
 				map_eqos_p65 {
-					trip = <0x89>;
-					cooling-device = <0x86 0x04 0x04>;
+					trip = <0x8b>;
+					cooling-device = <0x88 0x04 0x04>;
 					cdev-type = "tegra-eqos";
 				};
 
 				map_eqos_p100 {
-					trip = <0x8a>;
-					cooling-device = <0x86 0x05 0x05>;
+					trip = <0x8c>;
+					cooling-device = <0x88 0x05 0x05>;
 					cdev-type = "tegra-eqos";
 				};
 
 				map0 {
-					trip = <0x8b>;
+					trip = <0x8d>;
 					cdev-type = "cpu-balanced";
-					cooling-device = <0x8c 0xffffffff 0xffffffff>;
+					cooling-device = <0x8e 0xffffffff 0xffffffff>;
+				};
+
+				user-alert-map0 {
+					trip = <0x8d>;
+					cooling-device = <0x8f 0x01 0x01>;
 				};
 			};
 
@@ -6016,7 +6045,7 @@
 		GPU-therm {
 			polling-delay = <0x00>;
 			polling-delay-passive = <0x1f4>;
-			thermal-sensors = <0x84 0x03>;
+			thermal-sensors = <0x86 0x03>;
 			status = "okay";
 
 			thermal-zone-params {
@@ -6037,17 +6066,22 @@
 					type = "passive";
 					hysteresis = <0x00>;
 					writable;
-					linux,phandle = <0x8d>;
-					phandle = <0x8d>;
+					linux,phandle = <0x90>;
+					phandle = <0x90>;
 				};
 			};
 
 			cooling-maps {
 
 				map0 {
-					trip = <0x8d>;
+					trip = <0x90>;
 					cdev-type = "gpu-balanced";
-					cooling-device = <0x8e 0xffffffff 0xffffffff>;
+					cooling-device = <0x91 0xffffffff 0xffffffff>;
+				};
+
+				user-alert-map0 {
+					trip = <0x90>;
+					cooling-device = <0x92 0x01 0x01>;
 				};
 			};
 		};
@@ -6055,7 +6089,7 @@
 		AUX-therm {
 			polling-delay = <0x00>;
 			polling-delay-passive = <0x1f4>;
-			thermal-sensors = <0x84 0x04>;
+			thermal-sensors = <0x86 0x04>;
 			status = "okay";
 
 			trips {
@@ -6072,17 +6106,22 @@
 					type = "passive";
 					hysteresis = <0x00>;
 					writable;
-					linux,phandle = <0x8f>;
-					phandle = <0x8f>;
+					linux,phandle = <0x93>;
+					phandle = <0x93>;
 				};
 			};
 
 			cooling-maps {
 
 				map0 {
-					trip = <0x8f>;
+					trip = <0x93>;
 					cdev-type = "aux-balanced";
-					cooling-device = <0x90 0xffffffff 0xffffffff>;
+					cooling-device = <0x94 0xffffffff 0xffffffff>;
+				};
+
+				user-alert-map0 {
+					trip = <0x93>;
+					cooling-device = <0x95 0x01 0x01>;
 				};
 			};
 		};
@@ -6090,10 +6129,10 @@
 		AO-therm {
 			polling-delay = <0x00>;
 			polling-delay-passive = <0x3e8>;
-			thermal-sensors = <0x84 0x06>;
+			thermal-sensors = <0x86 0x06>;
 			status = "okay";
-			linux,phandle = <0x14d>;
-			phandle = <0x14d>;
+			linux,phandle = <0x152>;
+			phandle = <0x152>;
 
 			thermal-zone-params {
 				governor-name = "step_wise";
@@ -6106,17 +6145,17 @@
 					type = "active";
 					hysteresis = <0xbb8>;
 					writable;
-					linux,phandle = <0x91>;
-					phandle = <0x91>;
+					linux,phandle = <0x96>;
+					phandle = <0x96>;
 				};
 			};
 
 			cooling-maps {
 
 				map0 {
-					trip = <0x91>;
+					trip = <0x96>;
 					cdev-type = "bwmgr-therm-handler";
-					cooling-device = <0x92 0xffffffff 0xffffffff>;
+					cooling-device = <0x97 0xffffffff 0xffffffff>;
 				};
 			};
 		};
@@ -6124,16 +6163,16 @@
 		tj-therm {
 			polling-delay = <0x00>;
 			polling-delay-passive = <0x3e8>;
-			thermal-sensors = <0x84 0x07>;
+			thermal-sensors = <0x86 0x07>;
 			status = "disabled";
-			linux,phandle = <0x14e>;
-			phandle = <0x14e>;
+			linux,phandle = <0x153>;
+			phandle = <0x153>;
 		};
 
 		PMIC-Die {
 			polling-delay = <0x00>;
 			polling-delay-passive = <0x00>;
-			thermal-sensors = <0x93>;
+			thermal-sensors = <0x98>;
 
 			trips {
 
@@ -6141,21 +6180,28 @@
 					temperature = <0x1d4c0>;
 					type = "active";
 					hysteresis = <0x00>;
-					linux,phandle = <0x94>;
-					phandle = <0x94>;
+					linux,phandle = <0x99>;
+					phandle = <0x99>;
 				};
 			};
 
 			cooling-maps {
 
 				map0 {
-					trip = <0x94>;
-					cooling-device = <0x95 0xffffffff 0xffffffff>;
+					trip = <0x99>;
+					cooling-device = <0x9a 0xffffffff 0xffffffff>;
 					contribution = <0x64>;
 					cdev-type = "emergency-balanced";
 				};
 			};
 		};
+	};
+
+	soctherm-oc-event {
+		compatible = "nvidia,tegra194-oc-event";
+		interrupts = <0x00 0x89 0x04>;
+		reg = <0x00 0xd280000 0x00 0xa40 0x00 0xd170000 0x00 0x04>;
+		status = "okay";
 	};
 
 	reserved-memory {
@@ -6170,8 +6216,8 @@
 			alloc-ranges = <0x00 0x00 0x01 0x00>;
 			no-map;
 			status = "disabled";
-			linux,phandle = <0x9b>;
-			phandle = <0x9b>;
+			linux,phandle = <0xa0>;
+			phandle = <0xa0>;
 		};
 
 		grid-of-semaphores {
@@ -6180,9 +6226,9 @@
 			alignment = <0x00 0x1000>;
 			no-map;
 			status = "okay";
-			cvdevs = <0x96 0x97 0x98 0x99 0x6a 0x6d>;
-			linux,phandle = <0x9a>;
-			phandle = <0x9a>;
+			cvdevs = <0x9b 0x9c 0x9d 0x9e 0x6c 0x6f>;
+			linux,phandle = <0x9f>;
+			phandle = <0x9f>;
 		};
 
 		ramoops_carveout {
@@ -6192,27 +6238,11 @@
 			alloc-ranges = <0x00 0x00 0x01 0x00>;
 			no-map;
 			status = "okay";
-			linux,phandle = <0x14f>;
-			phandle = <0x14f>;
+			linux,phandle = <0x154>;
+			phandle = <0x154>;
 		};
 
 		fb0_carveout {
-			reg = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
-			reg-names = "surface\0lut";
-			no-map;
-			linux,phandle = <0x4e>;
-			phandle = <0x4e>;
-		};
-
-		fb1_carveout {
-			reg = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
-			reg-names = "surface\0lut";
-			no-map;
-			linux,phandle = <0x4f>;
-			phandle = <0x4f>;
-		};
-
-		fb2_carveout {
 			reg = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
 			reg-names = "surface\0lut";
 			no-map;
@@ -6220,12 +6250,28 @@
 			phandle = <0x50>;
 		};
 
-		fb3_carveout {
+		fb1_carveout {
 			reg = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
 			reg-names = "surface\0lut";
 			no-map;
 			linux,phandle = <0x51>;
 			phandle = <0x51>;
+		};
+
+		fb2_carveout {
+			reg = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
+			reg-names = "surface\0lut";
+			no-map;
+			linux,phandle = <0x52>;
+			phandle = <0x52>;
+		};
+
+		fb3_carveout {
+			reg = <0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
+			reg-names = "surface\0lut";
+			no-map;
+			linux,phandle = <0x53>;
+			phandle = <0x53>;
 		};
 
 		vpr-carveout {
@@ -6234,14 +6280,14 @@
 			alignment = <0x00 0x400000>;
 			alloc-ranges = <0x00 0x80000000 0x00 0x70000000>;
 			reusable;
-			linux,phandle = <0x150>;
-			phandle = <0x150>;
+			linux,phandle = <0x155>;
+			phandle = <0x155>;
 		};
 	};
 
 	tegra-carveouts {
 		compatible = "nvidia,carveouts-t19x";
-		memory-region = <0x9a 0x9b>;
+		memory-region = <0x9f 0xa0>;
 		status = "okay";
 	};
 
@@ -6258,15 +6304,16 @@
 		compatible = "nvidia,tegra-cvnas";
 		power-domains = <0x03 0x1a>;
 		reg = <0x00 0x14000000 0x00 0x20000 0x00 0x14020000 0x00 0x10000 0x00 0xb240000 0x00 0x10000>;
-		clocks = <0x04 0x125>;
+		clocks = <0x04 0x125 0x04 0xd5 0x04 0x0e>;
+		clock-names = "cvnas\0nafll_cvnas\0clk_m";
 		resets = <0x05 0x83 0x05 0x84>;
 		reset-names = "rst\0rst_fcm";
 		interrupts = <0x00 0xee 0x04 0x00 0xef 0x04>;
 		cvsramslice = <0x04 0x1000>;
 		cvsram-reg = <0x00 0x50000000 0x00 0x400000>;
 		status = "okay";
-		linux,phandle = <0xb6>;
-		phandle = <0xb6>;
+		linux,phandle = <0xbb>;
+		phandle = <0xbb>;
 	};
 
 	timer {
@@ -6285,14 +6332,14 @@
 		status = "disabled";
 	};
 
-	irq: tegra194-pm-irq {
+	tegra194-pm-irq {
 		compatible = "nvidia,tegra194-pm-irq";
 		interrupt-controller;
 		#interrupt-cells = <0x03>;
 		interrupt-parent = <0x01>;
 		status = "okay";
-		linux,phandle = <0x24>;
-		phandle = <0x24>;
+		linux,phandle = <0x26>;
+		phandle = <0x26>;
 	};
 
 	clock@0 {
@@ -6316,11 +6363,11 @@
 	rtc@c2a0000 {
 		compatible = "nvidia,tegra18-rtc";
 		reg = <0x00 0xc2a0000 0x00 0x10000>;
-		interrupt-parent = <0x24>;
+		interrupt-parent = <0x26>;
 		interrupts = <0x00 0x0a 0x04>;
 		status = "okay";
-		linux,phandle = <0x151>;
-		phandle = <0x151>;
+		linux,phandle = <0x156>;
+		phandle = <0x156>;
 	};
 
 	mc_sid@2c00000 {
@@ -6344,207 +6391,207 @@
 		domains {
 
 			aon_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x16>;
 			};
 
 			ape_domain {
-				address-space = <0x9d>;
+				address-space = <0xa2>;
 				sid-list = <0x1e 0x14>;
 			};
 
 			bpmp_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x32>;
 			};
 
 			gpcdma_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x20>;
 			};
 
 			hda_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x12>;
 			};
 
 			host1x_domain {
-				address-space = <0x9e>;
+				address-space = <0xa3>;
 				sid-list = <0x01>;
 			};
 
 			host1x_client_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x03 0x06 0x07 0x08 0x51 0x52 0x55 0x5c 0x0a 0x0b>;
 			};
 
 			host1x0_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x38>;
 			};
 
 			host1x1_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x39>;
 			};
 
 			host1x2_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x3a>;
 			};
 
 			host1x3_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x3b>;
 			};
 
 			host1x4_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x3c>;
 			};
 
 			host1x5_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x3d>;
 			};
 
 			host1x6_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x3e>;
 			};
 
 			host1x7_domain {
-				address-space = <0x9f>;
+				address-space = <0xa4>;
 				sid-list = <0x3f>;
 			};
 
 			isp_domain {
-				address-space = <0xa0>;
+				address-space = <0xa5>;
 				sid-list = <0x05>;
 			};
 
 			nvdisplay_domain {
-				address-space = <0xa1>;
+				address-space = <0xa6>;
 				sid-list = <0x09>;
 			};
 
 			pcie0_domain {
-				address-space = <0xa2>;
+				address-space = <0xa7>;
 				sid-list = <0x56>;
 			};
 
 			pcie1_domain {
-				address-space = <0xa3>;
+				address-space = <0xa8>;
 				sid-list = <0x57>;
 			};
 
 			pcie2_domain {
-				address-space = <0xa4>;
+				address-space = <0xa9>;
 				sid-list = <0x58>;
 			};
 
 			pcie3_domain {
-				address-space = <0xa5>;
+				address-space = <0xaa>;
 				sid-list = <0x59>;
 			};
 
 			pcie4_domain {
-				address-space = <0xa6>;
+				address-space = <0xab>;
 				sid-list = <0x5a>;
 			};
 
 			pcie5_domain {
-				address-space = <0xa7>;
+				address-space = <0xac>;
 				sid-list = <0x5b>;
 			};
 
 			pva0_domain {
-				address-space = <0xa8>;
+				address-space = <0xad>;
 				sid-list = <0x53>;
 			};
 
 			pva1_domain {
-				address-space = <0xa8>;
+				address-space = <0xad>;
 				sid-list = <0x54>;
 			};
 
 			sce_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x1f>;
 			};
 
 			rce_domain {
-				address-space = <0xa9>;
+				address-space = <0xae>;
 				sid-list = <0x2a>;
 			};
 
 			sata2_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x1d>;
 			};
 
 			sdmmc1a_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x1a>;
 			};
 
 			sdmmc3a_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x18>;
 			};
 
 			sdmmc4a_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x17>;
 			};
 
 			se_domain {
-				address-space = <0xaa>;
+				address-space = <0xaf>;
 				sid-list = <0x0c 0x0d 0x0e 0x0f>;
 			};
 
 			smmu_test_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x33>;
 			};
 
 			ufshci_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x15>;
 			};
 
 			vi_domain {
-				address-space = <0xa0>;
+				address-space = <0xa5>;
 				sid-list = <0x04>;
 			};
 
 			xusb_dev_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x1c>;
 			};
 
 			xusb_host_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x1b>;
 			};
 
 			xusb_host_vf0_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x5d>;
 			};
 
 			xusb_host_vf1_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x5e>;
 			};
 
 			xusb_host_vf2_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x5f>;
 			};
 
 			xusb_host_vf3_domain {
-				address-space = <0x9c>;
+				address-space = <0xa1>;
 				sid-list = <0x60>;
 			};
 		};
@@ -6557,8 +6604,8 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0x9d>;
-				phandle = <0x9d>;
+				linux,phandle = <0xa2>;
+				phandle = <0xa2>;
 			};
 
 			camera_vm0 {
@@ -6567,8 +6614,8 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0x152>;
-				phandle = <0x152>;
+				linux,phandle = <0x157>;
+				phandle = <0x157>;
 			};
 
 			camera_vm1 {
@@ -6577,8 +6624,8 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0xa9>;
-				phandle = <0xa9>;
+				linux,phandle = <0xae>;
+				phandle = <0xae>;
 			};
 
 			common {
@@ -6587,8 +6634,8 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0x9c>;
-				phandle = <0x9c>;
+				linux,phandle = <0xa1>;
+				phandle = <0xa1>;
 			};
 
 			host1x {
@@ -6597,8 +6644,8 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0x9e>;
-				phandle = <0x9e>;
+				linux,phandle = <0xa3>;
+				phandle = <0xa3>;
 			};
 
 			host1x_client {
@@ -6607,8 +6654,8 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0x9f>;
-				phandle = <0x9f>;
+				linux,phandle = <0xa4>;
+				phandle = <0xa4>;
 			};
 
 			nvdisplay {
@@ -6617,61 +6664,11 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0xa1>;
-				phandle = <0xa1>;
-			};
-
-			pcie0 {
-				iova-start = <0x00 0x80000000>;
-				iova-size = <0x04 0x7fffffff>;
-				alignment = <0xfffff>;
-				num-pf-page = <0x00>;
-				gap-page = <0x01>;
-				linux,phandle = <0xa2>;
-				phandle = <0xa2>;
-			};
-
-			pcie1 {
-				iova-start = <0x00 0x80000000>;
-				iova-size = <0x1f 0x7fffffff>;
-				alignment = <0xfffff>;
-				num-pf-page = <0x00>;
-				gap-page = <0x01>;
-				linux,phandle = <0xa3>;
-				phandle = <0xa3>;
-			};
-
-			pcie2 {
-				iova-start = <0x00 0x80000000>;
-				iova-size = <0x00 0xffffffff>;
-				alignment = <0xfffff>;
-				num-pf-page = <0x00>;
-				gap-page = <0x01>;
-				linux,phandle = <0xa4>;
-				phandle = <0xa4>;
-			};
-
-			pcie3 {
-				iova-start = <0x00 0x80000000>;
-				iova-size = <0x00 0xffffffff>;
-				alignment = <0xfffff>;
-				num-pf-page = <0x00>;
-				gap-page = <0x01>;
-				linux,phandle = <0xa5>;
-				phandle = <0xa5>;
-			};
-
-			pcie4 {
-				iova-start = <0x00 0x80000000>;
-				iova-size = <0x04 0x7fffffff>;
-				alignment = <0xfffff>;
-				num-pf-page = <0x00>;
-				gap-page = <0x01>;
 				linux,phandle = <0xa6>;
 				phandle = <0xa6>;
 			};
 
-			pcie5 {
+			pcie0 {
 				iova-start = <0x00 0x80000000>;
 				iova-size = <0x04 0x7fffffff>;
 				alignment = <0xfffff>;
@@ -6681,14 +6678,64 @@
 				phandle = <0xa7>;
 			};
 
+			pcie1 {
+				iova-start = <0x00 0x80000000>;
+				iova-size = <0x1f 0x7fffffff>;
+				alignment = <0xfffff>;
+				num-pf-page = <0x00>;
+				gap-page = <0x01>;
+				linux,phandle = <0xa8>;
+				phandle = <0xa8>;
+			};
+
+			pcie2 {
+				iova-start = <0x00 0x80000000>;
+				iova-size = <0x00 0xffffffff>;
+				alignment = <0xfffff>;
+				num-pf-page = <0x00>;
+				gap-page = <0x01>;
+				linux,phandle = <0xa9>;
+				phandle = <0xa9>;
+			};
+
+			pcie3 {
+				iova-start = <0x00 0x80000000>;
+				iova-size = <0x00 0xffffffff>;
+				alignment = <0xfffff>;
+				num-pf-page = <0x00>;
+				gap-page = <0x01>;
+				linux,phandle = <0xaa>;
+				phandle = <0xaa>;
+			};
+
+			pcie4 {
+				iova-start = <0x00 0x80000000>;
+				iova-size = <0x04 0x7fffffff>;
+				alignment = <0xfffff>;
+				num-pf-page = <0x00>;
+				gap-page = <0x01>;
+				linux,phandle = <0xab>;
+				phandle = <0xab>;
+			};
+
+			pcie5 {
+				iova-start = <0x00 0x80000000>;
+				iova-size = <0x04 0x7fffffff>;
+				alignment = <0xfffff>;
+				num-pf-page = <0x00>;
+				gap-page = <0x01>;
+				linux,phandle = <0xac>;
+				phandle = <0xac>;
+			};
+
 			pixel {
 				iova-start = <0x00 0x80000000>;
 				iova-size = <0x04 0x3fffffff>;
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0xa0>;
-				phandle = <0xa0>;
+				linux,phandle = <0xa5>;
+				phandle = <0xa5>;
 			};
 
 			pva0 {
@@ -6697,8 +6744,8 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0xa8>;
-				phandle = <0xa8>;
+				linux,phandle = <0xad>;
+				phandle = <0xad>;
 			};
 
 			se {
@@ -6707,8 +6754,8 @@
 				alignment = <0xfffff>;
 				num-pf-page = <0x00>;
 				gap-page = <0x01>;
-				linux,phandle = <0xaa>;
-				phandle = <0xaa>;
+				linux,phandle = <0xaf>;
+				phandle = <0xaf>;
 			};
 		};
 	};
@@ -6716,20 +6763,20 @@
 	smmu_test {
 		compatible = "nvidia,smmu_test";
 		iommus = <0x02 0x33>;
-		linux,phandle = <0x153>;
-		phandle = <0x153>;
+		linux,phandle = <0x158>;
+		phandle = <0x158>;
 	};
 
 	dma_test {
 		compatible = "nvidia,dma_test";
-		linux,phandle = <0x154>;
-		phandle = <0x154>;
+		linux,phandle = <0x159>;
+		phandle = <0x159>;
 	};
 
 	tegra_udrm {
 		compatible = "nvidia,tegra-udrm";
-		linux,phandle = <0x155>;
-		phandle = <0x155>;
+		linux,phandle = <0x15a>;
+		phandle = <0x15a>;
 	};
 
 	mc {
@@ -6752,7 +6799,7 @@
 	};
 
 	interrupt-controller@3881000 {
-		compatible = "arm,cortex-a15-gic";
+		compatible = "arm,cortex-a15-gic", "nvidia,tegra20-ictlr", "nvidia,tegra-ictlr";
 		#interrupt-cells = <0x03>;
 		interrupt-controller;
 		reg = <0x00 0x3881000 0x00 0x1000 0x00 0x3882000 0x00 0x2000 0x00 0x3884000 0x00 0x2000 0x00 0x3886000 0x00 0x2000>;
@@ -6781,8 +6828,8 @@
 		interrupts = <0x00 0x85 0x04 0x00 0x86 0x04 0x00 0x87 0x04 0x00 0x88 0x04>;
 		interrupt-names = "shared1\0shared2\0shared3\0shared4";
 		status = "okay";
-		linux,phandle = <0x72>;
-		phandle = <0x72>;
+		linux,phandle = <0x74>;
+		phandle = <0x74>;
 	};
 
 	tegra-hsp@3c00000 {
@@ -6792,8 +6839,8 @@
 		interrupt-names = "doorbell\0shared0\0shared1\0shared2\0shared3\0shared4\0shared5\0shared6\0shared7";
 		nvidia,mbox-ie;
 		status = "okay";
-		linux,phandle = <0x156>;
-		phandle = <0x156>;
+		linux,phandle = <0x15b>;
+		phandle = <0x15b>;
 	};
 
 	tegra-hsp@b150000 {
@@ -6803,8 +6850,8 @@
 		interrupt-names = "shared1\0shared2\0shared3\0shared4";
 		nvidia,mbox-ie;
 		status = "disabled";
-		linux,phandle = <0x45>;
-		phandle = <0x45>;
+		linux,phandle = <0x47>;
+		phandle = <0x47>;
 	};
 
 	tegra-hsp@b950000 {
@@ -6814,8 +6861,8 @@
 		nvidia,mbox-ie;
 		interrupt-names = "shared1\0shared2\0shared3\0shared4";
 		status = "okay";
-		linux,phandle = <0x4b>;
-		phandle = <0x4b>;
+		linux,phandle = <0x4d>;
+		phandle = <0x4d>;
 	};
 
 	efuse@3820000 {
@@ -6850,8 +6897,8 @@
 		clock-names = "se";
 		pka1-rsa-priority = <0x12c>;
 		status = "okay";
-		linux,phandle = <0x157>;
-		phandle = <0x157>;
+		linux,phandle = <0x15c>;
+		phandle = <0x15c>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -6874,8 +6921,8 @@
 		nvidia,start-dma-channel-index = <0x01>;
 		dma-channels = <0x1f>;
 		status = "okay";
-		linux,phandle = <0x19>;
-		phandle = <0x19>;
+		linux,phandle = <0x1b>;
+		phandle = <0x1b>;
 	};
 
 	gpio@2200000 {
@@ -6887,7 +6934,7 @@
 		#gpio-cells = <0x02>;
 		interrupt-controller;
 		#interrupt-cells = <0x02>;
-		gpio-ranges = <0xab 0x00 0x00 0xd0 0xab 0xd0 0xf8 0x10>;
+		gpio-ranges = <0xb0 0x00 0x00 0xd0 0xb0 0xd0 0xf8 0x10>;
 		status = "okay";
 		port-GG-interrupt-line = <0x00>;
 		gpio-line-names = [00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 47 50 49 4f 31 33 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 47 50 49 4f 30 31 00 47 50 49 4f 31 31 00 00 47 50 49 4f 30 37 00 00 00 00 55 41 52 54 31 5f 52 54 53 00 55 41 52 54 31 5f 43 54 53 00 00 00 00 00 00 00 47 50 49 4f 30 39 00 00 00 00 00 00 00 00 00 49 32 53 30 5f 53 43 4c 4b 00 49 32 53 30 5f 44 4f 55 54 00 49 32 53 30 5f 44 49 4e 00 49 32 53 30 5f 46 53 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 53 50 49 31 5f 53 43 4b 00 53 50 49 31 5f 4d 49 53 4f 00 53 50 49 31 5f 4d 4f 53 49 00 53 50 49 31 5f 43 53 30 00 53 50 49 31 5f 43 53 31 00 00 00 00 00 00 00 53 50 49 30 5f 53 43 4b 00 53 50 49 30 5f 4d 49 53 4f 00 53 50 49 30 5f 4d 4f 53 49 00 53 50 49 30 5f 43 53 30 00 53 50 49 30 5f 43 53 31 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00];
@@ -6920,10 +6967,10 @@
 		#gpio-cells = <0x02>;
 		interrupt-controller;
 		#interrupt-cells = <0x02>;
-		gpio-ranges = <0xab 0x00 0xd0 0x28>;
+		gpio-ranges = <0xb0 0x00 0xd0 0x28>;
 		gpio-line-names = [00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 47 50 49 4f 31 32 00];
-		linux,phandle = <0x23>;
-		phandle = <0x23>;
+		linux,phandle = <0x25>;
+		phandle = <0x25>;
 
 		pex-refclk-sel-low {
 			gpio-hog;
@@ -6931,8 +6978,8 @@
 			gpios = <0x05 0x00>;
 			label = "pex_refclk_sel_low";
 			status = "disabled";
-			linux,phandle = <0xb9>;
-			phandle = <0xb9>;
+			linux,phandle = <0xbe>;
+			phandle = <0xbe>;
 		};
 
 		pex-refclk-sel-high {
@@ -6941,8 +6988,8 @@
 			gpios = <0x05 0x00>;
 			label = "pex_refclk_sel_high";
 			status = "disabled";
-			linux,phandle = <0xba>;
-			phandle = <0xba>;
+			linux,phandle = <0xbf>;
+			phandle = <0xbf>;
 		};
 
 		w-disable1 {
@@ -6960,6 +7007,18 @@
 			label = "w-disable2";
 			status = "okay";
 		};
+
+		suspend-led-gpio {
+			gpio-hog;
+			output-high;
+			gpio-suspend;
+			suspend-output-low;
+			gpios = <0x11 0x00>;
+			label = "suspend-led-gpio";
+			status = "okay";
+			linux,phandle = <0x15d>;
+			phandle = <0x15d>;
+		};
 	};
 
 	gte@3aa0000 {
@@ -6969,8 +7028,8 @@
 		nvidia,int-threshold = <0x01>;
 		nvidia,num-slices = <0x0b>;
 		status = "disabled";
-		linux,phandle = <0x158>;
-		phandle = <0x158>;
+		linux,phandle = <0x15e>;
+		phandle = <0x15e>;
 	};
 
 	gte@c1e0000 {
@@ -6979,10 +7038,10 @@
 		interrupts = <0x00 0x0d 0x04>;
 		nvidia,int-threshold = <0x01>;
 		nvidia,num-slices = <0x03>;
-		nvidia,gpio-controller = <0x23>;
+		nvidia,gpio-controller = <0x25>;
 		status = "disabled";
-		linux,phandle = <0x159>;
-		phandle = <0x159>;
+		linux,phandle = <0x15f>;
+		phandle = <0x15f>;
 	};
 
 	watchdog@30c0000 {
@@ -6997,8 +7056,8 @@
 		timeout-sec = <0x78>;
 		nvidia,disable-debug-reset;
 		status = "disabled";
-		linux,phandle = <0xbc>;
-		phandle = <0xbc>;
+		linux,phandle = <0xc1>;
+		phandle = <0xc1>;
 	};
 
 	tegra_fiq_debugger {
@@ -7011,8 +7070,8 @@
 		compatible = "nvidia,tegra194-pexclk-padctl";
 		reg = <0x00 0x3790000 0x00 0x1000 0x00 0x37a0000 0x00 0x1000>;
 		status = "disabled";
-		linux,phandle = <0x15a>;
-		phandle = <0x15a>;
+		linux,phandle = <0x160>;
+		phandle = <0x160>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -7035,13 +7094,13 @@
 		capture-window-length = <0x02>;
 		disable-clk-gate;
 		status = "okay";
-		linux,phandle = <0xac>;
-		phandle = <0xac>;
+		linux,phandle = <0xb1>;
+		phandle = <0xb1>;
 	};
 
 	generic_pwm_tachometer {
 		compatible = "generic-pwm-tachometer";
-		pwms = <0xac 0x00 0xf4240>;
+		pwms = <0xb1 0x00 0xf4240>;
 		status = "okay";
 	};
 
@@ -7050,8 +7109,35 @@
 		reg = <0x00 0xc370000 0x00 0x600>;
 		status = "okay";
 		nvidia,invert-interrupt;
-		linux,phandle = <0x15b>;
-		phandle = <0x15b>;
+		linux,phandle = <0x161>;
+		phandle = <0x161>;
+	};
+
+	gpio-keys {
+		compatible = "gpio-keys";
+		gpio-keys,name = "gpio-keys";
+		status = "okay";
+
+		sw_wake {
+			label = "sw-wake";
+			interrupt-parent = <0x26>;
+			interrupts = <0x00 0xb3 0x04>;
+			linux,code = <0x74>;
+			wakeup-source;
+		};
+
+		forcerecovery {
+			label = "force-recovery";
+			gpios = <0x13 0x30 0x01>;
+			linux,code = <0x101>;
+		};
+
+		power_key {
+			label = "power-key";
+			gpios = <0x25 0x24 0x01>;
+			linux,code = <0x74>;
+			gpio-key,wakeup;
+		};
 	};
 
 	xusb_padctl@3520000 {
@@ -7062,14 +7148,14 @@
 		resets = <0x05 0x72>;
 		reset-names = "padctl";
 		status = "okay";
-		pex_dvdd-supply = <0x5b>;
-		pex_hvdd-supply = <0x5c>;
-		pex_pll_hvdd-supply = <0x5c>;
+		pex_dvdd-supply = <0x5d>;
+		pex_hvdd-supply = <0x5e>;
+		pex_pll_hvdd-supply = <0x5e>;
 		vclamp_usb-supply = <0x0a>;
-		avdd_usb-supply = <0xad>;
-		avdd_pll_nvhs_eutmip-supply = <0x5c>;
-		linux,phandle = <0xae>;
-		phandle = <0xae>;
+		avdd_usb-supply = <0xb2>;
+		avdd_pll_nvhs_eutmip-supply = <0x5e>;
+		linux,phandle = <0xb3>;
+		phandle = <0xb3>;
 
 		pads {
 
@@ -7083,24 +7169,24 @@
 						status = "okay";
 						#phy-cells = <0x00>;
 						nvidia,function = "xusb";
-						linux,phandle = <0xaf>;
-						phandle = <0xaf>;
+						linux,phandle = <0xb4>;
+						phandle = <0xb4>;
 					};
 
 					usb2-1 {
 						status = "okay";
 						#phy-cells = <0x00>;
 						nvidia,function = "xusb";
-						linux,phandle = <0xb1>;
-						phandle = <0xb1>;
+						linux,phandle = <0xb6>;
+						phandle = <0xb6>;
 					};
 
 					usb2-2 {
 						status = "okay";
 						#phy-cells = <0x00>;
 						nvidia,function = "xusb";
-						linux,phandle = <0xb2>;
-						phandle = <0xb2>;
+						linux,phandle = <0xb7>;
+						phandle = <0xb7>;
 					};
 
 					usb2-3 {
@@ -7128,8 +7214,8 @@
 						status = "okay";
 						#phy-cells = <0x00>;
 						nvidia,function = "xusb";
-						linux,phandle = <0xb3>;
-						phandle = <0xb3>;
+						linux,phandle = <0xb8>;
+						phandle = <0xb8>;
 					};
 
 					usb3-3 {
@@ -7144,19 +7230,19 @@
 
 			usb2-0 {
 				status = "okay";
-				vbus-supply = <0x17>;
+				vbus-supply = <0x19>;
 				mode = "otg";
 			};
 
 			usb2-1 {
 				status = "okay";
-				vbus-supply = <0x17>;
+				vbus-supply = <0x19>;
 				mode = "host";
 			};
 
 			usb2-2 {
 				status = "okay";
-				vbus-supply = <0x17>;
+				vbus-supply = <0x19>;
 				mode = "host";
 			};
 
@@ -7197,12 +7283,12 @@
 
 	usb_cd {
 		compatible = "nvidia,tegra194-usb-cd";
-		nvidia,xusb-padctl = <0xae>;
-		phys = <0xaf>;
+		nvidia,xusb-padctl = <0xb3>;
+		phys = <0xb4>;
 		phy-names = "otg-phy";
 		status = "okay";
-		linux,phandle = <0x15c>;
-		phandle = <0x15c>;
+		linux,phandle = <0x162>;
+		phandle = <0x162>;
 	};
 
 	xudc@3550000 {
@@ -7210,87 +7296,87 @@
 		reg = <0x00 0x3550000 0x00 0x8000 0x00 0x3558000 0x00 0x1000>;
 		interrupts = <0x00 0xa6 0x04>;
 		clocks = <0x04 0x109 0x04 0x115 0x04 0x113 0x04 0x110>;
-		nvidia,xusb-padctl = <0xae>;
+		nvidia,xusb-padctl = <0xb3>;
 		iommus = <0x02 0x1c>;
 		dma-coherent;
 		status = "okay";
-		avdd-usb-supply = <0xad>;
-		extcon-cables = <0xb0 0x00>;
+		avdd-usb-supply = <0xb2>;
+		extcon-cables = <0xb5 0x00>;
 		extcon-cable-names = "vbus";
 		#extcon-cells = <0x01>;
-		phys = <0xaf>;
+		phys = <0xb4>;
 		phy-names = "usb2";
 		nvidia,boost_cpu_freq = <0x4b0>;
-		linux,phandle = <0x15d>;
-		phandle = <0x15d>;
+		linux,phandle = <0x163>;
+		phandle = <0x163>;
 	};
 
 	xhci@3610000 {
 		compatible = "nvidia,tegra194-xhci";
 		reg = <0x00 0x3610000 0x00 0x40000 0x00 0x3600000 0x00 0x10000>;
 		interrupts = <0x00 0xa3 0x04 0x00 0xa4 0x04 0x00 0xa7 0x04>;
-		interrupt-parent = <0x24>;
+		interrupt-parent = <0x26>;
 		clocks = <0x04 0x10a 0x04 0x10b 0x04 0x10c 0x04 0x10d 0x04 0x10e 0x04 0x10f 0x04 0x110 0x04 0x111 0x04 0x113 0x04 0x115 0x04 0x67 0x04 0x0e 0x04 0x64>;
 		clock-names = "xusb_hs_src\0xusb_host\0xusb_core_superspeed_clk\0xusb_falcon_src\0xusb_falcon_host_clk\0xusb_falcon_superspeed_clk\0xusb_fs_src\0xusb_fs_host_clk\0xusb_ss_src\0xusb_ss\0pll_u_480m\0clk_m\0pll_e";
-		nvidia,xusb-padctl = <0xae>;
+		nvidia,xusb-padctl = <0xb3>;
 		iommus = <0x02 0x1b>;
 		dma-coherent;
 		status = "okay";
-		extcon-cables = <0xb0 0x01>;
+		extcon-cables = <0xb5 0x01>;
 		extcon-cable-names = "id";
 		#extcon-cells = <0x01>;
-		phys = <0xaf 0xb1 0xb2 0xb3>;
+		phys = <0xb4 0xb6 0xb7 0xb8>;
 		phy-names = "usb2-0\0usb2-1\0usb2-2\0usb3-2";
-		linux,phandle = <0x15e>;
-		phandle = <0x15e>;
+		linux,phandle = <0x164>;
+		phandle = <0x164>;
 	};
 
 	xhci@3660000 {
 		compatible = "nvidia,tegra194-xhci-vf1";
 		reg = <0x00 0x3660000 0x00 0x40000>;
 		interrupts = <0x00 0x15 0x04>;
-		nvidia,xusb-padctl = <0xae>;
+		nvidia,xusb-padctl = <0xb3>;
 		iommus = <0x02 0x5d>;
 		dma-coherent;
 		status = "disabled";
-		linux,phandle = <0x15f>;
-		phandle = <0x15f>;
+		linux,phandle = <0x165>;
+		phandle = <0x165>;
 	};
 
 	xhci@36b0000 {
 		compatible = "nvidia,tegra194-xhci-vf2";
 		reg = <0x00 0x36b0000 0x00 0x40000>;
 		interrupts = <0x00 0x16 0x04>;
-		nvidia,xusb-padctl = <0xae>;
+		nvidia,xusb-padctl = <0xb3>;
 		iommus = <0x02 0x5e>;
 		dma-coherent;
 		status = "disabled";
-		linux,phandle = <0x160>;
-		phandle = <0x160>;
+		linux,phandle = <0x166>;
+		phandle = <0x166>;
 	};
 
 	xhci@3700000 {
 		compatible = "nvidia,tegra194-xhci-vf3";
 		reg = <0x00 0x3700000 0x00 0x40000>;
 		interrupts = <0x00 0x17 0x04>;
-		nvidia,xusb-padctl = <0xae>;
+		nvidia,xusb-padctl = <0xb3>;
 		iommus = <0x02 0x5f>;
 		dma-coherent;
 		status = "disabled";
-		linux,phandle = <0x161>;
-		phandle = <0x161>;
+		linux,phandle = <0x167>;
+		phandle = <0x167>;
 	};
 
 	xhci@3750000 {
 		compatible = "nvidia,tegra194-xhci-vf4";
 		reg = <0x00 0x3750000 0x00 0x40000>;
 		interrupts = <0x00 0x18 0x04>;
-		nvidia,xusb-padctl = <0xae>;
+		nvidia,xusb-padctl = <0xb3>;
 		iommus = <0x02 0x60>;
 		dma-coherent;
 		status = "disabled";
-		linux,phandle = <0x162>;
-		phandle = <0x162>;
+		linux,phandle = <0x168>;
+		phandle = <0x168>;
 	};
 
 	gv11b {
@@ -7326,8 +7412,8 @@
 		cooling-max-state = <0x01>;
 		#cooling-cells = <0x02>;
 		status = "okay";
-		linux,phandle = <0x92>;
-		phandle = <0x92>;
+		linux,phandle = <0x97>;
+		phandle = <0x97>;
 	};
 
 	tegra_hv_xhci_debug@0 {
@@ -7339,8 +7425,8 @@
 		compatible = "arm,armv8.2-ras";
 		interrupts = <0x00 0x188 0x04 0x00 0x189 0x04 0x00 0x18a 0x04 0x00 0x18b 0x04 0x00 0x18c 0x04 0x00 0x18d 0x04 0x00 0x18e 0x04 0x00 0x18f 0x04>;
 		status = "okay";
-		linux,phandle = <0x163>;
-		phandle = <0x163>;
+		linux,phandle = <0x169>;
+		phandle = <0x169>;
 	};
 
 	carmel_ras {
@@ -7438,8 +7524,8 @@
 		reset-names = "mssnvl\0nvhs_uphy_pm\0nvhs_uphy\0nvhs_uphy_pll0\0nvhs_uphy_l0\0nvhs_uphy_l1\0nvhs_uphy_l2\0nvhs_uphy_l3\0nvhs_uphy_l4\0nvhs_uphy_l5\0nvhs_uphy_l6\0nvhs_uphy_l7\0nvlink";
 		interrupts = <0x00 0xb2 0x04>;
 		status = "disabled";
-		linux,phandle = <0x164>;
-		phandle = <0x164>;
+		linux,phandle = <0x16a>;
+		phandle = <0x16a>;
 
 		prod-settings {
 			#prod-cells = <0x04>;
@@ -7477,8 +7563,8 @@
 			extcon-gpio,out-cable-names = <0x01 0x02 0x00>;
 			wakeup-source;
 			#extcon-cells = <0x01>;
-			linux,phandle = <0xb0>;
-			phandle = <0xb0>;
+			linux,phandle = <0xb5>;
+			phandle = <0xb5>;
 		};
 	};
 
@@ -7505,7 +7591,7 @@
 			fuse-info = "fuse-disable-isp";
 
 			override@0 {
-				target = <0x46>;
+				target = <0x48>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7517,7 +7603,7 @@
 			fuse-info = "fuse-disable-nvenc";
 
 			override@0 {
-				target = <0xb4>;
+				target = <0xb9>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7525,7 +7611,7 @@
 			};
 
 			override@1 {
-				target = <0xb5>;
+				target = <0xba>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7537,7 +7623,7 @@
 			fuse-info = "fuse-disable-pva";
 
 			override@0 {
-				target = <0x98>;
+				target = <0x9d>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7545,7 +7631,7 @@
 			};
 
 			override@1 {
-				target = <0x99>;
+				target = <0x9e>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7557,7 +7643,7 @@
 			fuse-info = "fuse-disable-dla";
 
 			override@0 {
-				target = <0x96>;
+				target = <0x9b>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7565,7 +7651,7 @@
 			};
 
 			override@1 {
-				target = <0x97>;
+				target = <0x9c>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7577,7 +7663,7 @@
 			fuse-info = "fuse-disable-cv";
 
 			override@0 {
-				target = <0xb6>;
+				target = <0xbb>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7590,7 +7676,7 @@
 			odm-data = "disable-pcie-c5-endpoint\0enable-nvhs-uphy-pcie-c5";
 
 			override@0 {
-				target = <0xb7>;
+				target = <0xbc>;
 
 				_overlay_ {
 					status = "okay";
@@ -7598,7 +7684,7 @@
 			};
 
 			override@1 {
-				target = <0xb8>;
+				target = <0xbd>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7606,7 +7692,7 @@
 			};
 
 			override@2 {
-				target = <0xb9>;
+				target = <0xbe>;
 
 				_overlay_ {
 					status = "okay";
@@ -7619,7 +7705,7 @@
 			odm-data = "enable-pcie-c5-endpoint\0enable-nvhs-uphy-pcie-c5";
 
 			override@0 {
-				target = <0xb7>;
+				target = <0xbc>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7627,7 +7713,7 @@
 			};
 
 			override@1 {
-				target = <0xb8>;
+				target = <0xbd>;
 
 				_overlay_ {
 					status = "okay";
@@ -7635,7 +7721,7 @@
 			};
 
 			override@2 {
-				target = <0xba>;
+				target = <0xbf>;
 
 				_overlay_ {
 					status = "okay";
@@ -7647,7 +7733,7 @@
 			odm-data = "enable-pmic-wdt";
 
 			override@0 {
-				target = <0xbb>;
+				target = <0xc0>;
 
 				_overlay_ {
 					status = "okay";
@@ -7659,7 +7745,7 @@
 			odm-data = "enable-denver-wdt";
 
 			override@0 {
-				target = <0xbc>;
+				target = <0xc1>;
 
 				_overlay_ {
 					status = "okay";
@@ -7671,7 +7757,7 @@
 			odm-data = "disable-denver-wdt";
 
 			override@0 {
-				target = <0xbd>;
+				target = <0xc2>;
 
 				_overlay_ {
 					nvidia,enable-halt-in-fiq;
@@ -7683,7 +7769,7 @@
 			ids = ">=3668-0001-000";
 
 			override@0 {
-				target = <0xbe>;
+				target = <0xc3>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7695,7 +7781,7 @@
 			ids = ">=3668-0000-000";
 
 			override@0 {
-				target = <0xbf>;
+				target = <0xc4>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7707,7 +7793,7 @@
 			ids = ">=3449-0000-000";
 
 			override@0 {
-				target = <0xb7>;
+				target = <0xbc>;
 
 				_overlay_ {
 					num-lanes = <0x01>;
@@ -7716,7 +7802,7 @@
 			};
 
 			override@1 {
-				target = <0xb8>;
+				target = <0xbd>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7728,7 +7814,7 @@
 			ids = ">=3449-0000-000";
 
 			override@0 {
-				target = <0xc0>;
+				target = <0xc5>;
 
 				_overlay_ {
 					status = "disabled";
@@ -7740,7 +7826,7 @@
 			ids = "2614-0000-*";
 
 			overrides@0 {
-				target = <0xc1>;
+				target = <0xc6>;
 
 				_overlay_ {
 					status = "okay";
@@ -7748,7 +7834,7 @@
 			};
 
 			overrides@1 {
-				target = <0xc2>;
+				target = <0xc7>;
 
 				_overlay_ {
 					status = "okay";
@@ -7756,7 +7842,7 @@
 			};
 
 			overrides@8 {
-				target = <0x28>;
+				target = <0x2a>;
 
 				_overlay_ {
 					status = "okay";
@@ -7764,17 +7850,17 @@
 			};
 
 			overrides@11 {
-				target = <0xc3>;
+				target = <0xc8>;
 
 				_overlay_ {
-					link-name = "rt565x-codec-sysclk-bclk1";
-					codec-dai = <0xc4>;
+					link-name = "rt565x-playback";
+					codec-dai = <0xc9>;
 					codec-dai-name = "rt5659-aif1";
 				};
 			};
 
 			overrides@10 {
-				target = <0xc5>;
+				target = <0xca>;
 
 				_overlay_ {
 					nvidia,audio-routing = "x Headphone\0x HPO L Playback\0x Headphone\0x HPO R Playback\0x IN1P\0x Mic\0y Headphone\0y OUT\0y IN\0y Mic\0z Headphone\0z OUT\0z IN\0z Mic\0m Headphone\0m OUT\0m IN\0m Mic\0n Headphone\0n OUT\0n IN\0n Mic\0o Headphone\0o OUT\0o IN\0o Mic\0a IN\0a Mic\0b IN\0b Mic\0c IN\0c Mic\0d IN\0d Mic\0d1 Headphone\0d1 OUT\0d2 Headphone\0d2 OUT";
@@ -7786,7 +7872,7 @@
 			ids = "2614-0000-000";
 
 			overrides@0 {
-				target = <0xc4>;
+				target = <0xc9>;
 
 				_overlay_ {
 					status = "okay";
@@ -7794,11 +7880,11 @@
 			};
 
 			overrides@1 {
-				target = <0xc3>;
+				target = <0xc8>;
 
 				_overlay_ {
-					link-name = "rt565x-codec-sysclk-bclk1";
-					codec-dai = <0xc4>;
+					link-name = "rt565x-playback";
+					codec-dai = <0xc9>;
 					codec-dai-name = "rt5659-aif1";
 				};
 			};
@@ -7808,7 +7894,7 @@
 			ids = "2614-0000-100";
 
 			overrides@0 {
-				target = <0xc6>;
+				target = <0xcb>;
 
 				_overlay_ {
 					status = "okay";
@@ -7816,11 +7902,11 @@
 			};
 
 			overrides@1 {
-				target = <0xc3>;
+				target = <0xc8>;
 
 				_overlay_ {
-					link-name = "rt565x-codec-sysclk-bclk1";
-					codec-dai = <0xc6>;
+					link-name = "rt565x-playback";
+					codec-dai = <0xcb>;
 					codec-dai-name = "rt5659-aif1";
 				};
 			};
@@ -7840,8 +7926,8 @@
 			regulator-min-microvolt = <0x4c4b40>;
 			regulator-max-microvolt = <0x4c4b40>;
 			regulator-always-on;
-			linux,phandle = <0x17>;
-			phandle = <0x17>;
+			linux,phandle = <0x19>;
+			phandle = <0x19>;
 		};
 
 		regulator@106 {
@@ -7852,8 +7938,8 @@
 			regulator-max-microvolt = <0x325aa0>;
 			gpio = <0x13 0x32 0x00>;
 			enable-active-high;
-			linux,phandle = <0x20>;
-			phandle = <0x20>;
+			linux,phandle = <0x22>;
+			phandle = <0x22>;
 		};
 
 		regulator@104 {
@@ -7863,8 +7949,8 @@
 			regulator-min-microvolt = <0x1b7740>;
 			regulator-max-microvolt = <0x1b7740>;
 			enable-active-high;
-			linux,phandle = <0x165>;
-			phandle = <0x165>;
+			linux,phandle = <0x16b>;
+			phandle = <0x16b>;
 		};
 
 		regulator@101 {
@@ -7873,8 +7959,8 @@
 			regulator-name = "vdd-3v3-cvb";
 			regulator-min-microvolt = <0x325aa0>;
 			regulator-max-microvolt = <0x325aa0>;
-			linux,phandle = <0x27>;
-			phandle = <0x27>;
+			linux,phandle = <0x29>;
+			phandle = <0x29>;
 		};
 
 		regulator@102 {
@@ -7883,8 +7969,8 @@
 			regulator-name = "vdd-1v8-cvb";
 			regulator-min-microvolt = <0x1b7740>;
 			regulator-max-microvolt = <0x1b7740>;
-			linux,phandle = <0x166>;
-			phandle = <0x166>;
+			linux,phandle = <0x16c>;
+			phandle = <0x16c>;
 		};
 
 		regulator@105 {
@@ -7893,9 +7979,9 @@
 			regulator-name = "vdd-epb-1v0";
 			regulator-min-microvolt = <0xf4240>;
 			regulator-max-microvolt = <0xf4240>;
-			vin-supply = <0x27>;
-			linux,phandle = <0x167>;
-			phandle = <0x167>;
+			vin-supply = <0x29>;
+			linux,phandle = <0x16d>;
+			phandle = <0x16d>;
 		};
 
 		regulator@107 {
@@ -7906,8 +7992,8 @@
 			regulator-max-microvolt = <0x2ab980>;
 			gpio = <0x13 0x68 0x00>;
 			enable-active-high;
-			linux,phandle = <0x168>;
-			phandle = <0x168>;
+			linux,phandle = <0x16e>;
+			phandle = <0x16e>;
 		};
 
 		regulator@111 {
@@ -7916,8 +8002,8 @@
 			regulator-name = "vdd-fan";
 			regulator-min-microvolt = <0x4c4b40>;
 			regulator-max-microvolt = <0x4c4b40>;
-			linux,phandle = <0xc9>;
-			phandle = <0xc9>;
+			linux,phandle = <0xce>;
+			phandle = <0xce>;
 		};
 
 		regulator@112 {
@@ -7927,8 +8013,8 @@
 			regulator-min-microvolt = <0x4c4b40>;
 			regulator-max-microvolt = <0x4c4b40>;
 			enable-active-high;
-			linux,phandle = <0x5d>;
-			phandle = <0x5d>;
+			linux,phandle = <0x5f>;
+			phandle = <0x5f>;
 		};
 
 		regulator@113 {
@@ -7938,8 +8024,8 @@
 			regulator-min-microvolt = <0x124f80>;
 			regulator-max-microvolt = <0x124f80>;
 			enable-active-high;
-			linux,phandle = <0x169>;
-			phandle = <0x169>;
+			linux,phandle = <0x16f>;
+			phandle = <0x16f>;
 		};
 
 		regulator@200 {
@@ -7948,11 +8034,11 @@
 			regulator-name = "vdd-1v8-aud2";
 			regulator-min-microvolt = <0x1b7740>;
 			regulator-max-microvolt = <0x1b7740>;
-			gpio = <0xc2 0x0b 0x01>;
+			gpio = <0xc7 0x0b 0x01>;
 			enable-active-high;
 			status = "disabled";
-			linux,phandle = <0x28>;
-			phandle = <0x28>;
+			linux,phandle = <0x2a>;
+			phandle = <0x2a>;
 		};
 	};
 
@@ -7980,24 +8066,24 @@
 			#cooling-cells = <0x02>;
 			nvidia,cutoff = <0x01>;
 			nvidia,throttle-clocks = <0x00 0x190 0x00 0x01 0x190 0x00>;
-			linux,phandle = <0x8e>;
-			phandle = <0x8e>;
+			linux,phandle = <0x91>;
+			phandle = <0x91>;
 		};
 
 		cpu_balanced {
 			cdev-type = "cpu-balanced";
 			#cooling-cells = <0x02>;
 			nvidia,throttle-clocks = <0x00 0xc8 0x00 0x01 0x12c 0x15c91660>;
-			linux,phandle = <0x8c>;
-			phandle = <0x8c>;
+			linux,phandle = <0x8e>;
+			phandle = <0x8e>;
 		};
 
 		emergency_balanced {
 			cdev-type = "emergency-balanced";
 			#cooling-cells = <0x02>;
 			nvidia,throttle-clocks = <0x00 0x0a 0x249f000 0x01 0x0a 0x1851960>;
-			linux,phandle = <0x95>;
-			phandle = <0x95>;
+			linux,phandle = <0x9a>;
+			phandle = <0x9a>;
 		};
 
 		aux_balanced {
@@ -8005,8 +8091,8 @@
 			#cooling-cells = <0x02>;
 			nvidia,cutoff = <0x01>;
 			nvidia,throttle-clocks = <0x00 0x190 0x00 0x01 0x190 0x00>;
-			linux,phandle = <0x90>;
-			phandle = <0x90>;
+			linux,phandle = <0x94>;
+			phandle = <0x94>;
 		};
 	};
 
@@ -8014,8 +8100,8 @@
 		compatible = "dummy-cooling-dev";
 		#cooling-cells = <0x02>;
 		status = "disabled";
-		linux,phandle = <0x16a>;
-		phandle = <0x16a>;
+		linux,phandle = <0x170>;
+		phandle = <0x170>;
 	};
 
 	pfsd {
@@ -8035,18 +8121,18 @@
 		state_cap = <0x07>;
 		active_pwm_max = <0x100>;
 		tach_period = <0x3e8>;
-		pwm_gpio = <0x23 0x14 0x01>;
-		linux,phandle = <0xc8>;
-		phandle = <0xc8>;
+		pwm_gpio = <0x25 0x14 0x01>;
+		linux,phandle = <0xcd>;
+		phandle = <0xcd>;
 	};
 
 	pwm-fan {
 		compatible = "pwm-fan";
 		status = "okay";
 		#pwm-cells = <0x01>;
-		pwms = <0xc7 0x00 0xb116>;
-		shared_data = <0xc8>;
-		vdd-fan-supply = <0xc9>;
+		pwms = <0xcc 0x00 0xb116>;
+		shared_data = <0xcd>;
+		vdd-fan-supply = <0xce>;
 
 		profiles {
 			default = "quiet";
@@ -8070,8 +8156,8 @@
 		ndevs = <0x03>;
 		cdev_type = "pwm-fan";
 		tzp_governor_name = "pid_thermal_gov";
-		linux,phandle = <0xca>;
-		phandle = <0xca>;
+		linux,phandle = <0xcf>;
+		phandle = <0xcf>;
 
 		dev1 {
 			dev_data = "CPU-therm";
@@ -8093,7 +8179,7 @@
 		compatible = "thermal-fan-est";
 		status = "okay";
 		num_resources = <0x00>;
-		shared_data = <0xca>;
+		shared_data = <0xcf>;
 		trip_length = <0x0a>;
 
 		profiles {
@@ -8109,6 +8195,33 @@
 				active_hysteresis = <0x00 0x1f40 0x1f40 0x1b58 0x1b58 0x00 0x00 0x00 0x00 0x00>;
 			};
 		};
+	};
+
+	cpu-throttle-alert {
+		compatible = "userspace-therm-alert";
+		cdev-type = "cpu-throttle-alert";
+		status = "okay";
+		#cooling-cells = <0x02>;
+		linux,phandle = <0x8f>;
+		phandle = <0x8f>;
+	};
+
+	gpu-throttle-alert {
+		compatible = "userspace-therm-alert";
+		cdev-type = "gpu-throttle-alert";
+		status = "okay";
+		#cooling-cells = <0x02>;
+		linux,phandle = <0x92>;
+		phandle = <0x92>;
+	};
+
+	aux-throttle-alert {
+		compatible = "userspace-therm-alert";
+		cdev-type = "aux-throttle-alert";
+		status = "okay";
+		#cooling-cells = <0x02>;
+		linux,phandle = <0x95>;
+		phandle = <0x95>;
 	};
 
 	chosen {
@@ -8131,7 +8244,7 @@
 		data-size = <0x100>;
 
 		bus@0 {
-			i2c-bus = <0xcb>;
+			i2c-bus = <0xd0>;
 
 			eeprom@0 {
 				slave-address = <0x50>;
@@ -8145,7 +8258,7 @@
 		};
 
 		bus@1 {
-			i2c-bus = <0xcc>;
+			i2c-bus = <0xd1>;
 
 			eeprom@1 {
 				slave-address = <0x50>;
@@ -8159,12 +8272,22 @@
 		status = "okay";
 	};
 
+	leds {
+		compatible = "gpio-leds";
+		status = "okay";
+
+		pwr {
+			gpios = <0x25 0x11 0x00>;
+			default-state = "on";
+		};
+	};
+
 	clocks-init {
 		compatible = "nvidia,clocks-config";
 		status = "okay";
 
 		disable {
-			clocks = <0xcd 0x5e 0x04 0x09 0x04 0x0b>;
+			clocks = <0xd2 0x5e 0x04 0x09 0x04 0x0b>;
 		};
 	};
 
@@ -8179,137 +8302,137 @@
 			compatible = "linux,spdif-dit";
 			reg = <0x00>;
 			status = "okay";
-			linux,phandle = <0x2b>;
-			phandle = <0x2b>;
+			linux,phandle = <0x2d>;
+			phandle = <0x2d>;
 		};
 
 		spdif-dit.1@1 {
 			compatible = "linux,spdif-dit";
 			reg = <0x01>;
 			status = "okay";
-			linux,phandle = <0x2d>;
-			phandle = <0x2d>;
+			linux,phandle = <0x2f>;
+			phandle = <0x2f>;
 		};
 
 		spdif-dit.2@2 {
 			compatible = "linux,spdif-dit";
 			reg = <0x02>;
 			status = "okay";
-			linux,phandle = <0x2f>;
-			phandle = <0x2f>;
+			linux,phandle = <0x31>;
+			phandle = <0x31>;
 		};
 
 		spdif-dit.3@3 {
 			compatible = "linux,spdif-dit";
 			reg = <0x03>;
 			status = "okay";
-			linux,phandle = <0x31>;
-			phandle = <0x31>;
+			linux,phandle = <0x33>;
+			phandle = <0x33>;
 		};
 
 		spdif-dit.4@4 {
 			compatible = "linux,spdif-dit";
 			reg = <0x04>;
 			status = "okay";
-			linux,phandle = <0x33>;
-			phandle = <0x33>;
+			linux,phandle = <0x35>;
+			phandle = <0x35>;
 		};
 
 		spdif-dit.5@5 {
 			compatible = "linux,spdif-dit";
 			reg = <0x05>;
 			status = "okay";
-			linux,phandle = <0x16b>;
-			phandle = <0x16b>;
+			linux,phandle = <0x171>;
+			phandle = <0x171>;
 		};
 
 		spdif-dit.6@6 {
 			compatible = "linux,spdif-dit";
 			reg = <0x06>;
 			status = "okay";
-			linux,phandle = <0x35>;
-			phandle = <0x35>;
+			linux,phandle = <0x37>;
+			phandle = <0x37>;
 		};
 
 		spdif-dit.7@7 {
 			compatible = "linux,spdif-dit";
 			reg = <0x07>;
 			status = "okay";
-			linux,phandle = <0x37>;
-			phandle = <0x37>;
+			linux,phandle = <0x39>;
+			phandle = <0x39>;
 		};
 
 		spdif-dit.8@8 {
 			compatible = "linux,spdif-dit";
 			reg = <0x08>;
 			status = "okay";
-			linux,phandle = <0x39>;
-			phandle = <0x39>;
+			linux,phandle = <0x3b>;
+			phandle = <0x3b>;
 		};
 
 		spdif-dit.9@9 {
 			compatible = "linux,spdif-dit";
 			reg = <0x09>;
 			status = "okay";
-			linux,phandle = <0x3b>;
-			phandle = <0x3b>;
+			linux,phandle = <0x3d>;
+			phandle = <0x3d>;
 		};
 
 		spdif-dit.10@a {
 			compatible = "linux,spdif-dit";
 			reg = <0x0a>;
 			status = "okay";
-			linux,phandle = <0x3d>;
-			phandle = <0x3d>;
+			linux,phandle = <0x3f>;
+			phandle = <0x3f>;
 		};
 
 		spdif-dit.11@b {
 			compatible = "linux,spdif-dit";
 			reg = <0x0b>;
 			status = "okay";
-			linux,phandle = <0x3f>;
-			phandle = <0x3f>;
+			linux,phandle = <0x41>;
+			phandle = <0x41>;
 		};
 
 		spdif-dit.12@c {
 			compatible = "linux,spdif-dit";
 			reg = <0x0c>;
 			status = "okay";
-			linux,phandle = <0x41>;
-			phandle = <0x41>;
+			linux,phandle = <0x43>;
+			phandle = <0x43>;
 		};
 
 		spdif-dit.13@d {
 			compatible = "linux,spdif-dit";
 			reg = <0x0d>;
 			status = "okay";
-			linux,phandle = <0x16c>;
-			phandle = <0x16c>;
+			linux,phandle = <0x172>;
+			phandle = <0x172>;
 		};
 	};
 
 	gps_wake {
 		compatible = "gps-wake";
-		gps-enable-gpio = <0xc2 0x08 0x00>;
+		gps-enable-gpio = <0xc7 0x08 0x00>;
 		gps-wakeup-gpio = <0x13 0x00 0x00>;
 		status = "disabled";
-		linux,phandle = <0x16d>;
-		phandle = <0x16d>;
+		linux,phandle = <0x173>;
+		phandle = <0x173>;
 	};
 
 	cam_i2cmux {
 		compatible = "i2c-mux-gpio";
 		#address-cells = <0x01>;
 		#size-cells = <0x00>;
-		i2c-parent = <0xce>;
-		mux-gpios = <0x23 0x13 0x00>;
+		i2c-parent = <0xd3>;
+		mux-gpios = <0x25 0x13 0x00>;
 
 		i2c@0 {
 			reg = <0x00>;
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
-			linux,phandle = <0x16e>;
-			phandle = <0x16e>;
+			linux,phandle = <0x174>;
+			phandle = <0x174>;
 
 			rbpcv2_imx219_a@10 {
 				compatible = "nvidia,imx219";
@@ -8320,8 +8443,8 @@
 				sensor_model = "imx219";
 				use_sensor_mode_id = "true";
 				reset-gpios = <0x13 0x7c 0x00>;
-				linux,phandle = <0x16f>;
-				phandle = <0x16f>;
+				linux,phandle = <0x175>;
+				phandle = <0x175>;
 
 				mode0 {
 					mclk_khz = "24000";
@@ -8439,8 +8562,8 @@
 					discontinuous_clk = "yes";
 					dpcm_enable = "false";
 					cil_settletime = [30 00];
-					active_w = "1280";
-					active_h = "720";
+					active_w = "1640";
+					active_h = "1232";
 					pixel_t = "bayer_rggb";
 					readout_orientation = "90";
 					line_length = "3448";
@@ -8457,9 +8580,9 @@
 					min_hdr_ratio = [31 00];
 					max_hdr_ratio = [31 00];
 					min_framerate = "2000000";
-					max_framerate = "60000000";
+					max_framerate = "30000000";
 					step_framerate = [31 00];
-					default_framerate = "60000000";
+					default_framerate = "30000000";
 					min_exp_time = "13";
 					max_exp_time = "683709";
 					step_exp_time = [31 00];
@@ -8482,7 +8605,7 @@
 					line_length = "3448";
 					inherent_gain = [31 00];
 					mclk_multiplier = "9.33";
-					pix_clk_hz = "169600000";
+					pix_clk_hz = "182400000";
 					gain_factor = "16";
 					framerate_factor = "1000000";
 					exposure_factor = "1000000";
@@ -8493,9 +8616,9 @@
 					min_hdr_ratio = [31 00];
 					max_hdr_ratio = [31 00];
 					min_framerate = "2000000";
-					max_framerate = "120000000";
+					max_framerate = "60000000";
 					step_framerate = [31 00];
-					default_framerate = "120000000";
+					default_framerate = "60000000";
 					min_exp_time = "13";
 					max_exp_time = "683709";
 					step_exp_time = [31 00];
@@ -8513,9 +8636,9 @@
 						endpoint {
 							port-index = <0x00>;
 							bus-width = <0x02>;
-							remote-endpoint = <0xcf>;
-							linux,phandle = <0x6e>;
-							phandle = <0x6e>;
+							remote-endpoint = <0xd4>;
+							linux,phandle = <0x70>;
+							phandle = <0x70>;
 						};
 					};
 				};
@@ -8526,8 +8649,8 @@
 			reg = <0x01>;
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
-			linux,phandle = <0x170>;
-			phandle = <0x170>;
+			linux,phandle = <0x176>;
+			phandle = <0x176>;
 
 			rbpcv2_imx219_c@10 {
 				compatible = "nvidia,imx219";
@@ -8538,8 +8661,8 @@
 				sensor_model = "imx219";
 				use_sensor_mode_id = "true";
 				reset-gpios = <0x13 0x7d 0x00>;
-				linux,phandle = <0x171>;
-				phandle = <0x171>;
+				linux,phandle = <0x177>;
+				phandle = <0x177>;
 
 				mode0 {
 					mclk_khz = "24000";
@@ -8657,8 +8780,8 @@
 					discontinuous_clk = "yes";
 					dpcm_enable = "false";
 					cil_settletime = [30 00];
-					active_w = "1280";
-					active_h = "720";
+					active_w = "1640";
+					active_h = "1232";
 					pixel_t = "bayer_rggb";
 					readout_orientation = "90";
 					line_length = "3448";
@@ -8675,9 +8798,9 @@
 					min_hdr_ratio = [31 00];
 					max_hdr_ratio = [31 00];
 					min_framerate = "2000000";
-					max_framerate = "60000000";
+					max_framerate = "30000000";
 					step_framerate = [31 00];
-					default_framerate = "60000000";
+					default_framerate = "30000000";
 					min_exp_time = "13";
 					max_exp_time = "683709";
 					step_exp_time = [31 00];
@@ -8700,7 +8823,7 @@
 					line_length = "3448";
 					inherent_gain = [31 00];
 					mclk_multiplier = "9.33";
-					pix_clk_hz = "169600000";
+					pix_clk_hz = "182400000";
 					gain_factor = "16";
 					framerate_factor = "1000000";
 					exposure_factor = "1000000";
@@ -8711,9 +8834,9 @@
 					min_hdr_ratio = [31 00];
 					max_hdr_ratio = [31 00];
 					min_framerate = "2000000";
-					max_framerate = "120000000";
+					max_framerate = "60000000";
 					step_framerate = [31 00];
-					default_framerate = "120000000";
+					default_framerate = "60000000";
 					min_exp_time = "13";
 					max_exp_time = "683709";
 					step_exp_time = [31 00];
@@ -8732,9 +8855,9 @@
 							status = "okay";
 							port-index = <0x02>;
 							bus-width = <0x02>;
-							remote-endpoint = <0xd0>;
-							linux,phandle = <0x70>;
-							phandle = <0x70>;
+							remote-endpoint = <0xd5>;
+							linux,phandle = <0x72>;
+							phandle = <0x72>;
 						};
 					};
 				};
@@ -8760,8 +8883,8 @@
 		max_pixel_rate = <0x3a980>;
 		isp_peak_byte_per_pixel = <0x05>;
 		isp_bw_margin_pct = <0x19>;
-		linux,phandle = <0x172>;
-		phandle = <0x172>;
+		linux,phandle = <0x178>;
+		phandle = <0x178>;
 
 		modules {
 
@@ -8769,22 +8892,22 @@
 				badge = "jakku_front_RBP194";
 				position = "front";
 				orientation = [31 00];
-				linux,phandle = <0x173>;
-				phandle = <0x173>;
+				linux,phandle = <0x179>;
+				phandle = <0x179>;
 
 				drivernode0 {
 					pcl_id = "v4l2_sensor";
 					devname = "imx219 9-0010";
 					proc-device-tree = "/proc/device-tree/cam_i2cmux/i2c@0/rbpcv2_imx219_a@10";
-					linux,phandle = <0x174>;
-					phandle = <0x174>;
+					linux,phandle = <0x17a>;
+					phandle = <0x17a>;
 				};
 
 				drivernode1 {
 					pcl_id = "v4l2_lens";
 					proc-device-tree = "/proc/device-tree/lens_imx219@RBPCV2/";
-					linux,phandle = <0x175>;
-					phandle = <0x175>;
+					linux,phandle = <0x17b>;
+					phandle = <0x17b>;
 				};
 			};
 
@@ -8792,42 +8915,24 @@
 				badge = "jakku_rear_RBP194";
 				position = "rear";
 				orientation = [31 00];
-				linux,phandle = <0x176>;
-				phandle = <0x176>;
+				linux,phandle = <0x17c>;
+				phandle = <0x17c>;
 
 				drivernode0 {
 					pcl_id = "v4l2_sensor";
 					devname = "imx219 10-0010";
 					proc-device-tree = "/proc/device-tree/cam_i2cmux/i2c@1/rbpcv2_imx219_c@10";
-					linux,phandle = <0x177>;
-					phandle = <0x177>;
+					linux,phandle = <0x17d>;
+					phandle = <0x17d>;
 				};
 
 				drivernode1 {
 					pcl_id = "v4l2_lens";
 					proc-device-tree = "/proc/device-tree/lens_imx219@RBPCV2/";
-					linux,phandle = <0x178>;
-					phandle = <0x178>;
+					linux,phandle = <0x17e>;
+					phandle = <0x17e>;
 				};
 			};
-		};
-	};
-
-	gpio-keys {
-		compatible = "gpio-keys";
-		gpio-keys,name = "gpio-keys";
-
-		forcerecovery {
-			label = "force-recovery";
-			gpios = <0x13 0x30 0x01>;
-			linux,code = <0x101>;
-		};
-
-		power_key {
-			label = "power-key";
-			gpios = <0x23 0x24 0x01>;
-			linux,code = <0x74>;
-			gpio-key,wakeup;
 		};
 	};
 
@@ -8846,6 +8951,8 @@
 		pex_rst_c5_out_state = "/pinmux@2430000/pex_rst_c5_out";
 		pex_rst_c5_in_state = "/pinmux@2430000/pex_rst_c5_in";
 		clkreq_c5_bi_dir_state = "/pinmux@2430000/clkreq_c5_bi_dir";
+		eqos_txrx_tri_state_idle = "/pinmux@2430000/eqos_idle";
+		eqos_txrx_tri_state_default = "/pinmux@2430000/eqos_default";
 		vbus_en0_sfio_tristate_state = "/pinmux@2430000/vbus_en0_oc_tristate";
 		vbus_en1_sfio_tristate_state = "/pinmux@2430000/vbus_en1_oc_tristate";
 		vbus_en0_sfio_passthrough_state = "/pinmux@2430000/vbus_en0_oc_passthrough";
@@ -9131,6 +9238,7 @@
 		gpcdma = "/dma@2600000";
 		tegra_main_gpio = "/gpio@2200000";
 		tegra_aon_gpio = "/gpio@c2f0000";
+		suspend_gpio = "/gpio@c2f0000/suspend-led-gpio";
 		tegra_gte_lic = "/gte@3aa0000";
 		tegra_gte_aon = "/gte@c1e0000";
 		tegra_wdt = "/watchdog@30c0000";
@@ -9165,6 +9273,9 @@
 		dummy_cool_dev = "/dummy-cool-dev";
 		pwm_fan_shared_data = "/pfsd";
 		thermal_fan_est_shared_data = "/tfesd";
+		cpu_alert = "/cpu-throttle-alert";
+		gpu_alert = "/gpu-throttle-alert";
+		aux_alert = "/aux-throttle-alert";
 		spdif_dit0 = "/spdif_dit/spdif-dit.0@0";
 		spdif_dit1 = "/spdif_dit/spdif-dit.1@1";
 		spdif_dit2 = "/spdif_dit/spdif-dit.2@2";
